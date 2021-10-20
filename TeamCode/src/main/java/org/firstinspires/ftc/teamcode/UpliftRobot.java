@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class UpliftRobot {
-    DcMotor lf, rf, lb, rb;
+    DcMotor leftFront, rightFront, leftBack, rightBack;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
 
@@ -21,19 +21,19 @@ public class UpliftRobot {
 
     public void getHardware() {
         hardwareMap = opMode.hardwareMap;
-        lf = hardwareMap.get(DcMotor.class, "left_front");
-        lb = hardwareMap.get(DcMotor.class, "left_back");
-        rf = hardwareMap.get(DcMotor.class, "right_front");
-        rb = hardwareMap.get(DcMotor.class, "right_back");
+        leftFront =  hardwareMap.get(DcMotor.class, "left_front");
+        rightFront = hardwareMap.get(DcMotor.class, "left_back");
+        leftBack = hardwareMap.get(DcMotor.class, "right_front");
+        rightBack = hardwareMap.get(DcMotor.class, "right_back");
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        lf.setDirection(DcMotorSimple.Direction.REVERSE);
-        lb.setDirection(DcMotorSimple.Direction.REVERSE);
-        lf.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rb.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        lb.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rf.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
     }
