@@ -9,10 +9,11 @@ import org.firstinspires.ftc.teamcode.core.UpliftTele;
 import java.awt.font.NumericShaper;
 @TeleOp(name = "teleOp", group = "Opmodes")
 public class Teleop extends UpliftTele {
+    UpliftRobot robot;
     DcMotor lf, rf, lb, rb;
     @Override
     public void initHardware() {
-        UpliftRobot robot = new UpliftRobot(this);
+        robot = new UpliftRobot(this);
         lf = robot.leftFront;
         lb = robot.leftBack;
         rf = robot.rightFront;
@@ -30,6 +31,8 @@ public class Teleop extends UpliftTele {
         lb.setPower(Range.clip(-gamepad1.left_stick_y,-1,1));
         rf.setPower(Range.clip(-gamepad1.right_stick_y,-1,1));
         rb.setPower(Range.clip(-gamepad1.right_stick_y,-1,1));
+        telemetry.addData("imu angle", robot.imu.getAngularOrientation().firstAngle);
+        telemetry.update();
     }
 
     @Override
