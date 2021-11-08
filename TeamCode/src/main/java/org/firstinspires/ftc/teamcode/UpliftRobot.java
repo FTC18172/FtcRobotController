@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
+    DcMotor intake, duck, arm;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
     public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
@@ -28,6 +29,11 @@ public class UpliftRobot {
         rightFront = hardwareMap.get(DcMotor.class, "left_back");
         leftBack = hardwareMap.get(DcMotor.class, "right_front");
         rightBack = hardwareMap.get(DcMotor.class, "right_back");
+        intake = hardwareMap.get(DcMotor.class, "intake");
+        duck = hardwareMap.get(DcMotor.class, "duck");
+        arm = hardwareMap.get(DcMotor.class, "arm");
+
+
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
