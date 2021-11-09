@@ -5,8 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.core.UpliftTele;
-
-import java.awt.font.NumericShaper;
+import org.firstinspires.ftc.teamcode.toolkit.UpliftMath;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.abs;
@@ -42,7 +41,7 @@ public class Teleop extends UpliftTele {
         double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
 
-        double angle = 90 - Math.toDegrees(org.firstinspires.ftc.teamcode.toolkit.misc.UpliftMath.atan2UL(leftY, leftX));
+        double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
         double magnitude = Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
 
         teleDrive(angle, magnitude, rightX, robot);
