@@ -37,14 +37,17 @@ public class Teleop extends UpliftTele {
 
     @Override
     public void bodyLoop() {
-        double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
-        double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
+        double leftY = Range.clip(gamepad1.left_stick_x, -1, 1);
+        double leftX = Range.clip(-gamepad1.left_stick_y, -1, 1);
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
 
         double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
         double magnitude = Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
 
         teleDrive(angle, magnitude, rightX, robot);
+
+        intake.setPower(Range.clip(gamepad2.left_stick_y, -1, 1));
+        duck.setPower(Range.clip(gamepad2.right_stick_y, -1, 1));
     }
 
     @Override
