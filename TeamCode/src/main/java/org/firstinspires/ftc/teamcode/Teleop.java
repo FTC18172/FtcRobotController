@@ -57,6 +57,9 @@ public class Teleop extends UpliftTele {
         bucketPosition2();
         telemetry.addData("angle", angle);
         telemetry.update();
+        if (gamepad2.a){
+            armPosition1();
+        }
     }
 
     @Override
@@ -95,7 +98,7 @@ public class Teleop extends UpliftTele {
 
     public void bucketPosition1() {
         if(gamepad2.x) {
-            bucket.setPosition(0.28);
+            bucket.setPosition(0.33);
         }
     }
 
@@ -103,6 +106,24 @@ public class Teleop extends UpliftTele {
         if(gamepad2.y) {
             bucket.setPosition(1);
         }
+    }
+
+    public static final double ARM_MOTOR_ENCODER_TICKS = 751.8*2/3;
+    public void armPosition1() {
+
+        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        int armRotation = (int)ARM_MOTOR_ENCODER_TICKS/3;
+        int outPos = arm.getCurrentPosition() + armRotation;
+        arm.setTargetPosition(outPos);
+        arm.setPower(0.2);
+        arm.setMode();
+        arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        telemetry.addData("ticks: ", arm.getCurrentPosition());
+    }
+
+    public void armPosition2() {
+        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        int
     }
 
     public void intakeOn() {

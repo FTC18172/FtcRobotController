@@ -36,38 +36,33 @@ public class DuckAutoRed extends UpliftAuto {
     @Override
     public void body() throws InterruptedException {
 
+        moveRight();
+        Thread.sleep(500);
+
         moveForward();
         Thread.sleep(1000);
 
-        turnRight();
+        turnLeft();
         Thread.sleep(500);
-
-        duck.setPower(0.3);
-        Thread.sleep(3000);
-
-        duck.setPower(.65);
-        Thread.sleep(1000);
-
-        moveRight();
-        Thread.sleep(1000);
-
         stopMotors();
 
-        //moveRight();
-        //Thread.sleep(500);
-        //moveForward();
-        //Thread.sleep(1000);
-        //turnLeft();
-        //Thread.sleep(850);
-        //duck.setPower(0.3);
-        //Thread.sleep(3000);
-        //duck.setPower(.65);
-        //Thread.sleep(1000);
-        //reverseRight();
-        //Thread.sleep(1000);
-        //moveRight();
-        //Thread.sleep(1000);
-        //stopMotors();
+        moveForward();
+        Thread.sleep(280);
+        stopMotors();
+
+        duck.setPower(-0.3);
+        Thread.sleep(2500);
+
+        duck.setPower(-.65);
+        Thread.sleep(1000);
+
+        turnLeft();
+        Thread.sleep(400);
+        stopMotors();
+
+        moveBackward();
+        Thread.sleep(900);
+        stopMotors();
 
     }
 
@@ -84,46 +79,46 @@ public class DuckAutoRed extends UpliftAuto {
     }
 
     public void moveLeft() {
-        rf.setPower(-0.5);
+        rf.setPower(0.5);
         rb.setPower(-0.5);
         lf.setPower(-0.5);
-        lb.setPower(-0.5);
+        lb.setPower(0.5);
     }
 
     public void moveRight() {
-        rf.setPower(0.5);
-        rb.setPower(0.5);
-        lf.setPower(0.5);
-        lb.setPower(0.5);
-    }
-
-    public void moveForward() {
         rf.setPower(-0.5);
         rb.setPower(0.5);
         lf.setPower(0.5);
         lb.setPower(-0.5);
     }
 
-    public void moveBackward() {
+    public void moveForward() {
         rf.setPower(0.5);
+        rb.setPower(0.5);
+        lf.setPower(0.5);
+        lb.setPower(0.5);
+    }
+
+    public void moveBackward() {
+        rf.setPower(-0.5);
         rb.setPower(-0.5);
         lf.setPower(-0.5);
-        lb.setPower(0.5);
+        lb.setPower(-0.5);
 
     }
 
     public void turnRight() {
-        rf.setPower(0);
-        rb.setPower(0);
+        rf.setPower(-0.4);
+        rb.setPower(-0.4);
         lf.setPower(0.4);
-        lb.setPower(0);
+        lb.setPower(0.4);
 
     }
     public void turnLeft() {
         rf.setPower(0.4);
-        rb.setPower(0);
-        lf.setPower(0);
-        lb.setPower(0);
+        rb.setPower(0.4);
+        lf.setPower(-0.4);
+        lb.setPower(-0.4);
     }
     public void reverseLeft() {
         rf.setPower(0);
@@ -132,13 +127,6 @@ public class DuckAutoRed extends UpliftAuto {
         lb.setPower(0);
     }
 
-    public void spin(double speed) {
-        speed = Range.clip(speed, -1, 1);
-        lf.setPower(speed);
-        lb.setPower(speed);
-        rf.setPower(-speed);
-        rb.setPower(-speed);
-    }
     public void reverseRight() {
         rf.setPower(0);
         rb.setPower(0);

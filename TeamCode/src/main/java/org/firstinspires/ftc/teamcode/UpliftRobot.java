@@ -36,7 +36,8 @@ public class UpliftRobot {
         arm = hardwareMap.get(DcMotor.class, "arm");
         bucket = hardwareMap.get(Servo.class, "bucket");
 
-
+        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

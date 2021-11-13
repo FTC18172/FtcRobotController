@@ -60,31 +60,31 @@ public class ParkAuto extends UpliftAuto {
     }
 
     public void moveLeft() {
-        rf.setPower(-0.5);
+        rf.setPower(0.5);
         rb.setPower(-0.5);
         lf.setPower(-0.5);
-        lb.setPower(-0.5);
+        lb.setPower(0.5);
     }
 
     public void moveRight() {
-        rf.setPower(0.5);
-        rb.setPower(0.5);
-        lf.setPower(0.5);
-        lb.setPower(0.5);
-    }
-
-    public void moveForward() {
         rf.setPower(-0.5);
         rb.setPower(0.5);
         lf.setPower(0.5);
         lb.setPower(-0.5);
     }
 
-    public void moveBackward() {
+    public void moveForward() {
         rf.setPower(0.5);
+        rb.setPower(0.5);
+        lf.setPower(0.5);
+        lb.setPower(0.5);
+    }
+
+    public void moveBackward() {
+        rf.setPower(-0.5);
         rb.setPower(-0.5);
         lf.setPower(-0.5);
-        lb.setPower(0.5);
+        lb.setPower(-0.5);
 
     }
 
