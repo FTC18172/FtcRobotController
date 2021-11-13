@@ -15,8 +15,8 @@ import static java.lang.Math.hypot;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.toRadians;
-@Autonomous(name = "AutoDuck", group = "OpModes")
-public class DuckAuto extends UpliftAuto {
+@Autonomous(name = "DuckAutoBlue", group = "OpModes")
+public class DuckAutoBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -54,7 +54,7 @@ public class DuckAuto extends UpliftAuto {
         duck.setPower(0.3);
         Thread.sleep(3000);
         duck.setPower(.65);
-        reverseRight();
+        reverseLeft();
         Thread.sleep(1000);
         moveLeft();
         Thread.sleep(1000);
@@ -110,7 +110,7 @@ public class DuckAuto extends UpliftAuto {
 
     }
 
-    public void reverseRight() {
+    public void reverseLeft() {
         rf.setPower(0);
         rb.setPower(0);
         lf.setPower(-0.4);
@@ -124,7 +124,12 @@ public class DuckAuto extends UpliftAuto {
         rf.setPower(-speed);
         rb.setPower(-speed);
     }
-
+    public void reverseRight() {
+        rf.setPower(0);
+        rb.setPower(0);
+        lf.setPower(0);
+        lb.setPower(-0.4);
+    }
 
 }
 

@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.core.UpliftTele;
@@ -18,6 +19,7 @@ public class Teleop extends UpliftTele {
     UpliftRobot robot;
     DcMotor lf, rf, lb, rb;
     DcMotor intake, duck, arm;
+    Servo bucket;
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -28,6 +30,7 @@ public class Teleop extends UpliftTele {
         intake = robot.intake;
         duck = robot.duck;
         arm = robot.arm;
+        bucket = robot.bucket;
     }
      
     @Override
@@ -37,17 +40,23 @@ public class Teleop extends UpliftTele {
 
     @Override
     public void bodyLoop() {
-        double leftY = Range.clip(gamepad1.left_stick_x, -1, 1);
-        double leftX = Range.clip(-gamepad1.left_stick_y, -1, 1);
+        double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
+        double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
 
         double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
         double magnitude = Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
 
         teleDrive(angle, magnitude, rightX, robot);
 
-        intake.setPower(Range.clip(gamepad2.left_stick_y, -1, 1));
-        duck.setPower(Range.clip(gamepad2.right_stick_y, -1, 1));
+        intakeOn();
+
+        moveDuck();
+
+        bucketPosition1();
+        bucketPosition2();
+        telemetry.addData("angle", angle);
+        telemetry.update();
     }
 
     @Override
@@ -79,8 +88,29 @@ public class Teleop extends UpliftTele {
 
         // set the scaled powers
         robot.leftFront.setPower(lfPow / maxVal);
-        robot.rightFront.setPower(rfPow / maxVal);
         robot.leftBack.setPower(lbPow / maxVal);
         robot.rightBack.setPower(rbPow / maxVal);
+        robot.rightFront.setPower(rfPow / maxVal);
+    }
+
+    public void bucketPosition1() {
+        if(gamepad2.x) {
+            bucket.setPosition(0.28);
+        }
+    }
+
+    public void bucketPosition2() {
+        if(gamepad2.y) {
+            bucket.setPosition(1);
+        }
+    }
+
+    public void intakeOn() {
+        intake.setPower(Range.clip(gamepad2.left_stick_y, -1, 1));
+    }
+
+    public void moveDuck() {
+        duck.setPower(Range.clip(gamepad2.right_stick_y, -1, 1));
+
     }
 }
