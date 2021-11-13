@@ -45,7 +45,7 @@ public class Teleop extends UpliftTele {
         double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
 
         double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
-        double magnitude = Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
+        double magnitude = 0.6 * Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
 
         teleDrive(angle, magnitude, rightX, robot);
 
@@ -57,9 +57,10 @@ public class Teleop extends UpliftTele {
         bucketPosition2();
         telemetry.addData("angle", angle);
         telemetry.update();
-        if (gamepad2.a){
-            armPosition1();
-        }
+
+        arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
+
+
     }
 
     @Override
@@ -108,6 +109,8 @@ public class Teleop extends UpliftTele {
         }
     }
 
+
+
     public static final double ARM_MOTOR_ENCODER_TICKS = 751.8*2/3;
     public void armPosition1() {
 
@@ -115,15 +118,15 @@ public class Teleop extends UpliftTele {
         int armRotation = (int)ARM_MOTOR_ENCODER_TICKS/3;
         int outPos = arm.getCurrentPosition() + armRotation;
         arm.setTargetPosition(outPos);
+
         arm.setPower(0.2);
-        arm.setMode();
+
         arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         telemetry.addData("ticks: ", arm.getCurrentPosition());
     }
 
     public void armPosition2() {
         arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        int
     }
 
     public void intakeOn() {
@@ -131,7 +134,7 @@ public class Teleop extends UpliftTele {
     }
 
     public void moveDuck() {
-        duck.setPower(Range.clip(gamepad2.right_stick_y, -1, 1));
+        duck.setPower(Range.clip(gamepad2.left_stick_x, -1, 1));
 
     }
 }
