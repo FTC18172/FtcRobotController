@@ -39,7 +39,7 @@ public class Teleop extends UpliftTele {
     }
 
     @Override
-    public void bodyLoop() {
+    public void bodyLoop() throws InterruptedException {
         double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
         double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
@@ -59,6 +59,7 @@ public class Teleop extends UpliftTele {
         telemetry.update();
 
         arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
+       // arm.setTargetPosition();
 
 
     }
@@ -97,11 +98,13 @@ public class Teleop extends UpliftTele {
         robot.rightFront.setPower(rfPow / maxVal);
     }
 
-    public void bucketPosition1() {
+    public void bucketPosition1() throws InterruptedException {
         if(gamepad2.x) {
             bucket.setPosition(0.33);
+
         }
     }
+
 
     public void bucketPosition2() {
         if(gamepad2.y) {
@@ -130,11 +133,12 @@ public class Teleop extends UpliftTele {
     }
 
     public void intakeOn() {
-        intake.setPower(Range.clip(gamepad2.left_stick_y, -1, 1));
+        intake.setPower(.7 * Range.clip(gamepad2.left_stick_y, -1, 1));
     }
 
+
     public void moveDuck() {
-        duck.setPower(Range.clip(gamepad2.left_stick_x, -1, 1));
+        duck.setPower(.7 * Range.clip(gamepad2.left_stick_x, -1, 1));
 
     }
 }

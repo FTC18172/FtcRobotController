@@ -52,40 +52,50 @@ public class ParkAuto extends UpliftAuto {
 
     }
 
-    public void stopMotors() {
+    public void stopMotors()
+    {
         lf.setPower(0);
         rf.setPower(0);
         lb.setPower(0);
         rb.setPower(0);
     }
 
-    public void moveLeft() {
+    public void moveLeft()
+    {
         rf.setPower(0.5);
         rb.setPower(-0.5);
         lf.setPower(-0.5);
         lb.setPower(0.5);
     }
 
-    public void moveRight() {
+    public void moveRight()
+    {
         rf.setPower(-0.5);
         rb.setPower(0.5);
         lf.setPower(0.5);
         lb.setPower(-0.5);
     }
 
-    public void moveForward() {
+    public void moveForward()
+    {
         rf.setPower(0.5);
         rb.setPower(0.5);
         lf.setPower(0.5);
         lb.setPower(0.5);
     }
 
-    public void moveBackward() {
+    public void moveBackward()
+    {
         rf.setPower(-0.5);
         rb.setPower(-0.5);
         lf.setPower(-0.5);
         lb.setPower(-0.5);
 
+    }
+
+    public void practiceMoveForward()
+    {
+        
     }
 
 

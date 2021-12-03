@@ -14,7 +14,7 @@ public abstract class UpliftTele extends LinearOpMode {
 
     public abstract void initAction();
 
-    public abstract void bodyLoop();
+    public abstract void bodyLoop() throws InterruptedException;
 
     public abstract void exit();
 
