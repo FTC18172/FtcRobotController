@@ -40,32 +40,74 @@ public class EverythingBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        moveLeft();
-        Thread.sleep(300);
-        moveForward();
+        moveLeft(0.5);
+        Thread.sleep(365);
+
+        moveForward(0.5);
         Thread.sleep(500);
+
         turnRight();
-        Thread.sleep(1600);
-        moveBackward();
-        Thread.sleep(350);
+        Thread.sleep(1550);
+
+        moveBackward(0.5);
+        Thread.sleep(390);
         stopMotors();
+
         armUp();
-        //bucketDrop();
-        //bucketDown();
+
+        bucketPos1();
+        Thread.sleep(2000);
+
+        bucketPos2();
+
         armDown();
-        stopMotors();
-        moveForward();
+
+        moveForward(0.5);
         Thread.sleep(500);
-        turnRight();
-        Thread.sleep(50);
-        moveLeft();
-        Thread.sleep(2400);
+
+        moveLeft(0.5);
+        Thread.sleep(2450);
         stopMotors();
+
+        moveForward(0.1);
         duck.setPower(0.3);
         Thread.sleep(2500);
 
         duck.setPower(.65);
         Thread.sleep(1000);
+
+        moveBackward(0.5);
+        Thread.sleep(375);
+
+        turnRight();
+        Thread.sleep(600);
+
+        moveBackward(0.5);
+        Thread.sleep(500);
+
+        moveBackward(.1);
+        Thread.sleep(300);
+        
+        moveForward(0.5);
+        Thread.sleep(1000);
+        
+        turnLeft();
+        Thread.sleep(110);
+        
+        moveForward(0.5);
+        Thread.sleep(3200);
+
+        turnLeft();
+        Thread.sleep(300);
+
+        moveForward(.3);
+        intake.setPower(.7);
+        Thread.sleep(2100);
+
+        moveBackward(.3);
+        intake.setPower(1);
+        Thread.sleep(1000);
+        stopMotors();
 
 
     }
@@ -80,34 +122,35 @@ public class EverythingBlue extends UpliftAuto {
         rf.setPower(0);
         lb.setPower(0);
         rb.setPower(0);
+        arm.setPower(0);
     }
 
-    public void moveLeft() {
-        rf.setPower(0.5);
-        rb.setPower(-0.5);
-        lf.setPower(-0.5);
-        lb.setPower(0.5);
+    public void moveLeft(double power) {
+        rf.setPower(power);
+        rb.setPower(-power);
+        lf.setPower(-power);
+        lb.setPower(power);
     }
 
-    public void moveRight() {
-        rf.setPower(-0.5);
-        rb.setPower(0.5);
-        lf.setPower(0.5);
-        lb.setPower(-0.5);
+    public void moveRight(double power) {
+        rf.setPower(-power);
+        rb.setPower(power);
+        lf.setPower(power);
+        lb.setPower(-power);
     }
 
-    public void moveForward() {
-        rf.setPower(0.5);
-        rb.setPower(0.5);
-        lf.setPower(0.5);
-        lb.setPower(0.5);
+    public void moveForward(double power) {
+        rf.setPower(power);
+        rb.setPower(power);
+        lf.setPower(power);
+        lb.setPower(power);
     }
 
-    public void moveBackward() {
-        rf.setPower(-0.5);
-        rb.setPower(-0.5);
-        lf.setPower(-0.5);
-        lb.setPower(-0.5);
+    public void moveBackward(double power) {
+        rf.setPower(-power);
+        rb.setPower(-power);
+        lf.setPower(-power);
+        lb.setPower(-power);
 
     }
 
@@ -140,15 +183,15 @@ public class EverythingBlue extends UpliftAuto {
         lb.setPower(-0.4);
     }
 
-    public void bucketDown()
+    public void bucketPos1()
     {
-            bucket.setPosition(0.33);
+            bucket.setPosition(1);
     }
 
 
-    public void bucketDrop()
+    public void bucketPos2()
     {
-            bucket.setPosition(1);
+            bucket.setPosition(0.33);
         }
 
     public void armUp() throws InterruptedException
