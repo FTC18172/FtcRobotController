@@ -48,14 +48,14 @@ public class DuckAutoBlue extends UpliftAuto {
         Thread.sleep(500);
 
         moveForward();
-        Thread.sleep(1100);
+        Thread.sleep(1000);
 
         turnRight();
         Thread.sleep(500);
         stopMotors();
 
         moveForward();
-        Thread.sleep(175);
+        Thread.sleep(200);
         stopMotors();
 
         duck.setPower(0.3);
@@ -65,10 +65,10 @@ public class DuckAutoBlue extends UpliftAuto {
         Thread.sleep(1000);
 
         turnRight();
-        Thread.sleep(400);
+        Thread.sleep(250);
 
         moveBackward();
-        Thread.sleep(900);
+        Thread.sleep(700);
         stopMotors();
 
 

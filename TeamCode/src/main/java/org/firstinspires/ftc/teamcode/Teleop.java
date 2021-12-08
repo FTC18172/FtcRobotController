@@ -53,13 +53,19 @@ public class Teleop extends UpliftTele {
 
         moveDuck();
 
-        bucketPosition1();
-        bucketPosition2();
+        bucketDown();
+        bucketDrop();
+
+        armUp();
+        armDown();
+
         telemetry.addData("angle", angle);
         telemetry.update();
 
-        arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
-       // arm.setTargetPosition();
+        //armPositionUp();
+        //armPositionDown();
+
+        //arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
 
 
     }
@@ -98,39 +104,43 @@ public class Teleop extends UpliftTele {
         robot.rightFront.setPower(rfPow / maxVal);
     }
 
-    public void bucketPosition1() throws InterruptedException {
-        if(gamepad2.x) {
+    public void bucketDown()
+    {
+        if(gamepad2.x)
+        {
             bucket.setPosition(0.33);
-
         }
     }
 
-
-    public void bucketPosition2() {
-        if(gamepad2.y) {
+    public void bucketDrop()
+    {
+        if(gamepad2.y)
+        {
             bucket.setPosition(1);
         }
     }
 
-
-
-    public static final double ARM_MOTOR_ENCODER_TICKS = 751.8*2/3;
-    public void armPosition1() {
-
-        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        int armRotation = (int)ARM_MOTOR_ENCODER_TICKS/3;
-        int outPos = arm.getCurrentPosition() + armRotation;
-        arm.setTargetPosition(outPos);
-
-        arm.setPower(0.2);
-
-        arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        telemetry.addData("ticks: ", arm.getCurrentPosition());
+    public void armUp() throws InterruptedException
+    {
+        if(gamepad2.a)
+        {
+            arm.setPower(0.1);
+            Thread.sleep(1900);
+            stopMotors();
+        }
     }
 
-    public void armPosition2() {
-        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    public void armDown() throws InterruptedException
+    {
+        if(gamepad2.b)
+        {
+            arm.setPower(-0.1);
+            Thread.sleep(1800);
+            stopMotors();
+        }
+
     }
+
 
     public void intakeOn() {
         intake.setPower(.7 * Range.clip(gamepad2.left_stick_y, -1, 1));
@@ -140,5 +150,9 @@ public class Teleop extends UpliftTele {
     public void moveDuck() {
         duck.setPower(.7 * Range.clip(gamepad2.left_stick_x, -1, 1));
 
+    }
+    public void stopMotors()
+    {
+        arm.setPower(0);
     }
 }
