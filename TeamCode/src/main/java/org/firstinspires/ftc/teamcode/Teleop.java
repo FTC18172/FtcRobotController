@@ -56,16 +56,18 @@ public class Teleop extends UpliftTele {
         bucketDown();
         bucketDrop();
 
-        armUp();
-        armDown();
+        //armUp();
+        //armDown();
 
-        telemetry.addData("angle", angle);
+        telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
         telemetry.update();
+
+
 
         //armPositionUp();
         //armPositionDown();
 
-        //arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
+        arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
 
 
     }
