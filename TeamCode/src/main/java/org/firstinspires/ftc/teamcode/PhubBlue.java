@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "EverythingBlue", group = "OpModes")
-public class EverythingBlue extends UpliftAuto {
+@Autonomous(name = "PhubBlue", group = "OpModes")
+public class PhubBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -40,8 +40,8 @@ public class EverythingBlue extends UpliftAuto {
         moveForward(0.5);
         Thread.sleep(520);
 
-        moveLeft(0.5);
-        Thread.sleep(365);
+        moveRight(0.6);
+        Thread.sleep(500);
 
         turnRight(0.4);
         Thread.sleep(1600);
@@ -60,47 +60,13 @@ public class EverythingBlue extends UpliftAuto {
         armDown();
 
         moveForward(0.5);
-        Thread.sleep(450);
+        Thread.sleep(400);
 
-        moveLeft(0.5);
-        Thread.sleep(2700);
+        turnRight(.5);
+        Thread.sleep(650);
 
-        //moveRight(0.5);
-        //Thread.sleep(100);
-        //stopMotors();
-
-        moveForward(0.15);
-        duck.setPower(0.3);
-        Thread.sleep(4000);
-
-        duck.setPower(.65);
-        Thread.sleep(1000);
-
-        moveBackward(0.5);
-        Thread.sleep(200);
-
-        turnRight(0.5);
-        Thread.sleep(700);
-
-        moveBackward(0.3);
-        Thread.sleep(500);
-
-        moveBackward(.15);
-        Thread.sleep(500);
-
-        moveForward(0.5);
-        Thread.sleep(1000);
-
-        turnLeft(0.25);
-        Thread.sleep(110);
-
-        moveForward(0.5);
-        Thread.sleep(3000);
-
-        moveForward(.2);
-        Thread.sleep(500);
-        stopMotors();
-
+        moveForward(.6);
+        Thread.sleep(2100);
     }
 
     @Override
@@ -119,34 +85,34 @@ public class EverythingBlue extends UpliftAuto {
 
     public void moveLeft(double power) {
 
-            rf.setPower(power);
-            rb.setPower(-power);
-            lf.setPower(-power);
-            lb.setPower(power);
+        rf.setPower(power);
+        rb.setPower(-power);
+        lf.setPower(-power);
+        lb.setPower(power);
     }
 
     public void moveRight(double power) {
 
-            rf.setPower(-power);
-            rb.setPower(power);
-            lf.setPower(power);
-            lb.setPower(-power);
+        rf.setPower(-power);
+        rb.setPower(power);
+        lf.setPower(power);
+        lb.setPower(-power);
     }
 
     public void moveForward(double power) {
 
-            rf.setPower(power);
-            rb.setPower(power);
-            lf.setPower(power);
-            lb.setPower(power);
+        rf.setPower(power);
+        rb.setPower(power);
+        lf.setPower(power);
+        lb.setPower(power);
     }
 
     public void moveBackward(double power) {
 
-            rf.setPower(-power);
-            rb.setPower(-power);
-            lf.setPower(-power);
-            lb.setPower(-power);
+        rf.setPower(-power);
+        rb.setPower(-power);
+        lf.setPower(-power);
+        lb.setPower(-power);
     }
 
     public void turnRight(double power) {
