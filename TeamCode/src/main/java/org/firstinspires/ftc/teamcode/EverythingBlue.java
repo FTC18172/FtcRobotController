@@ -3,8 +3,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.Range;
-
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
@@ -17,7 +15,6 @@ public class EverythingBlue extends UpliftAuto {
     DcMotor rb;
     DcMotor intake, duck, arm;
     Servo bucket;
-
 
     @Override
     public void initHardware() {
@@ -40,14 +37,17 @@ public class EverythingBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        moveLeft(0.5, 350);
+        moveForward(0.5);
+        Thread.sleep(520);
 
-        moveForward(0.5, 500);
+        moveLeft(0.5);
+        Thread.sleep(365);
 
-        turnRight(0.5);
-        Thread.sleep(1350);
+        turnRight(0.4);
+        Thread.sleep(1600);
 
-        moveBackward(0.5, 500);
+        moveBackward(0.5);
+        Thread.sleep(390);
         stopMotors();
 
         armUp();
@@ -59,124 +59,47 @@ public class EverythingBlue extends UpliftAuto {
 
         armDown();
 
-        moveForward(0.5, 800);
+        moveForward(0.5);
+        Thread.sleep(450);
 
-        moveLeft(0.5, 2750);
+        moveLeft(0.5);
+        Thread.sleep(2700);
 
-        moveForward(0.2, 100);
+        //moveRight(0.5);
+        //Thread.sleep(100);
+        //stopMotors();
 
+        moveForward(0.15);
         duck.setPower(0.3);
-        Thread.sleep(2500);
+        Thread.sleep(4000);
 
         duck.setPower(.65);
         Thread.sleep(1000);
-        stopMotors();
 
-        moveBackward(0.5, 300);
+        moveBackward(0.5);
+        Thread.sleep(200);
 
         turnRight(0.5);
-        Thread.sleep(750);
+        Thread.sleep(700);
 
-        moveBackward(0.5, 500);
+        moveBackward(0.3);
+        Thread.sleep(500);
 
-        moveForward(0.5, 1250);
+        moveBackward(.15);
+        Thread.sleep(500);
 
-        turnLeft(0.5);
-        Thread.sleep(110);
+        moveForward(0.5);
+        Thread.sleep(1000);
 
-        moveForward(0.5, 2000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        moveLeft(0.5);
-//        Thread.sleep(365);
-//
-//        moveForward(0.5);
-//        Thread.sleep(500);
-//
-//        turnRight();
-//        Thread.sleep(1550);
-//
-//        moveBackward(0.5);
-//        Thread.sleep(390);
-//        stopMotors();
-//
-//        armUp();
-//
-//        bucketPos1();
-//        Thread.sleep(2000);
-//
-//        bucketPos2();
-//
-//        armDown();
-//
-//        moveForward(0.5);
-//        Thread.sleep(500);
-//
-//        moveLeft(0.5);
-//        Thread.sleep(2450);
-//        stopMotors();
-//
-//        moveForward(0.1);
-//        duck.setPower(0.3);
-//        Thread.sleep(2500);
-//
-//        duck.setPower(.65);
-//        Thread.sleep(1000);
-//
-//        moveBackward(0.5);
-//        Thread.sleep(375);
-//
-//        turnRight(0.4);
-//        Thread.sleep(600);
-//
-//        moveBackward(0.5);
-//        Thread.sleep(500);
-//
-//        moveBackward(.1);
-//        Thread.sleep(300);
-//
-//        moveForward(0.5);
-//        Thread.sleep(1000);
-//
-//        turnLeft(0.4);
+//        turnLeft(0.25);
 //        Thread.sleep(110);
-//
-//        moveForward(0.5);
-//        Thread.sleep(3200);
-//
-//        turnLeft(0.4);
-//        Thread.sleep(300);
-//
-//        moveForward(.3);
-//        intake.setPower(.7);
-//        Thread.sleep(2100);
-//
-//        moveBackward(.3);
-//        intake.setPower(1);
-//        Thread.sleep(1000);
-//        stopMotors();
 
+        moveForward(0.5);
+        Thread.sleep(3000);
+
+        moveForward(.2);
+        Thread.sleep(500);
+        stopMotors();
 
     }
 
@@ -194,62 +117,46 @@ public class EverythingBlue extends UpliftAuto {
         duck.setPower(0);
     }
 
-    public void moveLeft(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
+    public void moveLeft(double power) {
 
-        while(rf.getCurrentPosition() < initialPos + dist) {
             rf.setPower(power);
             rb.setPower(-power);
             lf.setPower(-power);
             lb.setPower(power);
-        }
-        stopMotors();
     }
 
-    public void moveRight(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
+    public void moveRight(double power) {
 
-        while(rf.getCurrentPosition() > initialPos - dist) {
             rf.setPower(-power);
             rb.setPower(power);
             lf.setPower(power);
             lb.setPower(-power);
-        }
-        stopMotors();
     }
 
-    public void moveForward(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
+    public void moveForward(double power) {
 
-        while(rf.getCurrentPosition() < initialPos + dist) {
             rf.setPower(power);
             rb.setPower(power);
             lf.setPower(power);
             lb.setPower(power);
-        }
-        stopMotors();
     }
 
-    public void moveBackward(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
+    public void moveBackward(double power) {
 
-        while(rf.getCurrentPosition() > initialPos - Math.abs(dist)) {
             rf.setPower(-power);
             rb.setPower(-power);
             lf.setPower(-power);
             lb.setPower(-power);
-        }
-        stopMotors();
     }
 
     public void turnRight(double power) {
         //double initialAngle = robot.imu.getAngularOrientation().firstAngle;
 
         //while(robot.imu.getAngularOrientation().firstAngle < initialAngle + angle) {
-            rf.setPower(-power);
-            rb.setPower(-power);
-            lf.setPower(power);
-            lb.setPower(power);
+        rf.setPower(-power);
+        rb.setPower(-power);
+        lf.setPower(power);
+        lb.setPower(power);
         //    telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
         //    telemetry.update();
         //}
@@ -261,10 +168,10 @@ public class EverythingBlue extends UpliftAuto {
         //double initialAngle = robot.imu.getAngularOrientation().firstAngle;
 
         //while(robot.imu.getAngularOrientation().firstAngle > initialAngle - angle) {
-            rf.setPower(power);
-            rb.setPower(power);
-            lf.setPower(-power);
-            lb.setPower(-power);
+        rf.setPower(power);
+        rb.setPower(power);
+        lf.setPower(-power);
+        lb.setPower(-power);
         //    telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
         //}
         //stopMotors();
@@ -272,28 +179,28 @@ public class EverythingBlue extends UpliftAuto {
 
     public void bucketPos1()
     {
-            bucket.setPosition(1);
+        bucket.setPosition(1);
     }
 
 
     public void bucketPos2()
     {
-            bucket.setPosition(0.33);
-        }
+        bucket.setPosition(0.33);
+    }
 
     public void armUp() throws InterruptedException
     {
-            arm.setPower(0.1);
-            Thread.sleep(1900);
-            stopMotors();
-        }
+        arm.setPower(0.1);
+        Thread.sleep(1900);
+        stopMotors();
+    }
 
     public void armDown() throws InterruptedException
     {
-            arm.setPower(-0.1);
-            Thread.sleep(1800);
-            stopMotors();
+        arm.setPower(-0.1);
+        Thread.sleep(1800);
+        stopMotors();
     }
 
-}
 
+}

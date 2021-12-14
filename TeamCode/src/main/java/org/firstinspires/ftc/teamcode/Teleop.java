@@ -145,7 +145,7 @@ public class Teleop extends UpliftTele {
 
 
     public void intakeOn() {
-        intake.setPower(.7 * Range.clip(gamepad2.left_stick_y, -1, 1));
+        intake.setPower(.8 * Range.clip(gamepad2.left_stick_y, -1, 1));
     }
 
 
