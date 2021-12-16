@@ -97,7 +97,7 @@ public class EverythingRed extends UpliftAuto {
         Thread.sleep(110);
 
         moveForward(0.5);
-        Thread.sleep(3000);
+        Thread.sleep(3300);
 
         moveForward(.2);
         Thread.sleep(500);

@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "PhubBlue", group = "OpModes")
-public class PhubBlue extends UpliftAuto {
+@Autonomous(name = "shortPhubRed", group = "OpModes")
+public class shortPhubRed extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -40,14 +40,14 @@ public class PhubBlue extends UpliftAuto {
         moveForward(0.5);
         Thread.sleep(520);
 
-        moveRight(0.6);
-        Thread.sleep(500);
+        moveLeft(0.6);
+        Thread.sleep(560);
 
-        turnRight(0.4);
+        turnLeft(0.4);
         Thread.sleep(1600);
 
         moveBackward(0.5);
-        Thread.sleep(420);
+        Thread.sleep(390);
         stopMotors();
 
         armUp();
@@ -62,11 +62,22 @@ public class PhubBlue extends UpliftAuto {
         moveForward(0.5);
         Thread.sleep(400);
 
-        turnRight(.5);
-        Thread.sleep(600);
+        turnLeft(.4);
+        Thread.sleep(1400);
 
-        moveForward(.6);
-        Thread.sleep(2100);
+        moveBackward(.5);
+        Thread.sleep(700);
+
+        moveBackward(.1);
+        Thread.sleep(1000);
+
+        turnRight(.4);
+        Thread.sleep(850);
+
+        moveForward(.5);
+        Thread.sleep(1800);
+        stopMotors();
+
     }
 
     @Override
@@ -170,3 +181,4 @@ public class PhubBlue extends UpliftAuto {
 
 
 }
+

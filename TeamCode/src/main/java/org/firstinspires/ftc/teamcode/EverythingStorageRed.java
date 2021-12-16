@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "PhubBlue", group = "OpModes")
-public class PhubBlue extends UpliftAuto {
+@Autonomous(name = "EverythingStorageRed", group = "OpModes")
+public class EverythingStorageRed extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -37,17 +37,46 @@ public class PhubBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        moveForward(0.5);
-        Thread.sleep(520);
-
-        moveRight(0.6);
+        moveRight(.5);
         Thread.sleep(500);
 
-        turnRight(0.4);
-        Thread.sleep(1600);
+        moveForward(.5);
+        Thread.sleep(1000);
 
-        moveBackward(0.5);
-        Thread.sleep(420);
+        turnLeft(.4);
+        Thread.sleep(500);
+        stopMotors();
+
+        moveForward(.3);
+        Thread.sleep(700);
+        stopMotors();
+
+        duck.setPower(-0.3);
+        Thread.sleep(2500);
+
+        duck.setPower(-.65);
+        Thread.sleep(1000);
+
+        turnLeft(.4);
+        Thread.sleep(300);
+
+        moveBackward(.5);
+        Thread.sleep(1075);
+
+        turnLeft(.4);
+        Thread.sleep(800);
+
+        moveBackward(0.25);
+        Thread.sleep(1250);
+
+        moveForward(.5);
+        Thread.sleep(400);
+
+        turnLeft(.4);
+        Thread.sleep(1500);
+
+        moveBackward(.4);
+        Thread.sleep(1000);
         stopMotors();
 
         armUp();
@@ -59,14 +88,11 @@ public class PhubBlue extends UpliftAuto {
 
         armDown();
 
-        moveForward(0.5);
-        Thread.sleep(400);
+        moveForward(.4);
+        Thread.sleep(1300);
 
-        turnRight(.5);
-        Thread.sleep(600);
-
-        moveForward(.6);
-        Thread.sleep(2100);
+        moveLeft(0.3);
+        Thread.sleep(950);
     }
 
     @Override
@@ -167,6 +193,4 @@ public class PhubBlue extends UpliftAuto {
         Thread.sleep(1800);
         stopMotors();
     }
-
-
 }

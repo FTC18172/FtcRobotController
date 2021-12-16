@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "PhubBlue", group = "OpModes")
-public class PhubBlue extends UpliftAuto {
+@Autonomous(name = "EverythingStorageBlue", group = "OpModes")
+public class EverythingStorageBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -37,17 +37,46 @@ public class PhubBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        moveForward(0.5);
-        Thread.sleep(520);
-
-        moveRight(0.6);
+        moveLeft(.5);
         Thread.sleep(500);
 
-        turnRight(0.4);
-        Thread.sleep(1600);
+        moveForward(.5);
+        Thread.sleep(1000);
 
-        moveBackward(0.5);
-        Thread.sleep(420);
+        turnRight(.4);
+        Thread.sleep(500);
+        stopMotors();
+
+        moveForward(.3);
+        Thread.sleep(600);
+        stopMotors();
+
+        duck.setPower(0.3);
+        Thread.sleep(2500);
+
+        duck.setPower(.65);
+        Thread.sleep(1000);
+
+        turnRight(.5);
+        Thread.sleep(300);
+
+        moveBackward(.5);
+        Thread.sleep(1075);
+
+        turnRight(.4);
+        Thread.sleep(800);
+
+        moveBackward(0.25);
+        Thread.sleep(1250);
+
+        moveForward(.5);
+        Thread.sleep(400);
+
+        turnRight(.4);
+        Thread.sleep(1500);
+
+        moveBackward(.4);
+        Thread.sleep(1050);
         stopMotors();
 
         armUp();
@@ -59,14 +88,44 @@ public class PhubBlue extends UpliftAuto {
 
         armDown();
 
-        moveForward(0.5);
-        Thread.sleep(400);
+        moveForward(.4);
+        Thread.sleep(1300);
 
-        turnRight(.5);
-        Thread.sleep(600);
+        moveRight(0.3);
+        Thread.sleep(950);
 
-        moveForward(.6);
-        Thread.sleep(2100);
+
+//        moveLeft(.5);
+//        Thread.sleep(100);
+//
+//        moveForward(0.5);
+//        Thread.sleep(800);
+//
+//        duck.setPower(.3);
+//        Thread.sleep(3000);
+//
+//        duck.setPower(.7);
+//        Thread.sleep(900);
+//
+//        moveBackward(.5);
+//        Thread.sleep(900);
+//
+//        turnLeft(.4);
+//        Thread.sleep(900);
+//
+//        moveBackward(.1);
+//        Thread.sleep(600);
+//
+//        moveForward(.5);
+//        Thread.sleep(520);
+//
+//        moveLeft(.4);
+//        Thread.sleep(700);
+//
+//        turnLeft(.4);
+//        Thread.sleep(1600);
+
+
     }
 
     @Override
