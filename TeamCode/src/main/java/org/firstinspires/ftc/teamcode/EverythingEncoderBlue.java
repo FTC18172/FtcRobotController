@@ -8,7 +8,6 @@ import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "EverythingEncoderBlue", group = "OpModes")
 public class EverythingEncoderBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;

@@ -56,6 +56,7 @@ public class EverythingBlue extends UpliftAuto {
         Thread.sleep(2000);
 
         bucketPos2();
+        Thread.sleep(500);
 
         armDown();
 

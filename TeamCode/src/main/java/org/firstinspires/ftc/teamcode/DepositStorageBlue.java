@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "PhubRed", group = "OpModes")
-public class PhubRed extends UpliftAuto {
+@Autonomous(name = "DepositStorageBlue", group = "OpModes")
+public class DepositStorageBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -37,17 +37,20 @@ public class PhubRed extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
+        moveRight(0.5);
+        Thread.sleep(300);
+
+        moveBackward(.2);
+        Thread.sleep(300);
+
         moveForward(0.5);
-        Thread.sleep(520);
+        Thread.sleep(1000);
 
-        moveLeft(0.6);
-        Thread.sleep(560);
-
-        turnLeft(0.4);
-        Thread.sleep(1600);
+        turnRight(0.4);
+        Thread.sleep(800);
 
         moveBackward(0.5);
-        Thread.sleep(390);
+        Thread.sleep(400);
         stopMotors();
 
         armUp();
@@ -61,13 +64,42 @@ public class PhubRed extends UpliftAuto {
         armDown();
 
         moveForward(0.5);
-        Thread.sleep(400);
+        Thread.sleep(300);
 
-        turnLeft(.5);
-        Thread.sleep(650);
+        turnRight(0.4);
+        Thread.sleep(550);
 
-        moveForward(.6);
-        Thread.sleep(2100);
+        moveLeft(0.5);
+        Thread.sleep(1800);
+
+        moveForward(0.3);
+        Thread.sleep(1200);
+
+        moveRight(0.1);
+        Thread.sleep(300);
+
+
+        turnLeft(0.2);
+        Thread.sleep(300);
+
+        moveForward(.2);
+        Thread.sleep(200);
+
+        moveForward(0.1);
+        duck.setPower(0.3);
+        Thread.sleep(3000);
+
+        duck.setPower(.65);
+        Thread.sleep(1000);
+
+        turnRight(.15);
+        Thread.sleep(300);
+
+        moveBackward(0.5);
+        Thread.sleep(700);
+        stopMotors();
+
+
     }
 
     @Override
@@ -158,7 +190,7 @@ public class PhubRed extends UpliftAuto {
     public void armUp() throws InterruptedException
     {
         arm.setPower(0.1);
-        Thread.sleep(1900);
+        Thread.sleep(2100);
         stopMotors();
     }
 
@@ -168,6 +200,5 @@ public class PhubRed extends UpliftAuto {
         Thread.sleep(1800);
         stopMotors();
     }
-
 
 }
