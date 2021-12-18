@@ -44,6 +44,13 @@ public class Teleop extends UpliftTele {
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
         double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
 
+        if (gamepad1.a){
+            leftY /= 2;
+            rightX /= 2;
+            leftX /= 2;
+        }
+
+
         double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
         double magnitude = 0.6 * Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
 
@@ -145,7 +152,7 @@ public class Teleop extends UpliftTele {
 
 
     public void intakeOn() {
-        intake.setPower(.8 * Range.clip(gamepad2.left_stick_y, -1, 1));
+        intake.setPower(.6 * Range.clip(gamepad2.left_stick_y, -1, 1));
     }
 
 
