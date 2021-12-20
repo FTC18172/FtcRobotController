@@ -67,6 +67,7 @@ public class Teleop extends UpliftTele {
         //armDown();
 
         telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
+        telemetry.addData("integrated Angle", getIntegratedAngle());
         telemetry.update();
 
 
@@ -163,5 +164,29 @@ public class Teleop extends UpliftTele {
     public void stopMotors()
     {
         arm.setPower(0);
+    }
+
+    private double previousAngle = 0; //Outside of method
+    private double integratedAngle = 0;
+    /**
+     * This method returns a value of the Z axis of the REV Expansion Hub IMU.
+     * It transforms the value from (-180, 180) to (-inf, inf).
+     * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
+     * @return The integrated heading on the interval (-inf, inf).
+     */
+    private double getIntegratedAngle() {
+        double currentAngle = robot.imu.getAngularOrientation().firstAngle;
+        double deltaAngle = currentAngle - previousAngle;
+
+        if (deltaAngle < -180) {
+            deltaAngle += 360;
+        } else if (deltaAngle >= 180) {
+            deltaAngle -= 360;
+        }
+
+        integratedAngle += deltaAngle;
+        previousAngle = currentAngle;
+
+        return integratedAngle;
     }
 }

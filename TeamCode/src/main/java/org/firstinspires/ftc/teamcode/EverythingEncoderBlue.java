@@ -6,6 +6,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
 public class EverythingEncoderBlue extends UpliftAuto {
@@ -256,17 +259,17 @@ public class EverythingEncoderBlue extends UpliftAuto {
 
     }
 
-    public void turnLeft(double power) {
-        //double initialAngle = robot.imu.getAngularOrientation().firstAngle;
+    public void turnLeft(double power, double angle) {
+        double initialAngle = getIntegratedAngle();
 
-        //while(robot.imu.getAngularOrientation().firstAngle > initialAngle - angle) {
+        while(getIntegratedAngle() < initialAngle + angle) {
             rf.setPower(power);
             rb.setPower(power);
             lf.setPower(-power);
             lb.setPower(-power);
-        //    telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
-        //}
-        //stopMotors();
+            telemetry.addData("angle", getIntegratedAngle());
+        }
+        stopMotors();
     }
 
     public void bucketPos1()
@@ -292,6 +295,31 @@ public class EverythingEncoderBlue extends UpliftAuto {
             arm.setPower(-0.1);
             Thread.sleep(1800);
             stopMotors();
+    }
+
+    private double previousAngle = 0; //Outside of method
+    private double integratedAngle = 0;
+
+    /**
+     * This method returns a value of the Z axis of the REV Expansion Hub IMU.
+     * It transforms the value from (-180, 180) to (-inf, inf).
+     * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
+     * @return The integrated heading on the interval (-inf, inf).
+     */
+    private double getIntegratedAngle() {
+        double currentAngle = robot.imu.getAngularOrientation().firstAngle;
+        double deltaAngle = currentAngle - previousAngle;
+
+        if (deltaAngle < -180) {
+            deltaAngle += 360;
+        } else if (deltaAngle >= 180) {
+            deltaAngle -= 360;
+        }
+
+        integratedAngle += deltaAngle;
+        previousAngle = currentAngle;
+
+        return integratedAngle;
     }
 
 }
