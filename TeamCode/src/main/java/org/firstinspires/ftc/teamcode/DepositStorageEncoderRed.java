@@ -3,16 +3,11 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.Range;
 
-
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
-@Autonomous(name = "EverythingEncoderBlue", group = "OpModes")
-public class EverythingEncoderBlue extends UpliftAuto {
+@Autonomous(name = "DepositStorageEncoderRed", group = "OpModes")
+public class DepositStorageEncoderRed extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -45,11 +40,11 @@ public class EverythingEncoderBlue extends UpliftAuto {
     public void body() throws InterruptedException {
         moveForward(0.5, 500);
 
-        moveLeft(0.5, 350);
+        moveRight(0.5, 800);
 
         turnLeft(0.5, 180);
 
-        moveBackward(0.5, 500);
+        moveBackward(0.5, 300);
         stopMotors();
 
         armUp();
@@ -64,37 +59,32 @@ public class EverythingEncoderBlue extends UpliftAuto {
 
         moveForward(0.5, 750);
 
-        moveLeft(0.5);
-        Thread.sleep(2700);
+        moveRight(.5, 1600);
 
-        moveForward(0.2, 100);
+        turnRight(.3, 55);
+
+        moveForward(.3, 500);
 
         moveForward(0.15);
-        duck.setPower(0.3);
+        duck.setPower(-0.3);
         Thread.sleep(4000);
         stopMotors();
 
-        duck.setPower(.65);
+        duck.setPower(-.65);
         Thread.sleep(1000);
         duck.setPower(0);
 
         moveBackward(0.5, 300);
 
-        turnRight(0.5, 80);
+        turnLeft(0.5, 150);
 
         moveBackward(0.5);
-        Thread.sleep(300);
+        Thread.sleep(600);
 
         moveBackward(0.2);
         Thread.sleep(800);
 
-        moveForward(0.5, 1250);
-
-        turnLeft(0.5, 11);
-
-        moveForward(0.5, 4000);
-
-        moveForward(.2, 500);
+        moveLeft(0.5, 400);
     }
 
     @Override
@@ -212,27 +202,27 @@ public class EverythingEncoderBlue extends UpliftAuto {
 
     public void bucketPos1()
     {
-            bucket.setPosition(1);
+        bucket.setPosition(1);
     }
 
 
     public void bucketPos2()
     {
-            bucket.setPosition(0.4);
-        }
+        bucket.setPosition(0.4);
+    }
 
     public void armUp() throws InterruptedException
     {
-            arm.setPower(0.2);
-            Thread.sleep(1350);
-            stopMotors();
-        }
+        arm.setPower(0.2);
+        Thread.sleep(1350);
+        stopMotors();
+    }
 
     public void armDown() throws InterruptedException
     {
-            arm.setPower(-0.1);
-            Thread.sleep(1800);
-            stopMotors();
+        arm.setPower(-0.1);
+        Thread.sleep(1800);
+        stopMotors();
     }
 
     private double previousAngle = 0; //Outside of method
@@ -259,6 +249,4 @@ public class EverythingEncoderBlue extends UpliftAuto {
 
         return integratedAngle;
     }
-
 }
-
