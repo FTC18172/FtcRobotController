@@ -47,15 +47,15 @@ public class DepositStorageEncoderRed extends UpliftAuto {
         moveBackward(0.5, 300);
         stopMotors();
 
-        armUp();
-
-        bucketPos1();
-        Thread.sleep(2000);
-
-        bucketPos2();
-        Thread.sleep(500);
-
-        armDown();
+//        armUp();
+//
+//        bucketPos1();
+//        Thread.sleep(2000);
+//
+//       bucketPos2();
+//        Thread.sleep(500);
+//
+//        armDown();
 
         moveForward(0.5, 750);
 
@@ -84,7 +84,7 @@ public class DepositStorageEncoderRed extends UpliftAuto {
         moveBackward(0.2);
         Thread.sleep(800);
 
-        moveLeft(0.5, 400);
+        moveLeft(0.5, 1000);
     }
 
     @Override
