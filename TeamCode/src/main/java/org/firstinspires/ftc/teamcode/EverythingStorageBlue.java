@@ -211,20 +211,20 @@ public class EverythingStorageBlue extends UpliftAuto {
 
     public void bucketPos2()
     {
-        bucket.setPosition(0.33);
+        bucket.setPosition(0.3);
     }
 
     public void armUp() throws InterruptedException
     {
-        arm.setPower(0.1);
-        Thread.sleep(1900);
+        arm.setPower(0.2);
+        Thread.sleep(1300);
         stopMotors();
     }
 
     public void armDown() throws InterruptedException
     {
-        arm.setPower(-0.1);
-        Thread.sleep(1800);
+        arm.setPower(-0.2);
+        Thread.sleep(1300);
         stopMotors();
     }
 

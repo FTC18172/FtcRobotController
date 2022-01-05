@@ -193,7 +193,7 @@ public class EverythingRed extends UpliftAuto {
 
     public void armUp() throws InterruptedException
     {
-        arm.setPower(0.1);
+        arm.setPower(0.2);
         Thread.sleep(1900);
         stopMotors();
     }

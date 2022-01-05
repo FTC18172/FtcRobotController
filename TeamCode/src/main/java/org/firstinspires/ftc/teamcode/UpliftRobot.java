@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.openftc.easyopencv.OpenCvWebcam;
+
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck, arm;
@@ -15,7 +17,7 @@ public class UpliftRobot {
     public HardwareMap hardwareMap;
     public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
     public BNO055IMU imu;
-
+    OpenCvWebcam webcam;
 
 
     public UpliftRobot(LinearOpMode opMode) {
@@ -57,3 +59,17 @@ public class UpliftRobot {
 
 
     }
+
+
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
+        pipeline = new SkystoneDeterminationExample.SkystoneDeterminationPipeline();
+        webcam.setPipeline(pipeline);
+
+        webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
+        {
+            @Override
+            public void onOpened()
+            {
+                webcam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
+            }

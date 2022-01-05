@@ -41,6 +41,8 @@ public class FreightFrenzy extends OpenCvPipeline {
         Mat middle = mat.submat(MIDDLE_ROI);
         Mat right = mat.submat(RIGHT_ROI);
 
+        //rectangle(image, rect, Scalar(0,255,0), 1, 8, 0);
+
         double leftValue = Core.sumElems(left).val[0] / LEFT_ROI.area() / 255;
         double middleValue = Core.sumElems(middle).val[0] / MIDDLE_ROI.area() / 255;
         double rightValue = Core.sumElems(right).val[0] / RIGHT_ROI.area() / 255;
