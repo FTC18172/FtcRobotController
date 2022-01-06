@@ -223,15 +223,15 @@ public class EverythingEncoderBlue extends UpliftAuto {
 
     public void armUp() throws InterruptedException
     {
-            arm.setPower(0.2);
+            arm.setPower(0.1);
             Thread.sleep(1300);
             stopMotors();
         }
 
     public void armDown() throws InterruptedException
     {
-            arm.setPower(-0.2);
-            Thread.sleep(1300);
+            arm.setPower(-0.1);
+            Thread.sleep(1100);
             stopMotors();
     }
 
