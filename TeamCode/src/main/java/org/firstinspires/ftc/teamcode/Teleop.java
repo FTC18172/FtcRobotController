@@ -75,7 +75,7 @@ public class Teleop extends UpliftTele {
         //armPositionUp();
         //armPositionDown();
 
-        arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.2, 0.2));
+        arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.1, 0.1));
 
 
     }
@@ -118,7 +118,7 @@ public class Teleop extends UpliftTele {
     {
         if(gamepad2.x)
         {
-            bucket.setPosition(0.33);
+            bucket.setPosition(0.36);
         }
     }
 
@@ -126,7 +126,7 @@ public class Teleop extends UpliftTele {
     {
         if(gamepad2.y)
         {
-            bucket.setPosition(1);
+            bucket.setPosition(.95);
         }
     }
 

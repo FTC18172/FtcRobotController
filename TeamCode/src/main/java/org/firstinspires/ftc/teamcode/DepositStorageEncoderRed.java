@@ -208,20 +208,20 @@ public class DepositStorageEncoderRed extends UpliftAuto {
 
     public void bucketPos2()
     {
-        bucket.setPosition(0.4);
+        bucket.setPosition(0.33);
     }
 
     public void armUp() throws InterruptedException
     {
-        arm.setPower(0.2);
-        Thread.sleep(1350);
+        arm.setPower(0.1);
+        Thread.sleep(1300);
         stopMotors();
     }
 
     public void armDown() throws InterruptedException
     {
         arm.setPower(-0.1);
-        Thread.sleep(1800);
+        Thread.sleep(1100);
         stopMotors();
     }
 
