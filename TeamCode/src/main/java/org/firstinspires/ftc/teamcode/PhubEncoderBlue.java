@@ -47,7 +47,7 @@ public class PhubEncoderBlue extends UpliftAuto {
 
         moveRight(0.5,750);
 
-        turnLeft(0.5,190);
+        turnLeft(0.5,175);
 
         moveBackward(0.5, 420);
         stopMotors();
