@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.toolkit.vision.FreightFrenzy;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
@@ -23,7 +24,7 @@ public class UpliftRobot {
     public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
     public BNO055IMU imu;
     OpenCvCamera webcam;
-
+    public FreightFrenzy pipeline;
 
     public UpliftRobot(LinearOpMode opMode) {
         this.opMode = opMode;
@@ -34,6 +35,7 @@ public class UpliftRobot {
 
     public void getHardware() {
         hardwareMap = opMode.hardwareMap;
+        initializeCamera();
         leftFront = hardwareMap.get(DcMotor.class, "left_front");
         rightFront = hardwareMap.get(DcMotor.class, "right_front");
         leftBack = hardwareMap.get(DcMotor.class, "left_back");
@@ -57,7 +59,7 @@ public class UpliftRobot {
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         imu.initialize(parameters);
-        initializeCamera();
+
 
     }
 
@@ -68,6 +70,8 @@ public class UpliftRobot {
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
             @Override
             public void onOpened() {
+                pipeline = new FreightFrenzy(opMode.telemetry);
+                webcam.setPipeline(pipeline);
                 webcam.startStreaming(320, 240, OpenCvCameraRotation.UPRIGHT);
             }
 

@@ -12,17 +12,18 @@ import org.openftc.easyopencv.OpenCvPipeline;
 public class FreightFrenzy extends OpenCvPipeline {
     Telemetry telemetry;
     Mat mat = new Mat();
+    public int location = -1;
     static final Rect LEFT_ROI = new Rect(
-            new Point(60, 35),
-            new Point(200, 75));
+            new Point(30, 100),
+            new Point(70, 140));
 
     static final Rect MIDDLE_ROI = new Rect(
-            new Point(60, 35),
-            new Point(200, 75));
+            new Point(100, 100),
+            new Point(140, 140));
 
     static final Rect RIGHT_ROI = new Rect(
-            new Point(60, 35),
-            new Point(200, 75));
+            new Point(200, 100),
+            new Point(240, 140));
 
     public FreightFrenzy(Telemetry t) {
         telemetry = t;
@@ -57,7 +58,28 @@ public class FreightFrenzy extends OpenCvPipeline {
         telemetry.addData("Left Percentage", Math.round(leftValue * 100) + "%");
         telemetry.addData("Middle Percentage", Math.round(middleValue * 100) + "%");
         telemetry.addData("Right Percentage", Math.round(rightValue * 100) + "%");
-        return left;
+
+        Imgproc.rectangle(input, LEFT_ROI, new Scalar(0, 255, 0), 4);
+        Imgproc.rectangle(input, MIDDLE_ROI, new Scalar(0, 255, 0), 4);
+        Imgproc.rectangle(input, RIGHT_ROI, new Scalar(0, 255, 0), 4);
+        telemetry.addData("left", leftValue);
+        telemetry.addData("middle", middleValue);
+        telemetry.addData("right", rightValue);
+        telemetry.update();
+
+        if(leftValue > middleValue && leftValue > rightValue) {
+            location = 0;
+        }
+
+        else if(middleValue > leftValue && middleValue > rightValue) {
+            location = 1;
+        }
+
+        else if(rightValue > middleValue && rightValue > leftValue) {
+            location = 2;
+        }
+
+        return mat;
     }
 }
 
