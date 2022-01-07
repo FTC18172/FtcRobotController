@@ -17,8 +17,8 @@ import org.openftc.easyopencv.OpenCvWebcam;
 
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
-    DcMotor intake, duck, arm;
-    Servo bucket;
+    DcMotor intake, duck;
+    Servo bucket, arm;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
     public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
@@ -42,11 +42,10 @@ public class UpliftRobot {
         rightBack = hardwareMap.get(DcMotor.class, "right_back");
         intake = hardwareMap.get(DcMotor.class, "intake");
         duck = hardwareMap.get(DcMotor.class, "duck");
-        arm = hardwareMap.get(DcMotor.class, "arm");
+        arm = hardwareMap.get(Servo.class, "arm");
         bucket = hardwareMap.get(Servo.class, "bucket");
 
-        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

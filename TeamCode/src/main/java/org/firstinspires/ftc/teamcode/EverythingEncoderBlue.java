@@ -18,8 +18,8 @@ public class EverythingEncoderBlue extends UpliftAuto {
     DcMotor rf;
     DcMotor lb;
     DcMotor rb;
-    DcMotor intake, duck, arm;
-    Servo bucket;
+    DcMotor intake, duck;
+    Servo bucket, arm;
 
 
     @Override
@@ -107,7 +107,6 @@ public class EverythingEncoderBlue extends UpliftAuto {
         rf.setPower(0);
         lb.setPower(0);
         rb.setPower(0);
-        arm.setPower(0);
 
     }
 
@@ -219,20 +218,16 @@ public class EverythingEncoderBlue extends UpliftAuto {
     public void bucketPos2()
     {
             bucket.setPosition(0.33);
-        }
+    }
 
     public void armUp() throws InterruptedException
     {
-            arm.setPower(0.1);
-            Thread.sleep(1300);
-            stopMotors();
-        }
+        arm.setPosition(1);
+    }
 
     public void armDown() throws InterruptedException
     {
-            arm.setPower(-0.1);
-            Thread.sleep(1100);
-            stopMotors();
+        arm.setPosition(0.2);
     }
 
     private double previousAngle = 0; //Outside of method

@@ -13,8 +13,8 @@ public class DepositStorageRed extends UpliftAuto {
     DcMotor rf;
     DcMotor lb;
     DcMotor rb;
-    DcMotor intake, duck, arm;
-    Servo bucket;
+    DcMotor intake, duck;
+    Servo bucket, arm;
 
     @Override
     public void initHardware() {
@@ -108,7 +108,6 @@ public class DepositStorageRed extends UpliftAuto {
         rf.setPower(0);
         lb.setPower(0);
         rb.setPower(0);
-        arm.setPower(0);
         duck.setPower(0);
     }
 
@@ -185,16 +184,16 @@ public class DepositStorageRed extends UpliftAuto {
 
     public void armUp() throws InterruptedException
     {
-        arm.setPower(0.1);
-        Thread.sleep(2100);
-        stopMotors();
+//        arm.setPower(0.1);
+//        Thread.sleep(2100);
+//        stopMotors();
     }
 
     public void armDown() throws InterruptedException
     {
-        arm.setPower(-0.1);
-        Thread.sleep(1800);
-        stopMotors();
+//        arm.setPower(-0.1);
+//        Thread.sleep(1800);
+//        stopMotors();
     }
 
 }

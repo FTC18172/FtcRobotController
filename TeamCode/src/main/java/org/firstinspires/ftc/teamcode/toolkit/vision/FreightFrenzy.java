@@ -14,16 +14,16 @@ public class FreightFrenzy extends OpenCvPipeline {
     Mat mat = new Mat();
     public int location = -1;
     static final Rect LEFT_ROI = new Rect(
-            new Point(30, 100),
-            new Point(70, 140));
+            new Point(30, 160),
+            new Point(70, 210));
 
     static final Rect MIDDLE_ROI = new Rect(
-            new Point(100, 100),
-            new Point(140, 140));
+            new Point(140, 160),
+            new Point(180, 210));
 
     static final Rect RIGHT_ROI = new Rect(
-            new Point(200, 100),
-            new Point(240, 140));
+            new Point(250, 160),
+            new Point(290, 210));
 
     public FreightFrenzy(Telemetry t) {
         telemetry = t;
@@ -32,8 +32,8 @@ public class FreightFrenzy extends OpenCvPipeline {
     @Override
     public Mat processFrame(Mat input) {
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
-        Scalar lowHSV = new Scalar(23, 50, 70);
-        Scalar highHSV = new Scalar(32, 255, 255);
+        Scalar lowHSV = new Scalar(90, 50, 70);
+        Scalar highHSV = new Scalar(128, 255, 255);
 
 
         Core.inRange(mat, lowHSV, highHSV, mat);

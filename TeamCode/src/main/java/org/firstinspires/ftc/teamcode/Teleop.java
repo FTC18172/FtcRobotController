@@ -18,8 +18,8 @@ import static java.lang.Math.toRadians;
 public class Teleop extends UpliftTele {
     UpliftRobot robot;
     DcMotor lf, rf, lb, rb;
-    DcMotor intake, duck, arm;
-    Servo bucket;
+    DcMotor intake, duck;
+    Servo bucket, arm;
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -75,7 +75,7 @@ public class Teleop extends UpliftTele {
         //armPositionUp();
         //armPositionDown();
 
-        arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.1, 0.1));
+        // arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.1, 0.1));
 
 
     }
@@ -134,9 +134,9 @@ public class Teleop extends UpliftTele {
     {
         if(gamepad2.a)
         {
-            arm.setPower(0.1);
-            Thread.sleep(1900);
-            stopMotors();
+//            arm.setPower(0.1);
+//            Thread.sleep(1900);
+//            stopMotors();
         }
     }
 
@@ -144,16 +144,16 @@ public class Teleop extends UpliftTele {
     {
         if(gamepad2.b)
         {
-            arm.setPower(-0.1);
-            Thread.sleep(1800);
-            stopMotors();
+//            arm.setPower(-0.1);
+//            Thread.sleep(1800);
+//            stopMotors();
         }
 
     }
 
 
     public void intakeOn() {
-        intake.setPower(.6 * Range.clip(gamepad2.left_stick_y, -1, 1));
+        intake.setPower(.7 * Range.clip(gamepad2.left_stick_y, -1, 1));
     }
 
 
@@ -163,7 +163,7 @@ public class Teleop extends UpliftTele {
     }
     public void stopMotors()
     {
-        arm.setPower(0);
+        //arm.setPower(0);
     }
 
     private double previousAngle = 0; //Outside of method

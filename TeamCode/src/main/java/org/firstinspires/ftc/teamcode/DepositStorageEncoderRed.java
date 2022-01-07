@@ -13,8 +13,8 @@ public class DepositStorageEncoderRed extends UpliftAuto {
     DcMotor rf;
     DcMotor lb;
     DcMotor rb;
-    DcMotor intake, duck, arm;
-    Servo bucket;
+    DcMotor intake, duck;
+    Servo bucket, arm;
 
 
     @Override
@@ -97,7 +97,6 @@ public class DepositStorageEncoderRed extends UpliftAuto {
         rf.setPower(0);
         lb.setPower(0);
         rb.setPower(0);
-        arm.setPower(0);
 
     }
 
@@ -213,16 +212,16 @@ public class DepositStorageEncoderRed extends UpliftAuto {
 
     public void armUp() throws InterruptedException
     {
-        arm.setPower(0.1);
-        Thread.sleep(1300);
-        stopMotors();
+//        arm.setPower(0.1);
+//        Thread.sleep(1300);
+//        stopMotors();
     }
 
     public void armDown() throws InterruptedException
     {
-        arm.setPower(-0.1);
-        Thread.sleep(1100);
-        stopMotors();
+//        arm.setPower(-0.1);
+//        Thread.sleep(1100);
+//        stopMotors();
     }
 
     private double previousAngle = 0; //Outside of method
