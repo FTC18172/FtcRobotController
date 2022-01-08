@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.Camera;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -17,7 +19,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
     DcMotor intake, duck;
     Servo bucket, arm;
     int location;
-
+    OpenCvCamera webcam;
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -40,7 +42,9 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        exit();
+        webcam.closeCameraDevice();
+        webcam.stopStreaming();
+        webcam.stopRecordingPipeline();
         if (location == 0) {
             moveForward(0.5, 500);
 

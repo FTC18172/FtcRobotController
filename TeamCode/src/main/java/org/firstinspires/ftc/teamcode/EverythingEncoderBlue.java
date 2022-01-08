@@ -52,15 +52,7 @@ public class EverythingEncoderBlue extends UpliftAuto {
         moveBackward(0.5, 500);
         stopMotors();
 
-        armUp();
-
-        bucketPos1();
-        Thread.sleep(2000);
-
-        bucketPos2();
-        Thread.sleep(500);
-
-        armDown();
+       topLayer();
 
         moveForward(0.5, 750);
 
@@ -218,6 +210,21 @@ public class EverythingEncoderBlue extends UpliftAuto {
     public void bucketPos2()
     {
             bucket.setPosition(0.33);
+    }
+
+    public void topLayer() throws InterruptedException
+    {
+        bucket.setPosition(0.65);
+        Thread.sleep(1000);
+        arm.setPosition(0.6);
+        Thread.sleep(1000);
+        bucket.setPosition(0.9);
+        Thread.sleep(7500);
+        arm.setPosition(0);
+        Thread.sleep(3500);
+        bucket.setPosition(0.15);
+        Thread.sleep(1000);
+
     }
 
     public void armUp() throws InterruptedException

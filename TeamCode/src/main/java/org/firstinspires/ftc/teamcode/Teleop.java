@@ -117,7 +117,7 @@ public class Teleop extends UpliftTele {
             Thread.sleep(500);
             arm.setPosition(0);
             Thread.sleep(500);
-            bucket.setPosition(0.15);
+            bucket.setPosition(0.18);
         }
     }
 
@@ -134,7 +134,7 @@ public class Teleop extends UpliftTele {
         if (gamepad2.a)
         {
             bucket.setPosition(0.65);
-            arm.setPosition(1);
+            arm.setPosition(0.95);
 
         }
     }

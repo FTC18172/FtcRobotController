@@ -59,7 +59,6 @@ public class UpliftRobot {
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         imu.initialize(parameters);
 
-
     }
 
     public void initializeCamera() {

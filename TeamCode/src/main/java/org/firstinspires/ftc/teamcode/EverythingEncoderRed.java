@@ -52,15 +52,7 @@ public class EverythingEncoderRed extends UpliftAuto {
         moveBackward(0.5, 500);
         stopMotors();
 
-        armUp();
-
-        bucketPos1();
-        Thread.sleep(2000);
-
-        bucketPos2();
-        Thread.sleep(500);
-
-        armDown();
+        topLayer();
 
         moveForward(0.5, 750);
 
@@ -228,18 +220,18 @@ public class EverythingEncoderRed extends UpliftAuto {
         bucket.setPosition(0.33);
     }
 
-    public void armUp() throws InterruptedException
+    public void topLayer() throws InterruptedException
     {
-//        arm.setPower(0.1);
-//        Thread.sleep(1300);
-//        stopMotors();
-    }
-
-    public void armDown() throws InterruptedException
-    {
-//        arm.setPower(-0.1);
-//        Thread.sleep(1100);
-//        stopMotors();
+        bucket.setPosition(0.65);
+        Thread.sleep(1000);
+        arm.setPosition(0.6);
+        Thread.sleep(1000);
+        bucket.setPosition(0.9);
+        Thread.sleep(7500);
+        arm.setPosition(0);
+        Thread.sleep(3500);
+        bucket.setPosition(0.15);
+        Thread.sleep(1000);
     }
 
     private double previousAngle = 0; //Outside of method
