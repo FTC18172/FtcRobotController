@@ -60,11 +60,10 @@ public class Teleop extends UpliftTele {
 
         moveDuck();
 
-        bucketDown();
-        bucketDrop();
-
-        //armUp();
-        //armDown();
+        armDown();
+        topLayer();
+        sharedHub();
+        ting();
 
         telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
         telemetry.addData("integrated Angle", getIntegratedAngle());
@@ -72,8 +71,6 @@ public class Teleop extends UpliftTele {
 
 
 
-        //armPositionUp();
-        //armPositionDown();
 
         // arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.1, 0.1));
 
@@ -114,39 +111,40 @@ public class Teleop extends UpliftTele {
         robot.rightFront.setPower(rfPow / maxVal);
     }
 
-    public void bucketDown()
-    {
-        if(gamepad2.x)
-        {
-            bucket.setPosition(0.36);
+    public void armDown() throws InterruptedException {
+        if(gamepad2.y) {
+            bucket.setPosition(0.9);
+            Thread.sleep(500);
+            arm.setPosition(0);
+            Thread.sleep(500);
+            bucket.setPosition(0.15);
         }
     }
 
-    public void bucketDrop()
-    {
-        if(gamepad2.y)
-        {
-            bucket.setPosition(.95);
+    public void ting() throws InterruptedException {
+        if(gamepad2.x) {
+
+            bucket.setPosition(0.15);
         }
     }
 
-    public void armUp() throws InterruptedException
-    {
-        if(gamepad2.a)
+
+
+    public void sharedHub() throws InterruptedException {
+        if (gamepad2.a)
         {
-//            arm.setPower(0.1);
-//            Thread.sleep(1900);
-//            stopMotors();
+            bucket.setPosition(0.65);
+            arm.setPosition(1);
+
         }
     }
 
-    public void armDown() throws InterruptedException
+    public void topLayer() throws InterruptedException
     {
         if(gamepad2.b)
         {
-//            arm.setPower(-0.1);
-//            Thread.sleep(1800);
-//            stopMotors();
+            bucket.setPosition(0.65);
+            arm.setPosition(0.6);
         }
 
     }

@@ -23,7 +23,7 @@ public class UpliftRobot {
     public HardwareMap hardwareMap;
     public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
     public BNO055IMU imu;
-    OpenCvCamera webcam;
+    public OpenCvCamera webcam;
     public FreightFrenzy pipeline;
 
     public UpliftRobot(LinearOpMode opMode) {
