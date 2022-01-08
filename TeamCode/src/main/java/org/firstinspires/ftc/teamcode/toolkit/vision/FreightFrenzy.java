@@ -31,6 +31,7 @@ public class FreightFrenzy extends OpenCvPipeline {
 
     @Override
     public Mat processFrame(Mat input) {
+        System.out.println("Thread2: " + Thread.currentThread().getName());
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
         Scalar lowHSV = new Scalar(90, 50, 70);
         Scalar highHSV = new Scalar(128, 255, 255);

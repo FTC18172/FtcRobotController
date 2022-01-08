@@ -92,5 +92,18 @@ public class UpliftRobot {
 
     }
 
+    public void closeCamera()
+    {
+        webcam.closeCameraDevice();
+        webcam.stopStreaming();
+        webcam.stopRecordingPipeline();
+        webcam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+            @Override
+            public void onClose() {
+                System.out.println("Alex gets hoes");
+            }
+        });
+    }
+
 }
 

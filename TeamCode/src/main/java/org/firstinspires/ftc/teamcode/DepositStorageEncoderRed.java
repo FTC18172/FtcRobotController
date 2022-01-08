@@ -33,7 +33,7 @@ public class DepositStorageEncoderRed extends UpliftAuto {
 
     @Override
     public void initAction() {
-
+        bucket.setPosition(0.15);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class DepositStorageEncoderRed extends UpliftAuto {
 
         moveRight(.5, 1600);
 
-        turnRight(.3, 55);
+        turnRight(.3, 75);
 
         moveForward(.3, 500);
 
@@ -95,13 +95,13 @@ public class DepositStorageEncoderRed extends UpliftAuto {
     public void topLayer() throws InterruptedException
     {
         bucket.setPosition(0.65);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         arm.setPosition(0.6);
         Thread.sleep(1000);
-        bucket.setPosition(0.9);
-        Thread.sleep(7500);
+        bucket.setPosition(1);
+        Thread.sleep(500);
         arm.setPosition(0);
-        Thread.sleep(3500);
+        Thread.sleep(500);
         bucket.setPosition(0.15);
         Thread.sleep(1000);
 

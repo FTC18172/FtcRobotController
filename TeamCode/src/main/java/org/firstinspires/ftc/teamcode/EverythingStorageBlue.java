@@ -32,7 +32,7 @@ public class EverythingStorageBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-
+        bucket.setPosition(0.15);
     }
 
     @Override

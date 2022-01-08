@@ -41,9 +41,12 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
+        System.out.println("Thread: " + Thread.currentThread().getName());
         location = robot.pipeline.location;
         telemetry.addData("location", location);
         telemetry.update();
+        robot.closeCamera();
+
 
         if (location == 0) {
             moveForward(0.5, 500);

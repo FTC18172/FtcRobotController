@@ -38,7 +38,7 @@ public class PhubEncoderBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-
+        bucket.setPosition(0.15);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class PhubEncoderBlue extends UpliftAuto {
 
         moveRight(0.5,750);
 
-        turnLeft(0.5,175);
+        turnRight(0.5,160);
 
         moveBackward(0.5, 420);
         stopMotors();
@@ -187,13 +187,13 @@ public class PhubEncoderBlue extends UpliftAuto {
     public void topLayer() throws InterruptedException
     {
         bucket.setPosition(0.65);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         arm.setPosition(0.6);
         Thread.sleep(1000);
-        bucket.setPosition(0.9);
-        Thread.sleep(7500);
+        bucket.setPosition(1);
+        Thread.sleep(500);
         arm.setPosition(0);
-        Thread.sleep(3500);
+        Thread.sleep(500);
         bucket.setPosition(0.15);
         Thread.sleep(1000);
 
