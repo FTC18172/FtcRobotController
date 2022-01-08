@@ -33,7 +33,7 @@ public class DepositStorageEncoderRed extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.15);
+        bucket.setPosition(0.22);
     }
 
     @Override

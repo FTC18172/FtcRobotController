@@ -23,8 +23,8 @@ public class UpliftRobot {
     public HardwareMap hardwareMap;
     public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
     public BNO055IMU imu;
-//    public OpenCvCamera webcam;
-//    public FreightFrenzy pipeline;
+    public OpenCvCamera webcam;
+    public FreightFrenzy pipeline;
 
     public UpliftRobot(LinearOpMode opMode) {
         this.opMode = opMode;
@@ -35,7 +35,7 @@ public class UpliftRobot {
 
     public void getHardware() {
         hardwareMap = opMode.hardwareMap;
-//        initializeCamera();
+        initializeCamera();
         leftFront = hardwareMap.get(DcMotor.class, "left_front");
         rightFront = hardwareMap.get(DcMotor.class, "right_front");
         leftBack = hardwareMap.get(DcMotor.class, "left_back");
@@ -59,27 +59,26 @@ public class UpliftRobot {
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         imu.initialize(parameters);
 
-    }}
+    }
 
-//    public void initializeCamera() {
-//        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-//        webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
-//
-//        webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
-//                                         @Override
-//                                         public void onOpened() {
-//                                             pipeline = new FreightFrenzy(opMode.telemetry);
-//                                             webcam.setPipeline(pipeline);
-//                                             webcam.startStreaming(320, 240, OpenCvCameraRotation.UPRIGHT);
-//                                         }
-//
-//                                         @Override
-//                                         public void onError(int errorCode) {
-//                                         }
-//                                     }
-//
-//        );
-//
+    public void initializeCamera() {
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
+
+        webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            @Override
+            public void onOpened() {
+                pipeline = new FreightFrenzy(opMode.telemetry);
+                webcam.setPipeline(pipeline);
+                webcam.startStreaming(320, 240, OpenCvCameraRotation.UPRIGHT);
+            }
+
+            @Override
+            public void onError(int errorCode) {
+            }
+        });
+    }
+}
 
 
 

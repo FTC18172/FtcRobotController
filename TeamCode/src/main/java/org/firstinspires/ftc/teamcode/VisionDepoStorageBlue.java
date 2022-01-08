@@ -31,13 +31,13 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         duck = robot.duck;
         arm = robot.arm;
         bucket = robot.bucket;
-//        webcam = robot.webcam;
+        webcam = robot.webcam;
     }
 
     @Override
     public void initAction() {
         bucket.setPosition(0.15);
-//        location = robot.pipeline.location;
+        location = robot.pipeline.location;
     }
 
     @Override
