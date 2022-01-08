@@ -43,9 +43,9 @@ public class VisionPhubBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        location = robot.pipeline.location;
-        telemetry.addData("location", location);
-        telemetry.update();
+//        location = robot.pipeline.location;
+//        telemetry.addData("location", location);
+//        telemetry.update();
        if(location == 0){
            moveForward(0.5,500);
 

@@ -44,7 +44,7 @@ public class Teleop extends UpliftTele {
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
         double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
 
-        if (gamepad1.a){
+        if (gamepad1.right_bumper){
             leftY /= 2;
             rightX /= 2;
             leftX /= 2;
@@ -115,16 +115,18 @@ public class Teleop extends UpliftTele {
         if(gamepad2.y) {
             bucket.setPosition(0.9);
             Thread.sleep(500);
-            arm.setPosition(0);
+            arm.setPosition(.024);
             Thread.sleep(500);
-            bucket.setPosition(0.18);
+            bucket.setPosition(0.25);
         }
     }
 
     public void ting() throws InterruptedException {
         if(gamepad2.x) {
 
-            bucket.setPosition(0.15);
+            arm.setPosition(.024);
+            Thread.sleep(500);
+            bucket.setPosition(0.22);
         }
     }
 
@@ -133,7 +135,7 @@ public class Teleop extends UpliftTele {
     public void sharedHub() throws InterruptedException {
         if (gamepad2.a)
         {
-            bucket.setPosition(0.65);
+            bucket.setPosition(0.62);
             arm.setPosition(0.95);
 
         }
@@ -143,7 +145,7 @@ public class Teleop extends UpliftTele {
     {
         if(gamepad2.b)
         {
-            bucket.setPosition(0.65);
+            bucket.setPosition(0.62);
             arm.setPosition(0.6);
         }
 

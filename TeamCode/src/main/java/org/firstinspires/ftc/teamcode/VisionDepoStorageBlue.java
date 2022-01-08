@@ -19,7 +19,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
     DcMotor intake, duck;
     Servo bucket, arm;
     int location;
-
+    OpenCvCamera webcam;
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -31,21 +31,17 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         duck = robot.duck;
         arm = robot.arm;
         bucket = robot.bucket;
+//        webcam = robot.webcam;
     }
 
     @Override
     public void initAction() {
         bucket.setPosition(0.15);
-
+//        location = robot.pipeline.location;
     }
 
     @Override
     public void body() throws InterruptedException {
-        System.out.println("Thread: " + Thread.currentThread().getName());
-        location = robot.pipeline.location;
-        telemetry.addData("location", location);
-        telemetry.update();
-        robot.closeCamera();
 
 
         if (location == 0) {

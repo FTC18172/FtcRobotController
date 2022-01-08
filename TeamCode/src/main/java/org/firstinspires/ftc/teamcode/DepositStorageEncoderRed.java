@@ -40,7 +40,7 @@ public class DepositStorageEncoderRed extends UpliftAuto {
     public void body() throws InterruptedException {
         moveForward(0.5, 500);
 
-        moveRight(0.5, 800);
+        moveRight(0.5, 840);
 
         turnLeft(0.5, 180);
 
@@ -49,11 +49,11 @@ public class DepositStorageEncoderRed extends UpliftAuto {
 
         topLayer();
 
-        moveForward(0.5, 750);
+        moveForward(0.5, 550);
 
         moveRight(.5, 1600);
 
-        turnRight(.3, 75);
+        turnRight(.3, 65);
 
         moveForward(.3, 500);
 
