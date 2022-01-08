@@ -43,8 +43,8 @@ public class VisionDepoStorageBlue extends UpliftAuto {
     @Override
     public void body() throws InterruptedException {
 
-
-        if (location == 0) {
+        if(location == -1 || location == 0)
+        {
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
@@ -57,25 +57,9 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             bottomLayer();
 
             moveForward(0.5, 750);
-
-            moveLeft(0.5);
-            Thread.sleep(2700);
-
-            moveForward(0.2, 100);
-
-            moveForward(0.15);
-            duck.setPower(0.3);
-            Thread.sleep(4000);
-            stopMotors();
-
-            duck.setPower(.65);
-            Thread.sleep(1000);
-            duck.setPower(0);
-
-            moveBackward(0.5, 800);
-
         }
-       else if (location == 1) {
+        else if(location == 1)
+        {
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
@@ -88,25 +72,9 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             middleLayer();
 
             moveForward(0.5, 750);
-
-            moveLeft(0.5);
-            Thread.sleep(2700);
-
-            moveForward(0.2, 100);
-
-            moveForward(0.15);
-            duck.setPower(0.3);
-            Thread.sleep(4000);
-            stopMotors();
-
-            duck.setPower(.65);
-            Thread.sleep(1000);
-            duck.setPower(0);
-
-            moveBackward(0.5, 700);
-
         }
-        else if (location == 2) {
+        else if(location == 2)
+        {
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
@@ -119,54 +87,148 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             topLayer();
 
             moveForward(0.5, 750);
-
-            moveLeft(0.5);
-            Thread.sleep(2700);
-
-            moveForward(0.2, 100);
-
-            moveForward(0.15);
-            duck.setPower(0.3);
-            Thread.sleep(4000);
-            stopMotors();
-
-            duck.setPower(.65);
-            Thread.sleep(1000);
-            duck.setPower(0);
-
-            moveBackward(0.5, 700);
-
         }
-        else if (location == -1) {
-            moveForward(0.5, 500);
 
-            moveLeft(0.5, 1000);
+        moveLeft(0.5);
+        Thread.sleep(2700);
 
-            turnLeft(0.5, 180);
+        moveForward(0.2, 100);
 
-            moveBackward(0.5, 500);
-            stopMotors();
+        moveForward(0.15);
+        duck.setPower(0.3);
+        Thread.sleep(4000);
+        stopMotors();
 
-            topLayer();
+        duck.setPower(.65);
+        Thread.sleep(1000);
+        duck.setPower(0);
 
-            moveForward(0.5, 750);
+        moveBackward(0.5, 800);
 
-            moveLeft(0.5);
-            Thread.sleep(2700);
 
-            moveForward(0.2, 100);
-
-            moveForward(0.15);
-            duck.setPower(0.3);
-            Thread.sleep(4000);
-            stopMotors();
-
-            duck.setPower(.65);
-            Thread.sleep(1000);
-            duck.setPower(0);
-
-            moveBackward(0.5, 700);
-    }
+//        if (location == 0) {
+//            moveForward(0.5, 500);
+//
+//            moveLeft(0.5, 1000);
+//
+//            turnLeft(0.5, 180);
+//
+//            moveBackward(0.5, 450);
+//            stopMotors();
+//
+//            bottomLayer();
+//
+//            moveForward(0.5, 750);
+//
+//            moveLeft(0.5);
+//            Thread.sleep(2700);
+//
+//            moveForward(0.2, 100);
+//
+//            moveForward(0.15);
+//            duck.setPower(0.3);
+//            Thread.sleep(4000);
+//            stopMotors();
+//
+//            duck.setPower(.65);
+//            Thread.sleep(1000);
+//            duck.setPower(0);
+//
+//            moveBackward(0.5, 800);
+//
+//        }
+//       else if (location == 1) {
+//            moveForward(0.5, 500);
+//
+//            moveLeft(0.5, 1000);
+//
+//            turnLeft(0.5, 180);
+//
+//            moveBackward(0.5, 460);
+//            stopMotors();
+//
+//            middleLayer();
+//
+//            moveForward(0.5, 750);
+//
+//            moveLeft(0.5);
+//            Thread.sleep(2700);
+//
+//            moveForward(0.2, 100);
+//
+//            moveForward(0.15);
+//            duck.setPower(0.3);
+//            Thread.sleep(4000);
+//            stopMotors();
+//
+//            duck.setPower(.65);
+//            Thread.sleep(1000);
+//            duck.setPower(0);
+//
+//            moveBackward(0.5, 700);
+//
+//        }
+//        else if (location == 2) {
+//            moveForward(0.5, 500);
+//
+//            moveLeft(0.5, 1000);
+//
+//            turnLeft(0.5, 180);
+//
+//            moveBackward(0.5, 500);
+//            stopMotors();
+//
+//            topLayer();
+//
+//            moveForward(0.5, 750);
+//
+//            moveLeft(0.5);
+//            Thread.sleep(2700);
+//
+//            moveForward(0.2, 100);
+//
+//            moveForward(0.15);
+//            duck.setPower(0.3);
+//            Thread.sleep(4000);
+//            stopMotors();
+//
+//            duck.setPower(.65);
+//            Thread.sleep(1000);
+//            duck.setPower(0);
+//
+//            moveBackward(0.5, 700);
+//
+//        }
+//        else if (location == -1) {
+//            moveForward(0.5, 500);
+//
+//            moveLeft(0.5, 1000);
+//
+//            turnLeft(0.5, 180);
+//
+//            moveBackward(0.5, 500);
+//            stopMotors();
+//
+//            topLayer();
+//
+//            moveForward(0.5, 750);
+//
+//            moveLeft(0.5);
+//            Thread.sleep(2700);
+//
+//            moveForward(0.2, 100);
+//
+//            moveForward(0.15);
+//            duck.setPower(0.3);
+//            Thread.sleep(4000);
+//            stopMotors();
+//
+//            duck.setPower(.65);
+//            Thread.sleep(1000);
+//            duck.setPower(0);
+//
+//            moveBackward(0.5, 700);
+//    }
 
     }
 
