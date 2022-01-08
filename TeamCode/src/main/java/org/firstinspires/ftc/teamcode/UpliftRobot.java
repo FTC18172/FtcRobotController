@@ -66,17 +66,31 @@ public class UpliftRobot {
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
 
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
-            @Override
-            public void onOpened() {
-                pipeline = new FreightFrenzy(opMode.telemetry);
-                webcam.setPipeline(pipeline);
-                webcam.startStreaming(320, 240, OpenCvCameraRotation.UPRIGHT);
-            }
+                                         @Override
+                                         public void onOpened() {
+                                             pipeline = new FreightFrenzy(opMode.telemetry);
+                                             webcam.setPipeline(pipeline);
+                                             webcam.startStreaming(320, 240, OpenCvCameraRotation.UPRIGHT);
+                                         }
 
-            @Override
-            public void onError(int errorCode) {
-            }
-        });
+                                         @Override
+                                         public void onError(int errorCode) {
+                                         }
+                                     }
+
+        );
+
+
     }
+
+
+    public void wait(int duration) {
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < duration) {
+            //do nothing
+        }
+
+    }
+
 }
 

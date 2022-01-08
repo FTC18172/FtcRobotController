@@ -197,7 +197,7 @@ public class DepositStorageEncoderBlue extends UpliftAuto {
         bucket.setPosition(0.65);
         Thread.sleep(1000);
         arm.setPosition(0.6);
-       Thread.sleep(1000);
+        Thread.sleep(1000);
         bucket.setPosition(0.9);
         Thread.sleep(7500);
         arm.setPosition(0);

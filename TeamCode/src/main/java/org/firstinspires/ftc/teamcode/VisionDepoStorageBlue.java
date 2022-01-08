@@ -19,7 +19,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
     DcMotor intake, duck;
     Servo bucket, arm;
     int location;
-    OpenCvCamera webcam;
+
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -31,7 +31,6 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         duck = robot.duck;
         arm = robot.arm;
         bucket = robot.bucket;
-
     }
 
     @Override
@@ -42,9 +41,10 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     @Override
     public void body() throws InterruptedException {
-        webcam.closeCameraDevice();
-        webcam.stopStreaming();
-        webcam.stopRecordingPipeline();
+        location = robot.pipeline.location;
+        telemetry.addData("location", location);
+        telemetry.update();
+
         if (location == 0) {
             moveForward(0.5, 500);
 
@@ -76,7 +76,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             moveBackward(0.5, 800);
 
         }
-        if (location == 1) {
+       else if (location == 1) {
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
@@ -86,7 +86,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             moveBackward(0.5, 460);
             stopMotors();
 
-          middleLayer();
+            middleLayer();
 
             moveForward(0.5, 750);
 
@@ -107,7 +107,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             moveBackward(0.5, 700);
 
         }
-        if (location == 2) {
+        else if (location == 2) {
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
@@ -138,6 +138,37 @@ public class VisionDepoStorageBlue extends UpliftAuto {
             moveBackward(0.5, 700);
 
         }
+        else if (location == -1) {
+            moveForward(0.5, 500);
+
+            moveLeft(0.5, 1000);
+
+            turnLeft(0.5, 180);
+
+            moveBackward(0.5, 500);
+            stopMotors();
+
+            topLayer();
+
+            moveForward(0.5, 750);
+
+            moveLeft(0.5);
+            Thread.sleep(2700);
+
+            moveForward(0.2, 100);
+
+            moveForward(0.15);
+            duck.setPower(0.3);
+            Thread.sleep(4000);
+            stopMotors();
+
+            duck.setPower(.65);
+            Thread.sleep(1000);
+            duck.setPower(0);
+
+            moveBackward(0.5, 700);
+    }
+
     }
 
     @Override
@@ -265,17 +296,16 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     public void topLayer() throws InterruptedException
     {
-//        bucket.setPosition(0.65);
-//        Thread.sleep(1000);
-//        arm.setPosition(0.6);
-//        wait(3000);
-//        bucket.setPosition(0.9);
-//        Thread.sleep(7500);
-//        arm.setPosition(0);
-//        Thread.sleep(3500);
-//        bucket.setPosition(0.15);
+        bucket.setPosition(0.65);
+        sleep(10000);
         arm.setPosition(0.6);
+        sleep(10000);
         bucket.setPosition(0.9);
+        sleep(10000);
+        arm.setPosition(0);
+        sleep(10000);
+        bucket.setPosition(0.15);
+
 
 
     }
