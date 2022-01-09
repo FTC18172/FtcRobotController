@@ -78,17 +78,21 @@ public class UpliftRobot {
             }
         });
     }
-}
 
 
 
 
-//    public void wait(int duration) {
-//        long startTime = System.currentTimeMillis();
-//        while (System.currentTimeMillis() - startTime < duration) {
-//            //do nothing
-//        }
-//
+
+    public void safeSleep(int duration) {
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < duration) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
 //    }
 //
 //    public void closeCamera()
@@ -106,3 +110,5 @@ public class UpliftRobot {
 //
 //}
 
+    }
+}

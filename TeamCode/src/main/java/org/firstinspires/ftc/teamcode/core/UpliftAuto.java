@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.core;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.UpliftRobot;
+import org.firstinspires.ftc.teamcode.toolkit.vision.FreightFrenzy;
+import org.openftc.easyopencv.OpenCvCamera;
 
 public abstract class UpliftAuto extends LinearOpMode {
     UpliftRobot robot;
@@ -27,8 +29,6 @@ public abstract class UpliftAuto extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
-//        robot.webcam.stopRecordingPipeline();
-//        robot.webcam.closeCameraDevice();
 
         telemetry.addData("Body", "Started");
         telemetry.update();
