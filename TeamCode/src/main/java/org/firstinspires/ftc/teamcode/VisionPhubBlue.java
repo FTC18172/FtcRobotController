@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 import org.openftc.easyopencv.OpenCvCamera;
 
-@Autonomous(name = "VisionEverythingBlue", group = "OpModes")
-public class VisionEverythingBlue extends UpliftAuto {
+@Autonomous(name = "VisionPhubBlue", group = "OpModes")
+public class VisionPhubBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -18,6 +18,7 @@ public class VisionEverythingBlue extends UpliftAuto {
     Servo bucket, arm;
     int location;
     OpenCvCamera webcam;
+
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -34,96 +35,78 @@ public class VisionEverythingBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.3);
+        bucket.setPosition(.3);
     }
 
     @Override
     public void body() throws InterruptedException {
         location = robot.pipeline.location;
-        if(location == 0)
-        {
+        if(location == 0){
             webcam.stopRecordingPipeline();
-            moveForward(0.5, 500);
 
-            moveLeft(0.5, 1000);
+            moveRight(0.5, 100);
 
-            turnLeft(0.5, 180);
+            moveForward(0.5,500);
+
+            moveRight(0.5,1000);
+
+            turnLeft(0.5,180);
 
             moveBackward(0.5, 125);
             stopMotors();
 
             bottomLayer();
 
-            moveForward(0.5, 150);
+            moveForward(0.5,150);
+
+            turnRight(.5,70);
+
+            moveForward(.6,2800);
         }
-        else if(location == 1)
-        {
+        else if(location == 1){
             webcam.stopRecordingPipeline();
 
-            moveForward(0.5, 500);
+            moveRight(0.5, 100);
 
-            moveLeft(0.5, 1000);
+            moveForward(0.5,500);
 
-            turnLeft(0.5, 180);
+            moveRight(0.5,1000);
 
-            moveBackward(0.5, 240);
+            turnLeft(0.5,180);
+
+            moveBackward(0.5, 200);
             stopMotors();
 
             middleLayer();
 
-            moveForward(0.5, 400);
+            moveForward(0.5,300);
+
+            turnRight(.5,70);
+
+            moveForward(.6,2800);
         }
-        else if(location == 2 || location == -1 )
-        {
+        else if(location == 2){
             webcam.stopRecordingPipeline();
-            moveForward(0.5, 500);
 
-            moveLeft(0.5, 1000);
+            moveRight(0.5, 100);
 
-            turnLeft(0.5, 180);
+            moveForward(0.5,500);
 
-            moveBackward(0.5, 500);
+            moveRight(0.5,1000);
+
+            turnLeft(0.5,180);
+
+            moveBackward(0.5, 420);
             stopMotors();
 
             topLayer();
 
-            moveForward(0.5, 750);
+            moveForward(0.5,400);
+
+            turnRight(.5,70);
+
+            moveForward(.6,2800);
         }
-
-        bucket.setPosition(0.3);
-
-        moveLeft(0.5);
-        robot.safeSleep(2700);
-
-        moveForward(0.2, 100);
-
-        moveForward(0.15);
-        duck.setPower(0.3);
-        robot.safeSleep(4000);
-        stopMotors();
-
-        duck.setPower(.65);
-        robot.safeSleep(1000);
-        duck.setPower(0);
-
-        moveBackward(0.5, 300);
-
-        turnRight(0.5, 80);
-
-        moveBackward(0.5);
-        Thread.sleep(300);
-
-        moveBackward(0.2);
-        Thread.sleep(800);
-
-        moveForward(0.5, 1250);
-
-        turnLeft(0.5, 11);
-
-        moveForward(0.5, 4000);
-
-        moveForward(.2, 500);
-
     }
 
     @Override
@@ -317,5 +300,5 @@ public class VisionEverythingBlue extends UpliftAuto {
 
         return integratedAngle;
     }
-}
 
+}
