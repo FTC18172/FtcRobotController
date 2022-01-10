@@ -69,7 +69,7 @@ public class FreightFrenzy extends OpenCvPipeline {
         telemetry.update();
 
         if(leftValue > middleValue && leftValue > rightValue) {
-            location = 2;
+            location = 0;
         }
 
         else if(middleValue > leftValue && middleValue > rightValue) {
@@ -77,7 +77,7 @@ public class FreightFrenzy extends OpenCvPipeline {
         }
 
         else if(rightValue > middleValue && rightValue > leftValue) {
-            location = 0;
+            location = 2;
         }
 
         return mat;

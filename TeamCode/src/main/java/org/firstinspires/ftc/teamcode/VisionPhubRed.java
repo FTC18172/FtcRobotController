@@ -10,9 +10,10 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
+import org.openftc.easyopencv.OpenCvCamera;
 
-@Autonomous(name = "VisionPhubBlue", group = "OpModes")
-public class VisionPhubBlue extends UpliftAuto {
+@Autonomous(name = "VisionPhubRed", group = "OpModes")
+public class VisionPhubRed extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -21,6 +22,7 @@ public class VisionPhubBlue extends UpliftAuto {
     DcMotor intake, duck;
     Servo bucket, arm;
     int location;
+    OpenCvCamera webcam;
 
     @Override
     public void initHardware() {
@@ -33,94 +35,74 @@ public class VisionPhubBlue extends UpliftAuto {
         duck = robot.duck;
         arm = robot.arm;
         bucket = robot.bucket;
-
+        webcam = robot.webcam;
     }
 
     @Override
     public void initAction() {
-
+    bucket.setPosition(.3);
     }
 
     @Override
     public void body() throws InterruptedException {
-//        location = robot.pipeline.location;
-//        telemetry.addData("location", location);
-//        telemetry.update();
+        location = robot.pipeline.location;
        if(location == 0){
+           webcam.stopRecordingPipeline();
+
            moveForward(0.5,500);
 
-           moveRight(0.5,750);
+           moveLeft(0.5,1000);
 
-           turnLeft(0.5,175);
+           turnLeft(0.5,180);
 
-           moveBackward(0.5, 400);
+           moveBackward(0.5, 125);
            stopMotors();
 
-           armUp();
+           bottomLayer();
 
-           bucketPos1();
-           Thread.sleep(2000);
+           moveForward(0.5,150);
 
-           bucketPos2();
-           Thread.sleep(500);
-
-           armDown();
-
-           moveForward(0.5,380);
-
-           turnRight(.5,80);
+           turnLeft(.5,95);
 
            moveForward(.6,2800);
        }
        else if(location == 1){
+           webcam.stopRecordingPipeline();
+
             moveForward(0.5,500);
 
-            moveRight(0.5,750);
+            moveLeft(0.5,1000);
 
-            turnLeft(0.5,175);
+            turnLeft(0.5,180);
 
-            moveBackward(0.5, 400);
+            moveBackward(0.5, 200);
             stopMotors();
 
-            armUp();
+            middleLayer();
 
-            bucketPos1();
-            Thread.sleep(2000);
+            moveForward(0.5,300);
 
-            bucketPos2();
-            Thread.sleep(500);
-
-            armDown();
-
-            moveForward(0.5,400);
-
-            turnRight(.5,80);
+            turnLeft(.5,95);
 
             moveForward(.6,2800);
         }
        else if(location == 2){
-            moveForward(0.5,500);
+            webcam.stopRecordingPipeline();
 
-            moveRight(0.5,750);
+           moveForward(0.5,500);
 
-            turnLeft(0.5,175);
+            moveLeft(0.5,1000);
+
+            turnLeft(0.5,180);
 
             moveBackward(0.5, 420);
             stopMotors();
 
-            armUp();
-
-            bucketPos1();
-            Thread.sleep(2000);
-
-            bucketPos2();
-            Thread.sleep(500);
-
-            armDown();
+            topLayer();
 
             moveForward(0.5,400);
 
-            turnRight(.5,80);
+            turnLeft(.5,90);
 
             moveForward(.6,2800);
         }
@@ -249,26 +231,49 @@ public class VisionPhubBlue extends UpliftAuto {
         bucket.setPosition(0.33);
     }
 
-    public void armUp() throws InterruptedException
+    public void topLayer() throws InterruptedException
     {
-//        arm.setPower(0.1);
-//        Thread.sleep(1300);
-//        stopMotors();
+        bucket.setPosition(0.62);
+        //bucket.setPosition(.65);
+        robot.safeSleep(500);
+        arm.setPosition(0.6);
+        robot.safeSleep(1000);
+        bucket.setPosition(0.9);
+        robot.safeSleep(500);
+        arm.setPosition(0);
+        //arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.25);
+//        bucket.setPosition(0.15);
+
     }
 
-    public void armDown() throws InterruptedException
-    {
-//        arm.setPower(-0.1);
-//        Thread.sleep(1100);
-//        stopMotors();                          
-
-
-
-
-
-
-
+    public void middleLayer() throws InterruptedException {
+        bucket.setPosition(0.65);
+        robot.safeSleep(500);
+        arm.setPosition(0.8);
+        robot.safeSleep(1000);
+        bucket.setPosition(0.9);
+        robot.safeSleep(500);
+        arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.25);
     }
+
+    public void bottomLayer() throws InterruptedException
+    {
+        bucket.setPosition(0.65);
+        robot.safeSleep(500);
+        arm.setPosition(1);
+        robot.safeSleep(1000);
+        bucket.setPosition(0.9);
+        robot.safeSleep(500);
+        arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.15);
+    }
+
+
 
     private double previousAngle = 0; //Outside of method
     private double integratedAngle = 0;

@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.graphics.Camera;
-
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -9,8 +7,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 import org.openftc.easyopencv.OpenCvCamera;
 
-@Autonomous(name = "VisionDepoStorageBlue", group = "OpModes")
-public class VisionDepoStorageBlue extends UpliftAuto {
+@Autonomous(name = "VisionEverythingBlue", group = "OpModes")
+public class VisionEverythingBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -91,6 +89,8 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             moveForward(0.5, 750);     }
 
+        bucket.setPosition(0.3);
+
         moveLeft(0.5);
         robot.safeSleep(2700);
 
@@ -105,7 +105,23 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         robot.safeSleep(1000);
         duck.setPower(0);
 
-        moveBackward(0.5, 800);
+        moveBackward(0.5, 300);
+
+        turnRight(0.5, 80);
+
+        moveBackward(0.5);
+        Thread.sleep(300);
+
+        moveBackward(0.2);
+        Thread.sleep(800);
+
+        moveForward(0.5, 1250);
+
+        turnLeft(0.5, 11);
+
+        moveForward(0.5, 4000);
+
+        moveForward(.2, 500);
 
     }
 
@@ -301,3 +317,4 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         return integratedAngle;
     }
 }
+
