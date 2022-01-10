@@ -104,9 +104,9 @@ public class VisionEverythingRed extends UpliftAuto{
 
             turnRight(.3, 43);
 
-            moveForward(.3, 500);
+            moveForward(.3, 485);
 
-            moveForward(0.13);
+            moveForward(0.12);
             duck.setPower(-0.3);
             Thread.sleep(4000);
             stopMotors();
