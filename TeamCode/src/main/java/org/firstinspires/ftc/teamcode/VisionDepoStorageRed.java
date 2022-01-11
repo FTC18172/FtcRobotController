@@ -34,7 +34,7 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.3);
+        bucket.setPosition(0.35);
     }
 
     @Override
@@ -58,6 +58,34 @@ public class VisionDepoStorageRed extends UpliftAuto {
             bottomLayer();
 
             moveForward(0.5, 140);
+
+            moveRight(.5, 1600);
+
+            turnRight(.3, 50);
+
+            moveForward(.3, 500);
+
+            moveForward(0.13);
+            duck.setPower(-0.3);
+            Thread.sleep(4000);
+            stopMotors();
+
+            duck.setPower(-.65);
+            Thread.sleep(1000);
+            duck.setPower(0);
+
+            moveBackward(0.5, 300);
+
+            turnLeft(0.5, 140);
+
+            moveBackward(0.5);
+            Thread.sleep(600);
+
+            moveBackward(0.2);
+            Thread.sleep(800);
+
+            moveLeft(0.5, 800);
+
         }
         else if(location == 1)
         {
@@ -77,6 +105,33 @@ public class VisionDepoStorageRed extends UpliftAuto {
             middleLayer();
 
             moveForward(0.5, 340);
+            moveRight(.5, 1700);
+
+            turnRight(.3, 50);
+
+            moveForward(.3, 500);
+
+            moveForward(0.13);
+            duck.setPower(-0.3);
+            Thread.sleep(4000);
+            stopMotors();
+
+            duck.setPower(-.65);
+            Thread.sleep(1000);
+            duck.setPower(0);
+
+            moveBackward(0.5, 300);
+
+            turnLeft(0.5, 140);
+
+            moveBackward(0.5);
+            Thread.sleep(600);
+
+            moveBackward(0.2);
+            Thread.sleep(800);
+
+            moveLeft(0.5, 800);
+
         }
         else if(location == 2 || location == -1 )
         {
@@ -95,34 +150,36 @@ public class VisionDepoStorageRed extends UpliftAuto {
             topLayer();
 
             moveForward(0.5, 490);
+
+            moveRight(.5, 1600);
+
+            turnRight(.3, 50);
+
+            moveForward(.3, 500);
+
+            moveForward(0.13);
+            duck.setPower(-0.3);
+            Thread.sleep(4000);
+            stopMotors();
+
+            duck.setPower(-.65);
+            Thread.sleep(1000);
+            duck.setPower(0);
+
+            moveBackward(0.5, 300);
+
+            turnLeft(0.5, 140);
+
+            moveBackward(0.5);
+            Thread.sleep(600);
+
+            moveBackward(0.2);
+            Thread.sleep(800);
+
+            moveLeft(0.5, 800);
+
         }
 
-        moveRight(.5, 1600);
-
-        turnRight(.3, 43);
-
-        moveForward(.3, 500);
-
-        moveForward(0.13);
-        duck.setPower(-0.3);
-        Thread.sleep(4000);
-        stopMotors();
-
-        duck.setPower(-.65);
-        Thread.sleep(1000);
-        duck.setPower(0);
-
-        moveBackward(0.5, 300);
-
-        turnLeft(0.5, 150);
-
-        moveBackward(0.5);
-        Thread.sleep(600);
-
-        moveBackward(0.2);
-        Thread.sleep(800);
-
-        moveLeft(0.5, 1000);
 
     }
 
@@ -283,9 +340,9 @@ public class VisionDepoStorageRed extends UpliftAuto {
         bucket.setPosition(0.65);
         robot.safeSleep(500);
         arm.setPosition(1);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
         bucket.setPosition(0.15);

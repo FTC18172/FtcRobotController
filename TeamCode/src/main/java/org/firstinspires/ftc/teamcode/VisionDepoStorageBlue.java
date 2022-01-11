@@ -36,7 +36,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.3);
+        bucket.setPosition(0.4);
     }
 
     @Override

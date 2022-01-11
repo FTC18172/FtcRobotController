@@ -52,7 +52,7 @@ public class Teleop extends UpliftTele {
 
 
         double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
-        double magnitude = 0.6 * Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
+        double magnitude = 0.8 * Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
 
         teleDrive(angle, magnitude, rightX, robot);
 

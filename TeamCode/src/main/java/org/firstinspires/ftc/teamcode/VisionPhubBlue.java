@@ -35,7 +35,7 @@ public class VisionPhubBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(.3);
+        bucket.setPosition(.4);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class VisionPhubBlue extends UpliftAuto {
 
             turnLeft(0.5,180);
 
-            moveBackward(0.5, 125);
+            moveBackward(0.5, 100);
             stopMotors();
 
             bottomLayer();
@@ -74,14 +74,14 @@ public class VisionPhubBlue extends UpliftAuto {
 
             turnLeft(0.5,180);
 
-            moveBackward(0.5, 200);
+            moveBackward(0.5, 150);
             stopMotors();
 
             middleLayer();
 
             moveForward(0.5,300);
 
-            turnRight(.5,70);
+            turnRight(.5,80);
 
             moveForward(.6,2800);
         }
@@ -253,9 +253,9 @@ public class VisionPhubBlue extends UpliftAuto {
         bucket.setPosition(0.65);
         robot.safeSleep(500);
         arm.setPosition(0.8);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
         bucket.setPosition(0.25);
@@ -266,9 +266,9 @@ public class VisionPhubBlue extends UpliftAuto {
         bucket.setPosition(0.65);
         robot.safeSleep(500);
         arm.setPosition(1);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
         bucket.setPosition(0.15);

@@ -40,7 +40,7 @@ public class VisionPhubRed extends UpliftAuto {
 
     @Override
     public void initAction() {
-    bucket.setPosition(.3);
+    bucket.setPosition(.4);
     }
 
     @Override

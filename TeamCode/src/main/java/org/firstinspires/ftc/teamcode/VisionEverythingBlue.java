@@ -90,7 +90,7 @@ public class VisionEverythingBlue extends UpliftAuto {
             moveForward(0.5, 750);
         }
 
-        bucket.setPosition(0.3);
+        bucket.setPosition(0.4);
 
         moveLeft(0.5);
         robot.safeSleep(2700);
