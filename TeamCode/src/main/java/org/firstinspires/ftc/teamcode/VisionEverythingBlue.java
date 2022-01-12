@@ -34,7 +34,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.3);
+        bucket.setPosition(0.4);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
             turnLeft(0.5, 180);
 
-            moveBackward(0.5, 125);
+            moveBackward(0.5, 190);
             stopMotors();
 
             bottomLayer();
@@ -122,7 +122,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
         moveForward(0.5, 4000);
 
-        moveForward(.2, 500);
+        bucket.setPosition(.25);
 
     }
 
@@ -261,7 +261,7 @@ public class VisionEverythingBlue extends UpliftAuto {
         arm.setPosition(0);
         //arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.25);
+        bucket.setPosition(0.3);
 //        bucket.setPosition(0.15);
 
     }
@@ -270,25 +270,25 @@ public class VisionEverythingBlue extends UpliftAuto {
         bucket.setPosition(0.65);
         robot.safeSleep(500);
         arm.setPosition(0.8);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.25);
+        bucket.setPosition(0.33);
     }
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.65);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(1);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.15);
+        bucket.setPosition(0.33);
     }
 
 

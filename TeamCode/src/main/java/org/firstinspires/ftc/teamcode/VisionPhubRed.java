@@ -46,7 +46,7 @@ public class VisionPhubRed extends UpliftAuto {
     @Override
     public void body() throws InterruptedException {
         location = robot.pipeline.location;
-       if(location == 0){
+       if(location == 0 || location == -1 ){
            webcam.stopRecordingPipeline();
 
            moveForward(0.5,500);
@@ -106,6 +106,7 @@ public class VisionPhubRed extends UpliftAuto {
 
             moveForward(.6,2800);
         }
+       bucket.setPosition(.25);
     }
 
     @Override
@@ -243,7 +244,7 @@ public class VisionPhubRed extends UpliftAuto {
         arm.setPosition(0);
         //arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.25);
+        bucket.setPosition(0.33);
 //        bucket.setPosition(0.15);
 
     }
@@ -252,25 +253,25 @@ public class VisionPhubRed extends UpliftAuto {
         bucket.setPosition(0.65);
         robot.safeSleep(500);
         arm.setPosition(0.8);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.25);
+        bucket.setPosition(0.33);
     }
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.65);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(1);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.15);
+        bucket.setPosition(0.33);
     }
 
 

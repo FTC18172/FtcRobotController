@@ -53,12 +53,16 @@ public class VisionEverythingRed extends UpliftAuto{
 
                 turnLeft(0.5, 185);
 
-                moveBackward(0.5, 70);
+                moveBackward(0.5, 90);
                 stopMotors();
 
                 bottomLayer();
 
                 moveForward(0.5, 140);
+
+                moveRight(.5, 1700);
+
+                turnRight(.3, 43);
             }
             else if(location == 1)
             {
@@ -78,6 +82,10 @@ public class VisionEverythingRed extends UpliftAuto{
                 middleLayer();
 
                 moveForward(0.5, 340);
+
+                moveRight(.5, 1700);
+
+                turnRight(.3, 43);
             }
             else if(location == 2 || location == -1 )
             {
@@ -96,13 +104,13 @@ public class VisionEverythingRed extends UpliftAuto{
                 topLayer();
 
                 moveForward(0.5, 490);
+
+                moveRight(.5, 1800);
+
+                turnRight(.3, 43);
             }
 
             bucket.setPosition(0.3);
-
-            moveRight(.5, 1800);
-
-            turnRight(.3, 43);
 
             moveForward(.3, 485);
 
@@ -133,6 +141,7 @@ public class VisionEverythingRed extends UpliftAuto{
 
             moveForward(.2, 500);
 
+            bucket.setPosition(.25);
         }
 
         @Override
@@ -270,34 +279,33 @@ public class VisionEverythingRed extends UpliftAuto{
             arm.setPosition(0);
             //arm.setPosition(0);
             robot.safeSleep(500);
-            bucket.setPosition(0.25);
+            bucket.setPosition(0.33);
 //        bucket.setPosition(0.15);
-
         }
 
         public void middleLayer() throws InterruptedException {
             bucket.setPosition(0.65);
             robot.safeSleep(500);
             arm.setPosition(0.8);
-            robot.safeSleep(1000);
+            robot.safeSleep(2000);
             bucket.setPosition(0.9);
-            robot.safeSleep(500);
+            robot.safeSleep(1000);
             arm.setPosition(0);
             robot.safeSleep(500);
-            bucket.setPosition(0.25);
+            bucket.setPosition(0.33);
         }
 
         public void bottomLayer() throws InterruptedException
         {
-            bucket.setPosition(0.55);
+            bucket.setPosition(0.75);
             robot.safeSleep(500);
             arm.setPosition(1);
-            robot.safeSleep(1000);
+            robot.safeSleep(2000);
             bucket.setPosition(0.9);
-            robot.safeSleep(700);
+            robot.safeSleep(2000);
             arm.setPosition(0);
             robot.safeSleep(500);
-            bucket.setPosition(0.15);
+            bucket.setPosition(0.33);
         }
 
 

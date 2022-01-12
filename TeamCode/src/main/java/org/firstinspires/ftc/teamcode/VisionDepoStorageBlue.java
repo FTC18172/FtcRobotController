@@ -51,7 +51,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             turnLeft(0.5, 180);
 
-            moveBackward(0.5, 125);
+            moveBackward(0.5, 175);
             stopMotors();
 
             bottomLayer();
@@ -106,6 +106,8 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         duck.setPower(0);
 
         moveBackward(0.5, 800);
+
+        bucket.setPosition(.25);
 
     }
 
@@ -244,7 +246,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         arm.setPosition(0);
         //arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.25);
+        bucket.setPosition(0.33);
 //        bucket.setPosition(0.15);
 
     }
@@ -253,25 +255,25 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         bucket.setPosition(0.65);
         robot.safeSleep(500);
         arm.setPosition(0.8);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.25);
+        bucket.setPosition(0.33);
     }
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.65);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(1);
-        robot.safeSleep(1000);
+        robot.safeSleep(2000);
         bucket.setPosition(0.9);
-        robot.safeSleep(500);
+        robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.15);
+        bucket.setPosition(0.33);
     }
 
 

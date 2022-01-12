@@ -80,7 +80,7 @@ public class FreightFrenzy extends OpenCvPipeline {
             location = 2;
         }
 
-        return mat;
+        return input;
     }
 }
 
