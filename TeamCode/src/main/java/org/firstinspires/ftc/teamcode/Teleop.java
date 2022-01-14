@@ -61,6 +61,7 @@ public class Teleop extends UpliftTele {
         moveDuck();
 
         armDown();
+        sharedArmDown();
         topLayer();
         sharedHub();
         ting();
@@ -121,8 +122,18 @@ public class Teleop extends UpliftTele {
         }
     }
 
-    public void ting() throws InterruptedException {
+    public void sharedArmDown() throws InterruptedException {
         if(gamepad2.x) {
+            bucket.setPosition(1);
+            Thread.sleep(500);
+            arm.setPosition(.024);
+            Thread.sleep(500);
+            bucket.setPosition(0.25);
+        }
+    }
+
+    public void ting() throws InterruptedException {
+        if(gamepad2.dpad_down) {
 
             arm.setPosition(.024);
             Thread.sleep(500);
@@ -130,12 +141,10 @@ public class Teleop extends UpliftTele {
         }
     }
 
-
-
     public void sharedHub() throws InterruptedException {
         if (gamepad2.a)
         {
-            bucket.setPosition(0.62);
+            bucket.setPosition(0.67);
             arm.setPosition(0.95);
 
         }
