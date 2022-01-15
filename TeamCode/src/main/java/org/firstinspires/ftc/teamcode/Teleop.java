@@ -1,12 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.core.UpliftTele;
 import org.firstinspires.ftc.teamcode.toolkit.UpliftMath;
+import org.openftc.easyopencv.OpenCvCamera;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.abs;
@@ -20,6 +22,9 @@ public class Teleop extends UpliftTele {
     DcMotor lf, rf, lb, rb;
     DcMotor intake, duck;
     Servo bucket, arm;
+    ColorSensor bucketSensor;
+    OpenCvCamera webcam;
+
     @Override
     public void initHardware() {
         robot = new UpliftRobot(this);
@@ -31,6 +36,8 @@ public class Teleop extends UpliftTele {
         duck = robot.duck;
         arm = robot.arm;
         bucket = robot.bucket;
+        bucketSensor = robot.bucketSensor;
+        webcam = robot.webcam;
     }
      
     @Override
@@ -40,6 +47,8 @@ public class Teleop extends UpliftTele {
 
     @Override
     public void bodyLoop() throws InterruptedException {
+        webcam.stopRecordingPipeline();
+        webcam.closeCameraDevice();
         double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
         double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
@@ -68,6 +77,7 @@ public class Teleop extends UpliftTele {
 
         telemetry.addData("angle", robot.imu.getAngularOrientation().firstAngle);
         telemetry.addData("integrated Angle", getIntegratedAngle());
+        telemetry.addData("Freight", bucketSensor.alpha());
         telemetry.update();
 
 
