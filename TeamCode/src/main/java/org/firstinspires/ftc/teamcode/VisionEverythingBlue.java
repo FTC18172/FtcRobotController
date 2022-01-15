@@ -49,7 +49,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
             turnLeft(0.5, 180);
 
-            moveBackward(0.5, 190);
+            moveBackward(0.5, 160);
             stopMotors();
 
             bottomLayer();

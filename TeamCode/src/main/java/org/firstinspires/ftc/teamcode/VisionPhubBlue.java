@@ -52,7 +52,7 @@ public class VisionPhubBlue extends UpliftAuto {
 
             turnLeft(0.5,180);
 
-            moveBackward(0.5, 178);
+            moveBackward(0.5, 100);
             stopMotors();
 
             bottomLayer();
@@ -272,7 +272,7 @@ public class VisionPhubBlue extends UpliftAuto {
         robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.15);
+        bucket.setPosition(0.33);
     }
 
 
