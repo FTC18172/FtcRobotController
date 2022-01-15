@@ -46,20 +46,20 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,500);
+            moveForward(0.5,350);
 
-            moveRight(0.5,1000);
+            moveRight(0.5,1100);
 
             turnLeft(0.5,180);
 
-            moveBackward(0.5, 100);
+            moveBackward(0.5, 50);
             stopMotors();
 
             bottomLayer();
 
             moveForward(0.5,150);
 
-            turnRight(.5,70);
+            turnRight(.5,90);
 
             moveForward(.6,2800);
         }
@@ -68,20 +68,20 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,500);
+            moveForward(0.5,400);
 
             moveRight(0.5,1100);
 
             turnLeft(0.5,185);
 
-            moveBackward(0.5, 170);
+            moveBackward(0.5, 100);
             stopMotors();
 
             middleLayer();
 
             moveForward(0.5,220);
 
-            turnRight(.5,80);
+            turnRight(.5,90);
 
             moveForward(.6,2800);
         }
@@ -90,20 +90,20 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,500);
+            moveForward(0.5,400);
 
-            moveRight(0.5,1000);
+            moveRight(0.5,1100);
 
-            turnLeft(0.5,180);
+            turnLeft(0.5,175);
 
-            moveBackward(0.5, 420);
+            moveBackward(0.5, 190);
             stopMotors();
 
             topLayer();
 
-            moveForward(0.5,400);
+            moveForward(0.5,300);
 
-            turnRight(.5,75);
+            turnRight(.5,85);
 
             moveForward(.6,2800);
         }

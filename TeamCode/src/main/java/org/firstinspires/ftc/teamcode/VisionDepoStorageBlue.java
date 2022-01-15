@@ -45,35 +45,35 @@ public class VisionDepoStorageBlue extends UpliftAuto {
         if(location == 0)
         {
             webcam.stopRecordingPipeline();
-            moveForward(0.5, 500);
+            moveForward(0.5, 420);
 
             moveLeft(0.5, 1000);
 
             turnLeft(0.5, 180);
 
-            moveBackward(0.5, 175);
+            moveBackward(0.5, 200);
             stopMotors();
 
             bottomLayer();
 
-            moveForward(0.5, 150);
+//            moveForward(0.5, 50);
         }
         else if(location == 1)
         {
             webcam.stopRecordingPipeline();
 
-            moveForward(0.5, 500);
+            moveForward(0.5, 420);
 
             moveLeft(0.5, 1000);
 
             turnLeft(0.5, 180);
 
-            moveBackward(0.5, 240);
+            moveBackward(0.5, 300);
             stopMotors();
 
             middleLayer();
 
-            moveForward(0.5, 400);
+//            moveForward(0.5, 100);
         }
         else if(location == 2 || location == -1 )
         {
@@ -84,15 +84,15 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             turnLeft(0.5, 180);
 
-            moveBackward(0.5, 500);
+            moveBackward(0.5, 420);
             stopMotors();
 
             topLayer();
 
-            moveForward(0.5, 750);     }
+            moveForward(0.5, 100);     }
 
         moveLeft(0.5);
-        robot.safeSleep(2700);
+        robot.safeSleep(3000);
 
         moveForward(0.2, 100);
 
@@ -265,7 +265,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.75);
+        bucket.setPosition(0.78);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);
