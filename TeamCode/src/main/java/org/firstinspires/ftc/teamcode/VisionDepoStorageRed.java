@@ -42,28 +42,23 @@ public class VisionDepoStorageRed extends UpliftAuto {
         location = robot.pipeline.location;
         if(location == 0)
         {
-            webcam.stopRecordingPipeline();
-
             moveRight(0.5, 100);
 
-            moveForward(0.5, 500);
+            moveForward(0.5, 400);
 
             moveRight(0.5, 1150);
 
-            turnLeft(0.5, 185);
+            turnLeft(0.5, 180);
 
-            moveBackward(0.5, 90);
             stopMotors();
 
             bottomLayer();
 
-            moveForward(0.5, 140);
-
             moveRight(.5, 1600);
 
-            turnRight(.3, 43);
+            turnRight(.3, 75);
 
-            moveForward(.3, 500);
+            moveForward(.3, 350);
 
             moveForward(0.13);
             duck.setPower(-0.3);
@@ -89,27 +84,24 @@ public class VisionDepoStorageRed extends UpliftAuto {
         }
         else if(location == 1)
         {
-            webcam.stopRecordingPipeline();
-
             moveRight(0.5, 100);
 
-            moveForward(0.5, 500);
+            moveForward(0.5, 400);
 
             moveRight(0.5, 1150);
 
-            turnLeft(0.5, 185);
+            turnLeft(0.5, 180);
 
-            moveBackward(0.5, 140);
+            moveBackward(0.5, 50);
             stopMotors();
 
             middleLayer();
 
-            moveForward(0.5, 340);
-            moveRight(.5, 1700);
+            moveRight(.5, 1600);
 
-            turnRight(.3, 43);
+            turnRight(.3, 80);
 
-            moveForward(.3, 500);
+            moveForward(.3, 350);
 
             moveForward(0.13);
             duck.setPower(-0.3);
@@ -130,7 +122,7 @@ public class VisionDepoStorageRed extends UpliftAuto {
             moveBackward(0.2);
             Thread.sleep(800);
 
-            moveLeft(0.5, 800);
+            moveLeft(0.5, 700);
 
         }
         else if(location == 2 || location == -1 )
@@ -142,20 +134,20 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
             moveRight(0.5, 1150);
 
-            turnLeft(0.5, 185);
+            turnLeft(0.5, 180);
 
-            moveBackward(0.5, 300);
+            moveBackward(0.5, 250);
             stopMotors();
 
             topLayer();
 
-            moveForward(0.5, 490);
+            moveForward(0.5, 100);
 
-            moveRight(.5, 1800);
+            moveRight(.5, 1600);
 
-            turnRight(.3, 52);
+            turnRight(.3, 70);
 
-            moveForward(.2, 400);
+            moveForward(.2, 350);
 
             moveForward(0.13);
             duck.setPower(-0.3);
@@ -176,7 +168,7 @@ public class VisionDepoStorageRed extends UpliftAuto {
             moveBackward(0.2);
             Thread.sleep(800);
 
-            moveLeft(0.5, 800);
+            moveLeft(0.5, 700);
 
             bucket.setPosition(.25);
 
@@ -339,9 +331,9 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.75);
+        bucket.setPosition(0.83);
         robot.safeSleep(500);
-        arm.setPosition(1);
+        arm.setPosition(0.95);
         robot.safeSleep(2000);
         bucket.setPosition(0.9);
         robot.safeSleep(2000);

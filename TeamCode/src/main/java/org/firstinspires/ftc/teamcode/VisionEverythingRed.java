@@ -43,49 +43,97 @@ public class VisionEverythingRed extends UpliftAuto{
             location = robot.pipeline.location;
             if(location == 0)
             {
-                webcam.stopRecordingPipeline();
-
                 moveRight(0.5, 100);
 
-                moveForward(0.5, 500);
+                moveForward(0.5, 400);
 
                 moveRight(0.5, 1150);
 
-                turnLeft(0.5, 185);
+                turnLeft(0.5, 180);
 
-                moveBackward(0.5, 70);
+                moveBackward(0.2, 10);
                 stopMotors();
 
                 bottomLayer();
 
-                moveForward(0.5, 140);
+                moveRight(.5, 1600);
 
-                moveRight(.5, 1700);
+                turnRight(.3, 75);
 
-                turnRight(.3, 58);
+                moveForward(.3, 350);
+
+                moveForward(0.13);
+                duck.setPower(-0.3);
+                Thread.sleep(4000);
+                stopMotors();
+
+                duck.setPower(-.65);
+                Thread.sleep(1000);
+                duck.setPower(0);
+
+                moveBackward(0.5, 300);
+
+                turnLeft(0.5, 140);
+
+                moveBackward(0.5);
+                Thread.sleep(600);
+
+                moveBackward(0.2);
+                Thread.sleep(800);
+
+                moveForward(0.5, 1250);
+
+                turnLeft(0.5, 12);
+
+                moveForward(0.5, 4000);
+
             }
             else if(location == 1)
             {
-                webcam.stopRecordingPipeline();
-
                 moveRight(0.5, 100);
 
-                moveForward(0.5, 500);
+                moveForward(0.5, 400);
 
                 moveRight(0.5, 1150);
 
-                turnLeft(0.5, 185);
+                turnLeft(0.5, 180);
 
-                moveBackward(0.5, 140);
+                moveBackward(0.5, 50);
                 stopMotors();
 
                 middleLayer();
 
-                moveForward(0.5, 340);
+                moveRight(.5, 1600);
 
-                moveRight(.5, 1700);
+                turnRight(.3, 80);
 
-                turnRight(.3, 53);
+                moveForward(.3, 350);
+
+                moveForward(0.13);
+                duck.setPower(-0.3);
+                Thread.sleep(4000);
+                stopMotors();
+
+                duck.setPower(-.65);
+                Thread.sleep(1000);
+                duck.setPower(0);
+
+                moveBackward(0.5, 300);
+
+                turnLeft(0.5, 140);
+
+                moveBackward(0.5);
+                Thread.sleep(600);
+
+                moveBackward(0.2);
+                Thread.sleep(800);
+
+                moveForward(0.5, 1250);
+
+                turnLeft(0.5, 12);
+
+                moveForward(0.5, 4000);
+
             }
             else if(location == 2 || location == -1 )
             {
@@ -96,52 +144,49 @@ public class VisionEverythingRed extends UpliftAuto{
 
                 moveRight(0.5, 1150);
 
-                turnLeft(0.5, 185);
+                turnLeft(0.5, 180);
 
-                moveBackward(0.5, 300);
+                moveBackward(0.5, 250);
                 stopMotors();
 
                 topLayer();
 
-                moveForward(0.5, 490);
+                moveForward(0.5, 100);
 
-                moveRight(.5, 1900);
+                moveRight(.5, 1600);
 
-                turnRight(.3, 55);
+                turnRight(.3, 70);
+
+                moveForward(.2, 350);
+
+                moveForward(0.13);
+                duck.setPower(-0.3);
+                Thread.sleep(4000);
+                stopMotors();
+
+                duck.setPower(-.65);
+                Thread.sleep(1000);
+                duck.setPower(0);
+
+                moveBackward(0.5, 300);
+
+                turnLeft(0.5, 140);
+
+                moveBackward(0.5);
+                Thread.sleep(600);
+
+                moveBackward(0.2);
+                Thread.sleep(800);
+
+                moveForward(0.5, 1250);
+
+                turnLeft(0.5, 12);
+
+                moveForward(0.5, 4000);
+
+                bucket.setPosition(.25);
+
             }
-
-            bucket.setPosition(0.3);
-
-            moveForward(.3, 450);
-
-            moveForward(0.12);
-            duck.setPower(-0.3);
-            Thread.sleep(4000);
-            stopMotors();
-
-            duck.setPower(-.65);
-            Thread.sleep(1000);
-            duck.setPower(0);
-
-            moveBackward(0.5, 300);
-
-            turnLeft(0.5, 150);
-
-            moveBackward(0.5);
-            Thread.sleep(600);
-
-            moveBackward(0.2);
-            Thread.sleep(800);
-
-            moveForward(0.5, 1250);
-
-            turnLeft(0.5, 15);
-
-            moveForward(0.5, 4000);
-
-            moveForward(.2, 500);
-
-            bucket.setPosition(.25);
         }
 
         @Override
@@ -297,7 +342,7 @@ public class VisionEverythingRed extends UpliftAuto{
 
         public void bottomLayer() throws InterruptedException
         {
-            bucket.setPosition(0.75);
+            bucket.setPosition(0.78);
             robot.safeSleep(500);
             arm.setPosition(1);
             robot.safeSleep(2000);
