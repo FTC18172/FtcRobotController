@@ -151,11 +151,11 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
             moveForward(0.5, 490);
 
-            moveRight(.5, 1600);
+            moveRight(.5, 1800);
 
-            turnRight(.3, 50);
+            turnRight(.3, 52);
 
-            moveForward(.3, 500);
+            moveForward(.2, 400);
 
             moveForward(0.13);
             duck.setPower(-0.3);

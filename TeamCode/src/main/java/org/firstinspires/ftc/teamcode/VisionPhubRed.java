@@ -82,7 +82,7 @@ public class VisionPhubRed extends UpliftAuto {
 
             moveForward(0.5,300);
 
-            turnLeft(.5,95);
+            turnLeft(.5,102);
 
             moveForward(.6,2800);
         }

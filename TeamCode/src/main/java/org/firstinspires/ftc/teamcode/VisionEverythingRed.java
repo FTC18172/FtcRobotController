@@ -53,7 +53,7 @@ public class VisionEverythingRed extends UpliftAuto{
 
                 turnLeft(0.5, 185);
 
-                moveBackward(0.5, 90);
+                moveBackward(0.5, 70);
                 stopMotors();
 
                 bottomLayer();
@@ -62,7 +62,7 @@ public class VisionEverythingRed extends UpliftAuto{
 
                 moveRight(.5, 1700);
 
-                turnRight(.3, 43);
+                turnRight(.3, 58);
             }
             else if(location == 1)
             {
@@ -85,7 +85,7 @@ public class VisionEverythingRed extends UpliftAuto{
 
                 moveRight(.5, 1700);
 
-                turnRight(.3, 43);
+                turnRight(.3, 53);
             }
             else if(location == 2 || location == -1 )
             {
@@ -105,14 +105,14 @@ public class VisionEverythingRed extends UpliftAuto{
 
                 moveForward(0.5, 490);
 
-                moveRight(.5, 1800);
+                moveRight(.5, 1900);
 
-                turnRight(.3, 43);
+                turnRight(.3, 55);
             }
 
             bucket.setPosition(0.3);
 
-            moveForward(.3, 485);
+            moveForward(.3, 450);
 
             moveForward(0.12);
             duck.setPower(-0.3);
