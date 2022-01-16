@@ -124,11 +124,11 @@ public class Teleop extends UpliftTele {
 
     public void armDown() throws InterruptedException {
         if(gamepad2.y) {
-            bucket.setPosition(0.9);
+            bucket.setPosition(1);
             Thread.sleep(500);
-            arm.setPosition(.024);
+            arm.setPosition(.03);
             Thread.sleep(500);
-            bucket.setPosition(0.25);
+            bucket.setPosition(0.30);
         }
     }
 
@@ -138,7 +138,7 @@ public class Teleop extends UpliftTele {
             Thread.sleep(500);
             arm.setPosition(.024);
             Thread.sleep(500);
-            bucket.setPosition(0.25);
+            bucket.setPosition(0.35);
         }
     }
 
@@ -154,7 +154,7 @@ public class Teleop extends UpliftTele {
     public void sharedHub() throws InterruptedException {
         if (gamepad2.a)
         {
-            bucket.setPosition(0.67);
+            bucket.setPosition(0.8);
             arm.setPosition(0.95);
 
         }

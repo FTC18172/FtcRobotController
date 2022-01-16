@@ -234,40 +234,40 @@ public class VisionPhubRed extends UpliftAuto {
 
     public void topLayer() throws InterruptedException
     {
-        bucket.setPosition(0.62);
+        bucket.setPosition(0.72);
         //bucket.setPosition(.65);
         robot.safeSleep(500);
         arm.setPosition(0.6);
         robot.safeSleep(1000);
-        bucket.setPosition(0.9);
+        bucket.setPosition(1);
         robot.safeSleep(500);
         arm.setPosition(0);
         //arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.33);
+        bucket.setPosition(0.25);
 //        bucket.setPosition(0.15);
 
     }
 
     public void middleLayer() throws InterruptedException {
-        bucket.setPosition(0.65);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(0.8);
         robot.safeSleep(2000);
-        bucket.setPosition(0.9);
+        bucket.setPosition(1);
         robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.33);
+        bucket.setPosition(0.25);
     }
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.78);
+        bucket.setPosition(0.8);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);
-        bucket.setPosition(0.9);
+        bucket.setPosition(1);
         robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);

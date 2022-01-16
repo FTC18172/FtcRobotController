@@ -50,16 +50,16 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5,1100);
 
-            turnLeft(0.5,180);
+            turnLeft(0.5,170);
 
-            moveBackward(0.5, 50);
+//            moveBackward(0.5, 50);
             stopMotors();
 
             bottomLayer();
 
-            moveForward(0.5,150);
+            moveForward(0.5,250);
 
-            turnRight(.5,90);
+            turnRight(.5,80);
 
             moveForward(.6,2800);
         }
@@ -68,20 +68,20 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,400);
+            moveForward(0.5,300);
 
-            moveRight(0.5,1100);
+            moveRight(0.5,1200);
 
-            turnLeft(0.5,185);
+            turnLeft(0.5,170);
 
-            moveBackward(0.5, 100);
+//            moveBackward(0.5, 100);
             stopMotors();
 
             middleLayer();
 
             moveForward(0.5,220);
 
-            turnRight(.5,90);
+            turnRight(.5,75);
 
             moveForward(.6,2800);
         }
@@ -90,20 +90,20 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,400);
+            moveForward(0.5,300);
 
-            moveRight(0.5,1100);
+            moveRight(0.5,1200);
 
-            turnLeft(0.5,175);
+            turnLeft(0.5,170);
 
-            moveBackward(0.5, 190);
+            moveBackward(0.5, 100);
             stopMotors();
 
             topLayer();
 
             moveForward(0.5,300);
 
-            turnRight(.5,85);
+            turnRight(.5,75);
 
             moveForward(.6,2800);
         }
@@ -235,12 +235,12 @@ public class VisionPhubBlue extends UpliftAuto {
 
     public void topLayer() throws InterruptedException
     {
-        bucket.setPosition(0.62);
+        bucket.setPosition(0.72);
         //bucket.setPosition(.65);
         robot.safeSleep(500);
         arm.setPosition(0.6);
         robot.safeSleep(1000);
-        bucket.setPosition(0.9);
+        bucket.setPosition(1);
         robot.safeSleep(500);
         arm.setPosition(0);
         //arm.setPosition(0);
@@ -251,11 +251,11 @@ public class VisionPhubBlue extends UpliftAuto {
     }
 
     public void middleLayer() throws InterruptedException {
-        bucket.setPosition(0.65);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(0.8);
         robot.safeSleep(2000);
-        bucket.setPosition(0.9);
+        bucket.setPosition(1);
         robot.safeSleep(1000);
         arm.setPosition(0);
         robot.safeSleep(500);
@@ -264,11 +264,11 @@ public class VisionPhubBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.75);
+        bucket.setPosition(0.8);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);
-        bucket.setPosition(0.9);
+        bucket.setPosition(1);
         robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);

@@ -45,13 +45,13 @@ public class VisionEverythingRed extends UpliftAuto{
             {
                 moveRight(0.5, 100);
 
-                moveForward(0.5, 400);
+                moveForward(0.5, 300);
 
-                moveRight(0.5, 1150);
+                moveRight(0.5, 1250);
 
-                turnLeft(0.5, 180);
+                turnLeft(0.5, 170);
 
-                moveBackward(0.2, 10);
+//                moveBackward(0.2, 10);
                 stopMotors();
 
                 bottomLayer();
@@ -92,13 +92,13 @@ public class VisionEverythingRed extends UpliftAuto{
             {
                 moveRight(0.5, 100);
 
-                moveForward(0.5, 400);
+                moveForward(0.5, 300);
 
-                moveRight(0.5, 1150);
+                moveRight(0.5, 1250);
 
-                turnLeft(0.5, 180);
+                turnLeft(0.5, 170);
 
-                moveBackward(0.5, 50);
+//                moveBackward(0.5, 50);
                 stopMotors();
 
                 middleLayer();
@@ -140,22 +140,22 @@ public class VisionEverythingRed extends UpliftAuto{
                 webcam.stopRecordingPipeline();
                 moveRight(0.5, 100);
 
-                moveForward(0.5, 500);
+                moveForward(0.5, 400);
 
-                moveRight(0.5, 1150);
+                moveRight(0.5, 1250);
 
-                turnLeft(0.5, 180);
+                turnLeft(0.5, 170);
 
-                moveBackward(0.5, 250);
+                moveBackward(0.5, 30);
                 stopMotors();
 
                 topLayer();
 
-                moveForward(0.5, 100);
+//                moveForward(0.5, 100);
 
-                moveRight(.5, 1600);
+                moveRight(.5, 1700);
 
-                turnRight(.3, 70);
+                turnRight(.3, 75);
 
                 moveForward(.2, 350);
 
@@ -314,44 +314,45 @@ public class VisionEverythingRed extends UpliftAuto{
 
         public void topLayer() throws InterruptedException
         {
-            bucket.setPosition(0.62);
+            bucket.setPosition(0.72);
             //bucket.setPosition(.65);
             robot.safeSleep(500);
             arm.setPosition(0.6);
             robot.safeSleep(1000);
-            bucket.setPosition(0.9);
+            bucket.setPosition(1);
             robot.safeSleep(500);
             arm.setPosition(0);
             //arm.setPosition(0);
             robot.safeSleep(500);
-            bucket.setPosition(0.33);
+            bucket.setPosition(0.25);
 //        bucket.setPosition(0.15);
+
         }
 
-        public void middleLayer() throws InterruptedException {
-            bucket.setPosition(0.65);
-            robot.safeSleep(500);
-            arm.setPosition(0.8);
-            robot.safeSleep(2000);
-            bucket.setPosition(0.9);
-            robot.safeSleep(1000);
-            arm.setPosition(0);
-            robot.safeSleep(500);
-            bucket.setPosition(0.33);
-        }
+    public void middleLayer() throws InterruptedException {
+        bucket.setPosition(0.75);
+        robot.safeSleep(500);
+        arm.setPosition(0.8);
+        robot.safeSleep(2000);
+        bucket.setPosition(1);
+        robot.safeSleep(1000);
+        arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.25);
+    }
 
-        public void bottomLayer() throws InterruptedException
-        {
-            bucket.setPosition(0.78);
-            robot.safeSleep(500);
-            arm.setPosition(1);
-            robot.safeSleep(2000);
-            bucket.setPosition(0.9);
-            robot.safeSleep(2000);
-            arm.setPosition(0);
-            robot.safeSleep(500);
-            bucket.setPosition(0.33);
-        }
+    public void bottomLayer() throws InterruptedException
+    {
+        bucket.setPosition(0.8);
+        robot.safeSleep(500);
+        arm.setPosition(1);
+        robot.safeSleep(2000);
+        bucket.setPosition(1);
+        robot.safeSleep(2000);
+        arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.33);
+    }
 
 
 
