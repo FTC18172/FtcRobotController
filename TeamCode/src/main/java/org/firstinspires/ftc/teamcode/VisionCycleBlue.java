@@ -1,14 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 import org.openftc.easyopencv.OpenCvCamera;
 
-@Autonomous(name = "VisionPhubBlue", group = "OpModes")
-public class VisionPhubBlue extends UpliftAuto {
+@Autonomous(name = "VisionCycleBlue", group = "OpModes")
+public class VisionCycleBlue extends UpliftAuto {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -18,6 +19,7 @@ public class VisionPhubBlue extends UpliftAuto {
     Servo bucket, arm;
     int location;
     OpenCvCamera webcam;
+    ColorSensor bucketSensor;
 
     @Override
     public void initHardware() {
@@ -31,6 +33,7 @@ public class VisionPhubBlue extends UpliftAuto {
         arm = robot.arm;
         bucket = robot.bucket;
         webcam = robot.webcam;
+        bucketSensor = robot.bucketSensor;
     }
 
     @Override
@@ -41,73 +44,129 @@ public class VisionPhubBlue extends UpliftAuto {
     @Override
     public void body() throws InterruptedException {
         location = robot.pipeline.location;
-        if(location == 0){
+        if (location == 0) {
             webcam.stopRecordingPipeline();
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,350);
+            moveForward(0.5, 350);
 
-            moveRight(0.5,1100);
+            moveRight(0.5, 1100);
 
-            turnLeft(0.5,170);
+            turnLeft(0.5, 170);
 
             moveBackward(0.5, 75);
             stopMotors();
 
             bottomLayer();
 
-            moveForward(0.5,250);
-
-            turnRight(.5,80);
-
-            moveForward(.6,2800);
-        }
-        else if(location == 1){
+        } else if (location == 1) {
             webcam.stopRecordingPipeline();
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,300);
+            moveForward(0.5, 300);
 
-            moveRight(0.5,1200);
+            moveRight(0.5, 1200);
 
-            turnLeft(0.5,170);
+            turnLeft(0.5, 170);
 
             moveBackward(0.5, 100);
             stopMotors();
 
             middleLayer();
 
-            moveForward(0.5,220);
-
-            turnRight(.5,78);
-
-            moveForward(.6,2800);
-        }
-        else if(location == 2){
+        } else if (location == 2) {
             webcam.stopRecordingPipeline();
 
             moveRight(0.5, 100);
 
-            moveForward(0.5,300);
+            moveForward(0.5, 300);
 
-            moveRight(0.5,1200);
+            moveRight(0.5, 1200);
 
-            turnLeft(0.5,170);
+            turnLeft(0.5, 175);
 
             moveBackward(0.5, 300);
             stopMotors();
 
             topLayer();
 
-            moveForward(0.5,300);
-
-            turnRight(.5,75);
-
-            moveForward(.6,2800);
         }
         bucket.setPosition(.25);
+
+        moveForward(.7,500);
+
+        turnRight(.7,85);
+
+        moveLeft(0.45);
+
+        robot.safeSleep(1000);
+
+        moveForward(.7,1300);
+
+        moveForward(.2);
+
+        intake.setPower(.75);
+
+        robot.safeSleep(3000);
+
+        intake.setPower(0);
+
+        moveBackward(0.7, 2650);
+
+        moveRight(0.7, 1000);
+
+        turnLeft(0.7, 80);
+
+        moveBackward(0.5, 100);
+
+        topLayer();
+
+        moveForward(.7,500);
+
+        turnRight(.7,85);
+
+        moveLeft(0.45);
+
+        robot.safeSleep(1000);
+
+        moveForward(.7,1300);
+
+        moveForward(.2);
+
+        intake.setPower(.75);
+
+        robot.safeSleep(3000);
+
+        intake.setPower(0);
+
+        moveBackward(0.7, 2650);
+
+        moveRight(0.7, 1000);
+
+        turnLeft(0.7, 80);
+
+        moveBackward(0.5, 100);
+
+        topLayer();
+
+        moveForward(.7,500);
+
+        turnRight(.7,85);
+
+        moveLeft(0.45);
+
+        robot.safeSleep(1000);
+
+        moveForward(.7,1300);
+
+        moveForward(1, 500);
+
+
+
+
+
     }
 
     @Override
@@ -127,7 +186,7 @@ public class VisionPhubBlue extends UpliftAuto {
     public void moveLeft(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while(rf.getCurrentPosition() < initialPos + dist) {
+        while (rf.getCurrentPosition() < initialPos + dist) {
             rf.setPower(power);
             rb.setPower(-power);
             lf.setPower(-power);
@@ -146,7 +205,7 @@ public class VisionPhubBlue extends UpliftAuto {
     public void moveRight(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while(rf.getCurrentPosition() > initialPos - dist) {
+        while (rf.getCurrentPosition() > initialPos - dist) {
             rf.setPower(-power);
             rb.setPower(power);
             lf.setPower(power);
@@ -158,7 +217,7 @@ public class VisionPhubBlue extends UpliftAuto {
     public void moveForward(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while(rf.getCurrentPosition() < initialPos + dist) {
+        while (rf.getCurrentPosition() < initialPos + dist) {
             rf.setPower(power);
             rb.setPower(power);
             lf.setPower(power);
@@ -177,7 +236,7 @@ public class VisionPhubBlue extends UpliftAuto {
     public void moveBackward(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while(rf.getCurrentPosition() > initialPos - Math.abs(dist)) {
+        while (rf.getCurrentPosition() > initialPos - Math.abs(dist)) {
             rf.setPower(-power);
             rb.setPower(-power);
             lf.setPower(-power);
@@ -196,7 +255,7 @@ public class VisionPhubBlue extends UpliftAuto {
     public void turnRight(double power, double angle) {
         double initialAngle = getIntegratedAngle();
 
-        while(getIntegratedAngle() > initialAngle - angle + 5) {
+        while (getIntegratedAngle() > initialAngle - angle + 5) {
             rf.setPower(-power);
             rb.setPower(-power);
             lf.setPower(power);
@@ -211,7 +270,7 @@ public class VisionPhubBlue extends UpliftAuto {
     public void turnLeft(double power, double angle) {
         double initialAngle = getIntegratedAngle();
 
-        while(getIntegratedAngle() < initialAngle + angle - 10) {
+        while (getIntegratedAngle() < initialAngle + angle - 10) {
             rf.setPower(power);
             rb.setPower(power);
             lf.setPower(-power);
@@ -222,19 +281,16 @@ public class VisionPhubBlue extends UpliftAuto {
         stopMotors();
     }
 
-    public void bucketPos1()
-    {
+    public void bucketPos1() {
         bucket.setPosition(1);
     }
 
 
-    public void bucketPos2()
-    {
+    public void bucketPos2() {
         bucket.setPosition(0.33);
     }
 
-    public void topLayer() throws InterruptedException
-    {
+    public void topLayer() throws InterruptedException {
         bucket.setPosition(0.72);
         //bucket.setPosition(.65);
         robot.safeSleep(500);
@@ -262,8 +318,7 @@ public class VisionPhubBlue extends UpliftAuto {
         bucket.setPosition(0.25);
     }
 
-    public void bottomLayer() throws InterruptedException
-    {
+    public void bottomLayer() throws InterruptedException {
         bucket.setPosition(0.8);
         robot.safeSleep(500);
         arm.setPosition(1);
@@ -275,7 +330,16 @@ public class VisionPhubBlue extends UpliftAuto {
         bucket.setPosition(0.33);
     }
 
-
+    public void IntakeCycle() throws InterruptedException {
+//        if (robot.bucketSensor.alpha() < 100) {
+//            moveForward(.2);
+//            intake.setPower(.7);
+////            robot.safeSleep(3000);
+//        } else {
+//            stopMotors();
+//            intake.setPower(0);
+        }
+//    }
 
     private double previousAngle = 0; //Outside of method
     private double integratedAngle = 0;
@@ -284,6 +348,7 @@ public class VisionPhubBlue extends UpliftAuto {
      * This method returns a value of the Z axis of the REV Expansion Hub IMU.
      * It transforms the value from (-180, 180) to (-inf, inf).
      * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
+     *
      * @return The integrated heading on the interval (-inf, inf).
      */
     private double getIntegratedAngle() {
@@ -301,5 +366,5 @@ public class VisionPhubBlue extends UpliftAuto {
 
         return integratedAngle;
     }
-
 }
+
