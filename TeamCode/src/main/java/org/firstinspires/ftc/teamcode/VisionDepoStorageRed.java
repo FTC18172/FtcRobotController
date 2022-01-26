@@ -189,7 +189,6 @@ public class VisionDepoStorageRed extends UpliftAuto {
     public void exit() throws InterruptedException {
 
     }
-
     public void stopMotors() {
         lf.setPower(0);
         rf.setPower(0);

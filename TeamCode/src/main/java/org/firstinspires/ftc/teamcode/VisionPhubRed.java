@@ -113,7 +113,6 @@ public class VisionPhubRed extends UpliftAuto {
     public void exit() throws InterruptedException {
 
     }
-
     public void stopMotors() {
         lf.setPower(0);
         rf.setPower(0);
@@ -300,6 +299,5 @@ public class VisionPhubRed extends UpliftAuto {
 
         return integratedAngle;
     }
-
 }
 

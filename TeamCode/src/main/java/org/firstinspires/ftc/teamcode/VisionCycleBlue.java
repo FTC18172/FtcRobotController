@@ -173,7 +173,6 @@ public class VisionCycleBlue extends UpliftAuto {
     public void exit() throws InterruptedException {
 
     }
-
     public void stopMotors() {
         lf.setPower(0);
         rf.setPower(0);
@@ -186,7 +185,7 @@ public class VisionCycleBlue extends UpliftAuto {
     public void moveLeft(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while (rf.getCurrentPosition() < initialPos + dist) {
+        while(rf.getCurrentPosition() < initialPos + dist) {
             rf.setPower(power);
             rb.setPower(-power);
             lf.setPower(-power);
@@ -205,7 +204,7 @@ public class VisionCycleBlue extends UpliftAuto {
     public void moveRight(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while (rf.getCurrentPosition() > initialPos - dist) {
+        while(rf.getCurrentPosition() > initialPos - dist) {
             rf.setPower(-power);
             rb.setPower(power);
             lf.setPower(power);
@@ -217,7 +216,7 @@ public class VisionCycleBlue extends UpliftAuto {
     public void moveForward(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while (rf.getCurrentPosition() < initialPos + dist) {
+        while(rf.getCurrentPosition() < initialPos + dist) {
             rf.setPower(power);
             rb.setPower(power);
             lf.setPower(power);
@@ -236,7 +235,7 @@ public class VisionCycleBlue extends UpliftAuto {
     public void moveBackward(double power, double dist) {
         double initialPos = rf.getCurrentPosition();
 
-        while (rf.getCurrentPosition() > initialPos - Math.abs(dist)) {
+        while(rf.getCurrentPosition() > initialPos - Math.abs(dist)) {
             rf.setPower(-power);
             rb.setPower(-power);
             lf.setPower(-power);
@@ -255,7 +254,7 @@ public class VisionCycleBlue extends UpliftAuto {
     public void turnRight(double power, double angle) {
         double initialAngle = getIntegratedAngle();
 
-        while (getIntegratedAngle() > initialAngle - angle + 5) {
+        while(getIntegratedAngle() > initialAngle - angle + 5) {
             rf.setPower(-power);
             rb.setPower(-power);
             lf.setPower(power);
@@ -270,7 +269,7 @@ public class VisionCycleBlue extends UpliftAuto {
     public void turnLeft(double power, double angle) {
         double initialAngle = getIntegratedAngle();
 
-        while (getIntegratedAngle() < initialAngle + angle - 10) {
+        while(getIntegratedAngle() < initialAngle + angle - 10) {
             rf.setPower(power);
             rb.setPower(power);
             lf.setPower(-power);
@@ -281,16 +280,19 @@ public class VisionCycleBlue extends UpliftAuto {
         stopMotors();
     }
 
-    public void bucketPos1() {
+    public void bucketPos1()
+    {
         bucket.setPosition(1);
     }
 
 
-    public void bucketPos2() {
+    public void bucketPos2()
+    {
         bucket.setPosition(0.33);
     }
 
-    public void topLayer() throws InterruptedException {
+    public void topLayer() throws InterruptedException
+    {
         bucket.setPosition(0.72);
         //bucket.setPosition(.65);
         robot.safeSleep(500);
@@ -318,7 +320,8 @@ public class VisionCycleBlue extends UpliftAuto {
         bucket.setPosition(0.25);
     }
 
-    public void bottomLayer() throws InterruptedException {
+    public void bottomLayer() throws InterruptedException
+    {
         bucket.setPosition(0.8);
         robot.safeSleep(500);
         arm.setPosition(1);
@@ -330,16 +333,7 @@ public class VisionCycleBlue extends UpliftAuto {
         bucket.setPosition(0.33);
     }
 
-    public void IntakeCycle() throws InterruptedException {
-//        if (robot.bucketSensor.alpha() < 100) {
-//            moveForward(.2);
-//            intake.setPower(.7);
-////            robot.safeSleep(3000);
-//        } else {
-//            stopMotors();
-//            intake.setPower(0);
-        }
-//    }
+
 
     private double previousAngle = 0; //Outside of method
     private double integratedAngle = 0;
@@ -348,7 +342,6 @@ public class VisionCycleBlue extends UpliftAuto {
      * This method returns a value of the Z axis of the REV Expansion Hub IMU.
      * It transforms the value from (-180, 180) to (-inf, inf).
      * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
-     *
      * @return The integrated heading on the interval (-inf, inf).
      */
     private double getIntegratedAngle() {

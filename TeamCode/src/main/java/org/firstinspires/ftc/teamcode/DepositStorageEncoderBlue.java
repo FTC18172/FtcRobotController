@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 
 @Autonomous(name = "DepositStorageEncoderBlue", group = "OpModes")
-public class DepositStorageEncoderBlue extends UpliftAuto {
+public class DepositStorageEncoderBlue extends UpliftAuto  {
     UpliftRobot robot;
     DcMotor lf;
     DcMotor rf;
@@ -194,18 +194,47 @@ public class DepositStorageEncoderBlue extends UpliftAuto {
 
     public void topLayer() throws InterruptedException
     {
-        bucket.setPosition(0.65);
-        Thread.sleep(500);
+        bucket.setPosition(0.72);
+        //bucket.setPosition(.65);
+        robot.safeSleep(500);
         arm.setPosition(0.6);
-        Thread.sleep(1000);
+        robot.safeSleep(1000);
         bucket.setPosition(1);
-        Thread.sleep(500);
+        robot.safeSleep(500);
         arm.setPosition(0);
-        Thread.sleep(500);
-        bucket.setPosition(0.15);
-        Thread.sleep(1000);
+        //arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.25);
+//        bucket.setPosition(0.15);
 
     }
+
+    public void middleLayer() throws InterruptedException {
+        bucket.setPosition(0.75);
+        robot.safeSleep(500);
+        arm.setPosition(0.8);
+        robot.safeSleep(2000);
+        bucket.setPosition(1);
+        robot.safeSleep(1000);
+        arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.25);
+    }
+
+    public void bottomLayer() throws InterruptedException
+    {
+        bucket.setPosition(0.8);
+        robot.safeSleep(500);
+        arm.setPosition(1);
+        robot.safeSleep(2000);
+        bucket.setPosition(1);
+        robot.safeSleep(2000);
+        arm.setPosition(0);
+        robot.safeSleep(500);
+        bucket.setPosition(0.33);
+    }
+
+
 
     private double previousAngle = 0; //Outside of method
     private double integratedAngle = 0;
