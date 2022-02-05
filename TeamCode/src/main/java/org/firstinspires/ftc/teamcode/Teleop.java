@@ -26,8 +26,8 @@ public class Teleop extends UpliftTele {
     CRServo capX, capY, cap;
     ColorSensor bucketSensor;
     OpenCvCamera webcam;
-    boolean aReleased = true;
-    boolean bReleased = true;
+    boolean aReleased = false;
+    boolean bReleased = false;
 
 
     @Override
@@ -88,10 +88,10 @@ public class Teleop extends UpliftTele {
         telemetry.addData("Freight", bucketSensor.alpha());
         telemetry.update();
 
-        if(gamepad1.a || !aReleased)
-        aReleased = setCapIn(aReleased);
-        else if (gamepad1.b || !bReleased)
-        bReleased = setCapOut(bReleased);
+//        if(gamepad1.a || !aReleased)
+            aReleased = setCapIn(aReleased);
+//        else if (gamepad1.b || !bReleased)
+            bReleased = setCapOut(bReleased);
         setCapX();
         setCapY();
 
