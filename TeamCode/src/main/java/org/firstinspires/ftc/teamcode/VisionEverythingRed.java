@@ -41,7 +41,7 @@ public class VisionEverythingRed extends UpliftAuto {
         @Override
         public void body() throws InterruptedException {
             location = robot.pipeline.location;
-            if(location == 0)
+            if(location == 0 || location == -1)
             {
                 moveRight(0.5, 100);
 
@@ -49,16 +49,18 @@ public class VisionEverythingRed extends UpliftAuto {
 
                 moveRight(0.5, 1250);
 
-                turnLeft(0.5, 170);
+                turnLeft(0.5, 180);
 
-//                moveBackward(0.2, 10);
+                moveBackward(0.4, 260);
                 stopMotors();
 
                 bottomLayer();
 
+                moveForward(.3, 120);
+
                 moveRight(.5, 1600);
 
-                turnRight(.3, 75);
+                turnRight(.3, 50);
 
                 moveForward(.3, 350);
 
@@ -96,16 +98,18 @@ public class VisionEverythingRed extends UpliftAuto {
 
                 moveRight(0.5, 1250);
 
-                turnLeft(0.5, 170);
+                turnLeft(0.5, 180);
 
-//                moveBackward(0.5, 50);
+                moveBackward(0.4, 350);
                 stopMotors();
 
                 middleLayer();
 
+                moveForward(.3, 150);
+
                 moveRight(.5, 1600);
 
-                turnRight(.3, 80);
+                turnRight(.3, 45);
 
                 moveForward(.3, 350);
 
@@ -135,7 +139,7 @@ public class VisionEverythingRed extends UpliftAuto {
                 moveForward(0.5, 4000);
 
             }
-            else if(location == 2 || location == -1 )
+            else if(location == 2 )
             {
                 webcam.stopRecordingPipeline();
                 moveRight(0.5, 100);
@@ -144,18 +148,20 @@ public class VisionEverythingRed extends UpliftAuto {
 
                 moveRight(0.5, 1250);
 
-                turnLeft(0.5, 170);
+                turnLeft(0.5, 180);
 
-                moveBackward(0.5, 30);
+                moveBackward(0.5, 350);
                 stopMotors();
 
                 topLayer();
 
-//                moveForward(0.5, 100);
+                bucket.setPosition(.4);
+
+                moveForward(0.5, 200);
 
                 moveRight(.5, 1700);
 
-                turnRight(.3, 75);
+                turnRight(.3, 45);
 
                 moveForward(.2, 350);
 
@@ -350,7 +356,7 @@ public class VisionEverythingRed extends UpliftAuto {
         robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.33);
+        bucket.setPosition(0.4);
     }
 
 

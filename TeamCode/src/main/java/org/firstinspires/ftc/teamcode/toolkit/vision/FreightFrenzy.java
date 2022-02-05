@@ -9,7 +9,7 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 
-public class FreightFrenzy extends OpenCvPipeline {
+public class  FreightFrenzy extends OpenCvPipeline {
     Telemetry telemetry;
     Mat mat = new Mat();
     public int location = -1;

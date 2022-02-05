@@ -53,18 +53,18 @@ public class VisionPhubRed extends UpliftAuto {
 
            moveLeft(0.5,1000);
 
-           turnLeft(0.5,180);
+           turnLeft(0.5,175);
 
-           moveBackward(0.5, 125);
+           moveBackward(0.5, 135);
            stopMotors();
 
            bottomLayer();
 
            moveForward(0.5,150);
 
-           turnLeft(.5,95);
+           turnLeft(.5,90);
 
-           moveForward(.6,2800);
+           moveForward(.6,3000);
        }
        else if(location == 1){
            webcam.stopRecordingPipeline();
@@ -73,18 +73,18 @@ public class VisionPhubRed extends UpliftAuto {
 
             moveLeft(0.5,1000);
 
-            turnLeft(0.5,180);
+            turnLeft(0.5,175);
 
             moveBackward(0.5, 200);
             stopMotors();
 
             middleLayer();
 
-            moveForward(0.5,300);
+            moveForward(0.5,250);
 
-            turnLeft(.5,102);
+            turnLeft(.5,95);
 
-            moveForward(.6,2800);
+            moveForward(.6,3000);
         }
        else if(location == 2){
             webcam.stopRecordingPipeline();
@@ -104,7 +104,7 @@ public class VisionPhubRed extends UpliftAuto {
 
             turnLeft(.5,90);
 
-            moveForward(.6,2800);
+            moveForward(.6,3000);
         }
        bucket.setPosition(.25);
     }
@@ -270,7 +270,7 @@ public class VisionPhubRed extends UpliftAuto {
         robot.safeSleep(2000);
         arm.setPosition(0);
         robot.safeSleep(500);
-        bucket.setPosition(0.33);
+        bucket.setPosition(0.4);
     }
 
 
