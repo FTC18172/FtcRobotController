@@ -26,8 +26,12 @@ public class Teleop extends UpliftTele {
     CRServo capX, capY, cap;
     ColorSensor bucketSensor;
     OpenCvCamera webcam;
-    boolean aReleased = false;
-    boolean bReleased = false;
+    boolean aReleased = true;
+    boolean bReleased = true;
+    boolean DPAD_LEFT = true;
+    boolean DPAD_RIGHT = true;
+    boolean DPAD_UP = true;
+    boolean DPAD_DOWN = true;
 
 
     @Override
@@ -88,12 +92,18 @@ public class Teleop extends UpliftTele {
         telemetry.addData("Freight", bucketSensor.alpha());
         telemetry.update();
 
-//        if(gamepad1.a || !aReleased)
-            aReleased = setCapIn(aReleased);
-//        else if (gamepad1.b || !bReleased)
-            bReleased = setCapOut(bReleased);
-        setCapX();
-        setCapY();
+
+            bReleased = setCapIn(bReleased);
+
+            aReleased = setCapOut(aReleased);
+
+            DPAD_DOWN = setCapDown(DPAD_DOWN);
+
+            DPAD_UP = setCapUp(DPAD_UP);
+
+            DPAD_LEFT = setCapLeft(DPAD_LEFT);
+
+            DPAD_RIGHT = setCapRight(DPAD_RIGHT);
 
     }
 
@@ -177,28 +187,72 @@ public class Teleop extends UpliftTele {
 
     }
 
-    public void setCapX()
+    public boolean setCapLeft(boolean DPAD_LEFT)
     {
-        if(gamepad1.dpad_right)
+        if(gamepad1.dpad_left || !DPAD_LEFT)
         {
-            capX.setPower(0.25);
+            capX.setPower(-0.08);
+            DPAD_LEFT = false;
+
+            if(!gamepad1.dpad_left )
+            {
+                DPAD_LEFT = true;
+                capX.setPower(0);
+            }
+
         }
-        else if(gamepad1.dpad_left)
-        {
-            capX.setPower(-0.25);
-        }
+        return DPAD_LEFT;
     }
 
-    public void setCapY()
+    public boolean setCapRight(boolean DPAD_RIGHT)
     {
-        if(gamepad1.dpad_up)
+        if(gamepad1.dpad_right || !DPAD_RIGHT)
         {
-            capY.setPower(0.25);
+            capX.setPower(0.08);
+            DPAD_RIGHT = false;
+
+            if(!gamepad1.dpad_right)
+            {
+                DPAD_RIGHT = true;
+                capX.setPower(0);
+            }
+
         }
-        else if(gamepad1.dpad_down)
+        return DPAD_RIGHT;
+    }
+
+    public boolean setCapUp(boolean DPAD_UP)
+    {
+        if(gamepad1.dpad_up || !DPAD_UP)
         {
-            capY.setPower(-0.25);
+            capY.setPower(-0.08);
+            DPAD_UP = false;
+
+            if(!gamepad1.dpad_up)
+            {
+                DPAD_UP = true;
+                capY.setPower(0);
+            }
+
         }
+        return DPAD_UP;
+    }
+
+    public boolean setCapDown(boolean DPAD_DOWN)
+    {
+        if(gamepad1.dpad_down || !DPAD_DOWN)
+        {
+            capY.setPower(0.08);
+            DPAD_DOWN = false;
+
+            if(!gamepad1.dpad_down)
+            {
+                DPAD_DOWN = true;
+                capY.setPower(0);
+            }
+
+        }
+        return DPAD_DOWN;
     }
 
     public boolean setCapOut(boolean aReleased)
@@ -206,7 +260,7 @@ public class Teleop extends UpliftTele {
 
         if(gamepad1.a || !aReleased)
         {
-            cap.setPower(0.5);
+            cap.setPower(0.5 );
             aReleased = false;
 
             if(!gamepad1.a )
@@ -224,10 +278,10 @@ public class Teleop extends UpliftTele {
     {
         if (gamepad1.b || !bReleased)
         {
-            cap.setPower(-0.5);
+            cap.setPower(-1);
             bReleased = false;
 
-            if(!gamepad1.a )
+            if(!gamepad1.b )
             {
                 bReleased = true;
                 cap.setPower(0);
