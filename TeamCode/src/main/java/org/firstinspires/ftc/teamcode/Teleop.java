@@ -23,9 +23,11 @@ public class Teleop extends UpliftTele {
     DcMotor lf, rf, lb, rb;
     DcMotor intake, duck;
     Servo bucket, arm;
-    CRServo capX, capY, capOut;
+    CRServo capX, capY, cap;
     ColorSensor bucketSensor;
     OpenCvCamera webcam;
+    boolean aReleased = true;
+    boolean bReleased = true;
 
 
     @Override
@@ -43,7 +45,7 @@ public class Teleop extends UpliftTele {
         webcam = robot.webcam;
         capX = robot.capX;
         capY = robot.capY;
-        capOut = robot.capOut;
+        cap = robot.capOut;
     }
 
     @Override
@@ -86,7 +88,10 @@ public class Teleop extends UpliftTele {
         telemetry.addData("Freight", bucketSensor.alpha());
         telemetry.update();
 
-        setCapOut();
+        if(gamepad1.a || !aReleased)
+        aReleased = setCapIn(aReleased);
+        else if (gamepad1.b || !bReleased)
+        bReleased = setCapOut(bReleased);
         setCapX();
         setCapY();
 
@@ -196,22 +201,39 @@ public class Teleop extends UpliftTele {
         }
     }
 
-    public void setCapOut()
+    public boolean setCapOut(boolean aReleased)
     {
-        boolean released = false;
 
-        if(gamepad1.a && !released)
+        if(gamepad1.a || !aReleased)
         {
-            capOut.setPower(0.5);
-            released = true;
+            cap.setPower(0.5);
+            aReleased = false;
+
+            if(!gamepad1.a )
+            {
+                aReleased = true;
+                cap.setPower(0);
+            }
 
         }
-        else if(gamepad1.b && !released)
-        {
-            capOut.setPower(-0.5);
-            released = true;
-        }
+        return aReleased;
 
+    }
+
+    public boolean setCapIn(boolean bReleased)
+    {
+        if (gamepad1.b || !bReleased)
+        {
+            cap.setPower(-0.5);
+            bReleased = false;
+
+            if(!gamepad1.a )
+            {
+                bReleased = true;
+                cap.setPower(0);
+            }
+        }
+        return bReleased;
     }
 
 
