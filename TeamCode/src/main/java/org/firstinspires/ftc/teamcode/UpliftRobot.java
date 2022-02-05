@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -21,6 +22,7 @@ public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck;
     Servo bucket, arm;
+    CRServo capX, capY, capOut;
     ColorSensor bucketSensor;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
@@ -48,6 +50,9 @@ public class UpliftRobot {
         arm = hardwareMap.get(Servo.class, "arm");
         bucket = hardwareMap.get(Servo.class, "bucket");
         bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
+        capX = hardwareMap.get(CRServo.class, "capX");
+        capY = hardwareMap.get(CRServo.class, "capY");
+        capOut = hardwareMap.get(CRServo.class, "capOut");
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);

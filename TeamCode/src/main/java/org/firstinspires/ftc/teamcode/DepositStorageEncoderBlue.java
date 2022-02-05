@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -15,6 +16,7 @@ public class DepositStorageEncoderBlue extends UpliftAuto  {
     DcMotor rb;
     DcMotor intake, duck;
     Servo bucket, arm;
+    CRServo capX, capY, capOut;
 
 
     @Override
@@ -29,12 +31,16 @@ public class DepositStorageEncoderBlue extends UpliftAuto  {
         arm = robot.arm;
         bucket = robot.bucket;
 
+
+
     }
 
     @Override
     public void initAction() {
         bucket.setPosition(0.22);
+
     }
+
 
     @Override
     public void body() throws InterruptedException {

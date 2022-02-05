@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -22,8 +23,10 @@ public class Teleop extends UpliftTele {
     DcMotor lf, rf, lb, rb;
     DcMotor intake, duck;
     Servo bucket, arm;
+    CRServo capX, capY, capOut;
     ColorSensor bucketSensor;
     OpenCvCamera webcam;
+
 
     @Override
     public void initHardware() {
@@ -38,8 +41,11 @@ public class Teleop extends UpliftTele {
         bucket = robot.bucket;
         bucketSensor = robot.bucketSensor;
         webcam = robot.webcam;
+        capX = robot.capX;
+        capY = robot.capY;
+        capOut = robot.capOut;
     }
-     
+
     @Override
     public void initAction() {
 
@@ -53,7 +59,7 @@ public class Teleop extends UpliftTele {
         double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
         double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
 
-        if (gamepad1.right_bumper){
+        if (gamepad1.right_bumper) {
             leftY /= 2;
             rightX /= 2;
             leftX /= 2;
@@ -80,11 +86,9 @@ public class Teleop extends UpliftTele {
         telemetry.addData("Freight", bucketSensor.alpha());
         telemetry.update();
 
-
-
-
-        // arm.setPower(-Range.clip(gamepad2.right_stick_y, -0.1, 0.1));
-
+        setCapOut();
+        setCapX();
+        setCapY();
 
     }
 
@@ -93,7 +97,8 @@ public class Teleop extends UpliftTele {
 
     }
 
-    public static void teleDrive(double joystickAngle, double speedVal, double turnVal, UpliftRobot robot) {
+    public static void
+    teleDrive(double joystickAngle, double speedVal, double turnVal, UpliftRobot robot) {
         double lfPow = sin(toRadians(joystickAngle) + (0.25 * PI)) * speedVal + turnVal;
         double rfPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal - turnVal;
         double lbPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal + turnVal;
@@ -101,17 +106,17 @@ public class Teleop extends UpliftTele {
 
         // find max total input out of the 4 motors
         double maxVal = abs(lfPow);
-        if(abs(rfPow) > maxVal) {
+        if (abs(rfPow) > maxVal) {
             maxVal = abs(rfPow);
         }
-        if(abs(lbPow) > maxVal) {
+        if (abs(lbPow) > maxVal) {
             maxVal = abs(lbPow);
         }
-        if(abs(rbPow) > maxVal) {
+        if (abs(rbPow) > maxVal) {
             maxVal = abs(rbPow);
         }
 
-        if(maxVal < (1 / sqrt(2))) {
+        if (maxVal < (1 / sqrt(2))) {
             maxVal = 1 / sqrt(2);
         }
 
@@ -123,7 +128,7 @@ public class Teleop extends UpliftTele {
     }
 
     public void armDown() throws InterruptedException {
-        if(gamepad2.y) {
+        if (gamepad2.y) {
             bucket.setPosition(1);
             Thread.sleep(500);
             arm.setPosition(.03);
@@ -133,7 +138,7 @@ public class Teleop extends UpliftTele {
     }
 
     public void sharedArmDown() throws InterruptedException {
-        if(gamepad2.x) {
+        if (gamepad2.x) {
             bucket.setPosition(1);
             Thread.sleep(500);
             arm.setPosition(.024);
@@ -143,7 +148,7 @@ public class Teleop extends UpliftTele {
     }
 
     public void ting() throws InterruptedException {
-        if(gamepad2.dpad_down) {
+        if (gamepad2.dpad_down) {
 
             arm.setPosition(.024);
             Thread.sleep(500);
@@ -152,20 +157,59 @@ public class Teleop extends UpliftTele {
     }
 
     public void sharedHub() throws InterruptedException {
-        if (gamepad2.a)
-        {
+        if (gamepad2.a) {
             bucket.setPosition(0.8);
             arm.setPosition(0.95);
 
         }
     }
 
-    public void topLayer() throws InterruptedException
-    {
-        if(gamepad2.b)
-        {
+    public void topLayer() throws InterruptedException {
+        if (gamepad2.b) {
             bucket.setPosition(0.62);
             arm.setPosition(0.6);
+        }
+
+    }
+
+    public void setCapX()
+    {
+        if(gamepad1.dpad_right)
+        {
+            capX.setPower(0.25);
+        }
+        else if(gamepad1.dpad_left)
+        {
+            capX.setPower(-0.25);
+        }
+    }
+
+    public void setCapY()
+    {
+        if(gamepad1.dpad_up)
+        {
+            capY.setPower(0.25);
+        }
+        else if(gamepad1.dpad_down)
+        {
+            capY.setPower(-0.25);
+        }
+    }
+
+    public void setCapOut()
+    {
+        boolean released = false;
+
+        if(gamepad1.a && !released)
+        {
+            capOut.setPower(0.5);
+            released = true;
+
+        }
+        else if(gamepad1.b && !released)
+        {
+            capOut.setPower(-0.5);
+            released = true;
         }
 
     }
@@ -180,17 +224,19 @@ public class Teleop extends UpliftTele {
         duck.setPower(.7 * Range.clip(gamepad2.left_stick_x, -1, 1));
 
     }
-    public void stopMotors()
-    {
+
+    public void stopMotors() {
         //arm.setPower(0);
     }
 
     private double previousAngle = 0; //Outside of method
     private double integratedAngle = 0;
+
     /**
      * This method returns a value of the Z axis of the REV Expansion Hub IMU.
      * It transforms the value from (-180, 180) to (-inf, inf).
      * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
+     *
      * @return The integrated heading on the interval (-inf, inf).
      */
     private double getIntegratedAngle() {
@@ -208,4 +254,5 @@ public class Teleop extends UpliftTele {
 
         return integratedAngle;
     }
+
 }
