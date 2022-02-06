@@ -22,7 +22,7 @@ public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck;
     Servo bucket, arm;
-    CRServo capX, capY, capOut;
+    CRServo  capX, capY,capOut;
     ColorSensor bucketSensor;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
