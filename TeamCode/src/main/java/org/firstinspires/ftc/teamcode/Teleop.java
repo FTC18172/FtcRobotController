@@ -22,8 +22,8 @@ public class Teleop extends UpliftTele {
     UpliftRobot robot;
     DcMotor lf, rf, lb, rb;
     DcMotor intake, duck;
-    Servo bucket, arm;
-    CRServo capX, capY, cap;
+    Servo bucket, arm, capX, capY;
+    CRServo cap;
     ColorSensor bucketSensor;
     OpenCvCamera webcam;
     boolean aReleased = true;
@@ -49,12 +49,13 @@ public class Teleop extends UpliftTele {
         webcam = robot.webcam;
         capX = robot.capX;
         capY = robot.capY;
-        cap = robot.capOut;
+        cap = robot.cap;
     }
 
     @Override
     public void initAction() {
-
+        capX.setPosition(0.5);
+        capY.setPosition(0.5);
     }
 
     @Override
@@ -97,13 +98,15 @@ public class Teleop extends UpliftTele {
 
             aReleased = setCapOut(aReleased);
 
-            DPAD_DOWN = setCapDown(DPAD_DOWN);
+//            DPAD_DOWN = setCapDown(DPAD_DOWN);
+//
+//            DPAD_UP = setCapUp(DPAD_UP);
+//
+//            DPAD_LEFT = setCapLeft(DPAD_LEFT);
+//
+//            DPAD_RIGHT = setCapRight(DPAD_RIGHT);
 
-            DPAD_UP = setCapUp(DPAD_UP);
-
-            DPAD_LEFT = setCapLeft(DPAD_LEFT);
-
-            DPAD_RIGHT = setCapRight(DPAD_RIGHT);
+        moveCapLeft();
 
     }
 
@@ -112,8 +115,7 @@ public class Teleop extends UpliftTele {
 
     }
 
-    public static void
-    teleDrive(double joystickAngle, double speedVal, double turnVal, UpliftRobot robot) {
+    public static void teleDrive(double joystickAngle, double speedVal, double turnVal, UpliftRobot robot) {
         double lfPow = sin(toRadians(joystickAngle) + (0.25 * PI)) * speedVal + turnVal;
         double rfPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal - turnVal;
         double lbPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal + turnVal;
@@ -187,73 +189,85 @@ public class Teleop extends UpliftTele {
 
     }
 
-    public boolean setCapLeft(boolean DPAD_LEFT)
+//    public boolean setCapLeft(boolean DPAD_LEFT)
+//    {
+//        if(gamepad1.dpad_left || !DPAD_LEFT)
+//        {
+//            capX.setPower(-0.08);
+//            DPAD_LEFT = false;
+//
+//            if(!gamepad1.dpad_left )
+//            {
+//                DPAD_LEFT = true;
+//                capX.setPower(0);
+//            }
+//
+//        }
+//        return DPAD_LEFT;
+//    }
+
+    public void moveCapLeft()
     {
-        if(gamepad1.dpad_left || !DPAD_LEFT)
+        double previousPosition = 0.0;
+        double currentPosition = 0.0;
+        if(gamepad1.dpad_left)
         {
-            capX.setPower(-0.08);
-            DPAD_LEFT = false;
-
-            if(!gamepad1.dpad_left )
-            {
-                DPAD_LEFT = true;
-                capX.setPower(0);
-            }
-
+            capX.setPosition(-0.01 + previousPosition);
+            currentPosition = -0.01 + previousPosition;
+            previousPosition = currentPosition;
         }
-        return DPAD_LEFT;
     }
 
-    public boolean setCapRight(boolean DPAD_RIGHT)
-    {
-        if(gamepad1.dpad_right || !DPAD_RIGHT)
-        {
-            capX.setPower(0.08);
-            DPAD_RIGHT = false;
-
-            if(!gamepad1.dpad_right)
-            {
-                DPAD_RIGHT = true;
-                capX.setPower(0);
-            }
-
-        }
-        return DPAD_RIGHT;
-    }
-
-    public boolean setCapUp(boolean DPAD_UP)
-    {
-        if(gamepad1.dpad_up || !DPAD_UP)
-        {
-            capY.setPower(-0.08);
-            DPAD_UP = false;
-
-            if(!gamepad1.dpad_up)
-            {
-                DPAD_UP = true;
-                capY.setPower(0);
-            }
-
-        }
-        return DPAD_UP;
-    }
-
-    public boolean setCapDown(boolean DPAD_DOWN)
-    {
-        if(gamepad1.dpad_down || !DPAD_DOWN)
-        {
-            capY.setPower(0.08);
-            DPAD_DOWN = false;
-
-            if(!gamepad1.dpad_down)
-            {
-                DPAD_DOWN = true;
-                capY.setPower(0);
-            }
-
-        }
-        return DPAD_DOWN;
-    }
+//    public boolean setCapRight(boolean DPAD_RIGHT)
+//    {
+//        if(gamepad1.dpad_right || !DPAD_RIGHT)
+//        {
+//            capX.setPower(0.08);
+//            DPAD_RIGHT = false;
+//
+//            if(!gamepad1.dpad_right)
+//            {
+//                DPAD_RIGHT = true;
+//                capX.setPower(0);
+//            }
+//
+//        }
+//        return DPAD_RIGHT;
+//    }
+//
+//    public boolean setCapUp(boolean DPAD_UP)
+//    {
+//        if(gamepad1.dpad_up || !DPAD_UP)
+//        {
+//            capY.setPower(-0.08);
+//            DPAD_UP = false;
+//
+//            if(!gamepad1.dpad_up)
+//            {
+//                DPAD_UP = true;
+//                capY.setPower(0);
+//            }
+//
+//        }
+//        return DPAD_UP;
+//    }
+//
+//    public boolean setCapDown(boolean DPAD_DOWN)
+//    {
+//        if(gamepad1.dpad_down || !DPAD_DOWN)
+//        {
+//            capY.setPower(0.08);
+//            DPAD_DOWN = false;
+//
+//            if(!gamepad1.dpad_down)
+//            {
+//                DPAD_DOWN = true;
+//                capY.setPower(0);
+//            }
+//
+//        }
+//        return DPAD_DOWN;
+//    }
 
     public boolean setCapOut(boolean aReleased)
     {

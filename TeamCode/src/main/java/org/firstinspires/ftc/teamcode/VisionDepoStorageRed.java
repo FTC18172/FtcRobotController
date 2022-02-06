@@ -34,7 +34,7 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.42);
+        bucket.setPosition(0.5);
     }
 
     @Override
@@ -55,6 +55,8 @@ public class VisionDepoStorageRed extends UpliftAuto {
             stopMotors();
 
             bottomLayer();
+
+            bucket.setPosition(0.5);
 
             moveForward(.3, 120);
 
@@ -102,6 +104,8 @@ public class VisionDepoStorageRed extends UpliftAuto {
             stopMotors();
 
             middleLayer();
+
+            bucket.setPosition(0.5);
 
             moveForward(.3, 150);
 
@@ -151,6 +155,8 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
             topLayer();
 
+            bucket.setPosition(0.5);
+
             bucket.setPosition(.4);
 
             moveForward(0.5, 200);
@@ -182,7 +188,7 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
             moveLeft(0.5, 700);
 
-            bucket.setPosition(.25);
+            bucket.setPosition(.3);
 
         }
 

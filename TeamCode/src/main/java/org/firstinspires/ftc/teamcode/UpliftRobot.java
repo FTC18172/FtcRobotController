@@ -21,8 +21,8 @@ import org.openftc.easyopencv.OpenCvWebcam;
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck;
-    Servo bucket, arm;
-    CRServo  capX, capY,capOut;
+    Servo bucket, arm, capX, capY;
+    CRServo cap;
     ColorSensor bucketSensor;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
@@ -50,9 +50,9 @@ public class UpliftRobot {
         arm = hardwareMap.get(Servo.class, "arm");
         bucket = hardwareMap.get(Servo.class, "bucket");
         bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
-        capX = hardwareMap.get(CRServo.class, "capX");
-        capY = hardwareMap.get(CRServo.class, "capY");
-        capOut = hardwareMap.get(CRServo.class, "capOut");
+        capX = hardwareMap.get(Servo.class, "capX");
+        capY = hardwareMap.get(Servo.class, "capY");
+        cap = hardwareMap.get(CRServo.class, "capOut");
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -88,9 +88,6 @@ public class UpliftRobot {
     }
 
 
-
-
-
     public void safeSleep(int duration) {
         long startTime = System.currentTimeMillis();
         while (System.currentTimeMillis() - startTime < duration) {
@@ -100,23 +97,5 @@ public class UpliftRobot {
                 e.printStackTrace();
             }
         }
-
-//    }
-//
-//    public void closeCamera()
-//    {
-//        webcam.closeCameraDevice();
-//        webcam.stopStreaming();
-//        webcam.stopRecordingPipeline();
-//        webcam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-//            @Override
-//            public void onClose() {
-//                System.out.println("Alex gets hoes");
-//            }
-//        });
-//    }
-//
-//}
-
     }
 }

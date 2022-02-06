@@ -34,27 +34,29 @@ public class VisionEverythingBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.4);
+        bucket.setPosition(0.5);
     }
 
     @Override
     public void body() throws InterruptedException {
         location = robot.pipeline.location;
-        if(location == 0)
+        if(location == 0 || location == -1)
         {
             webcam.stopRecordingPipeline();
             moveForward(0.5, 420);
 
             moveLeft(0.5, 1000);
 
-            turnLeft(0.5, 180);
+            turnLeft(0.5, 175);
 
-            moveBackward(0.5, 200);
+            moveBackward(0.5, 250);
             stopMotors();
 
             bottomLayer();
 
-//            moveForward(0.5, 50);
+            bucket.setPosition(0.5);
+
+            moveForward(0.5, 50);
         }
         else if(location == 1)
         {
@@ -64,40 +66,45 @@ public class VisionEverythingBlue extends UpliftAuto {
 
             moveLeft(0.5, 1000);
 
-            turnLeft(0.5, 180);
+            turnLeft(0.5, 175);
 
             moveBackward(0.5, 300);
             stopMotors();
 
             middleLayer();
 
-//            moveForward(0.5, 100);
+            bucket.setPosition(0.5);
+
+            moveForward(0.5, 100);
         }
-        else if(location == 2 || location == -1 )
+        else if(location == 2)
         {
             webcam.stopRecordingPipeline();
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
 
-            turnLeft(0.5, 180);
+            turnLeft(0.5, 175);
 
             moveBackward(0.5, 420);
             stopMotors();
 
             topLayer();
 
-            moveForward(0.5, 100);     }
+            bucket.setPosition(0.5);
 
-        bucket.setPosition(.4);
+            moveForward(0.5, 300);
+        }
+
+        bucket.setPosition(.5);
         moveLeft(0.5);
         robot.safeSleep(3000);
 
         moveForward(0.2, 100);
 
-        moveForward(0.15);
+        moveForward(0.1);
         duck.setPower(0.3);
-        robot.safeSleep(4000);
+        robot.safeSleep(5000);
         stopMotors();
 
         duck.setPower(.65);
@@ -118,9 +125,9 @@ public class VisionEverythingBlue extends UpliftAuto {
 
         turnRight(0.5, 5);
 
-        moveForward(0.5, 4000);
+        moveForward(0.5, 3500);
 
-        bucket.setPosition(.25);
+        bucket.setPosition(.3);
 
     }
 

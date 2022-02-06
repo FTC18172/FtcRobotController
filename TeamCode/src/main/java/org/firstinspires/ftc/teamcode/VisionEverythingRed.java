@@ -35,7 +35,7 @@ public class VisionEverythingRed extends UpliftAuto {
 
         @Override
         public void initAction() {
-            bucket.setPosition(0.4);
+            bucket.setPosition(0.5);
         }
 
         @Override
@@ -55,6 +55,8 @@ public class VisionEverythingRed extends UpliftAuto {
                 stopMotors();
 
                 bottomLayer();
+
+                bucket.setPosition(0.5);
 
                 moveForward(.3, 120);
 
@@ -104,6 +106,8 @@ public class VisionEverythingRed extends UpliftAuto {
                 stopMotors();
 
                 middleLayer();
+
+                bucket.setPosition(0.5);
 
                 moveForward(.3, 150);
 
@@ -155,7 +159,7 @@ public class VisionEverythingRed extends UpliftAuto {
 
                 topLayer();
 
-                bucket.setPosition(.4);
+                bucket.setPosition(0.5);
 
                 moveForward(0.5, 200);
 
@@ -190,7 +194,7 @@ public class VisionEverythingRed extends UpliftAuto {
 
                 moveForward(0.5, 4000);
 
-                bucket.setPosition(.25);
+                bucket.setPosition(.3);
 
             }
         }

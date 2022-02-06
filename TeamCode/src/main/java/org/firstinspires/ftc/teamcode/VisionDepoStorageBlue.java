@@ -36,7 +36,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     @Override
     public void initAction() {
-        bucket.setPosition(0.4);
+        bucket.setPosition(0.5);
     }
 
     @Override
@@ -56,6 +56,8 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             bottomLayer();
 
+            bucket.setPosition(0.5);
+
             moveForward(0.5, 50);
         }
         else if(location == 1)
@@ -73,6 +75,8 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             middleLayer();
 
+            bucket.setPosition(0.5);
+
             moveForward(0.5, 100);
         }
         else if(location == 2)
@@ -89,7 +93,10 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             topLayer();
 
-            moveForward(0.5, 300);     }
+            bucket.setPosition(0.5);
+
+            moveForward(0.5, 300);
+        }
 
         moveLeft(0.5);
         robot.safeSleep(3000);
@@ -107,7 +114,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
         moveBackward(0.5, 800);
 
-        bucket.setPosition(.25);
+        bucket.setPosition(.3);
 
     }
 
