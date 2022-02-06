@@ -50,9 +50,9 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5,1100);
 
-            turnLeft(0.5,170);
+            turnLeft(0.5,180);
 
-            moveBackward(0.5, 75);
+            moveBackward(0.5, 190);
             stopMotors();
 
             bottomLayer();
@@ -74,9 +74,9 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5,1200);
 
-            turnLeft(0.5,170);
+            turnLeft(0.5,175);
 
-            moveBackward(0.5, 100);
+            moveBackward(0.5, 300);
             stopMotors();
 
             middleLayer();
@@ -98,9 +98,9 @@ public class VisionPhubBlue extends UpliftAuto {
 
             moveRight(0.5,1200);
 
-            turnLeft(0.5,170);
+            turnLeft(0.5,180);
 
-            moveBackward(0.5, 300);
+            moveBackward(0.5, 400);
             stopMotors();
 
             topLayer();
@@ -269,7 +269,7 @@ public class VisionPhubBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.8);
+        bucket.setPosition(0.9);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);

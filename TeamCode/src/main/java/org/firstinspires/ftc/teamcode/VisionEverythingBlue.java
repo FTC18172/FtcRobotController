@@ -49,7 +49,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
             turnLeft(0.5, 175);
 
-            moveBackward(0.5, 250);
+            moveBackward(0.5, 180);
             stopMotors();
 
             bottomLayer();
@@ -285,7 +285,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.8);
+        bucket.setPosition(0.9);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);

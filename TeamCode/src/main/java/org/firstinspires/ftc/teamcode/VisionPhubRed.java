@@ -20,7 +20,7 @@ public class VisionPhubRed extends UpliftAuto {
     DcMotor lb;
     DcMotor rb;
     DcMotor intake, duck;
-    Servo bucket, arm;
+    Servo bucket, arm, capX;
     int location;
     OpenCvCamera webcam;
 
@@ -41,6 +41,7 @@ public class VisionPhubRed extends UpliftAuto {
     @Override
     public void initAction() {
         bucket.setPosition(0.5);
+//        capX.setPosition(0.45);
     }
 
     @Override
@@ -55,7 +56,7 @@ public class VisionPhubRed extends UpliftAuto {
 
            turnLeft(0.5,175);
 
-           moveBackward(0.5, 135);
+           moveBackward(0.5, 125);
            stopMotors();
 
            bottomLayer();
@@ -64,7 +65,7 @@ public class VisionPhubRed extends UpliftAuto {
 
            moveForward(0.5,150);
 
-           turnLeft(.5,90);
+           turnLeft(.5,100);
 
            moveForward(.6,3000);
        }

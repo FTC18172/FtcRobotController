@@ -51,7 +51,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
             turnLeft(0.5, 175);
 
-            moveBackward(0.5, 250);
+            moveBackward(0.5, 180);
             stopMotors();
 
             bottomLayer();
@@ -105,7 +105,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
         moveForward(0.15);
         duck.setPower(0.3);
-        robot.safeSleep(5000);
+        robot.safeSleep(6000);
         stopMotors();
 
         duck.setPower(.65);
@@ -272,7 +272,7 @@ public class VisionDepoStorageBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.8);
+        bucket.setPosition(0.9);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);

@@ -28,10 +28,8 @@ public class Teleop extends UpliftTele {
     OpenCvCamera webcam;
     boolean aReleased = true;
     boolean bReleased = true;
-    boolean DPAD_LEFT = true;
-    boolean DPAD_RIGHT = true;
-    boolean DPAD_UP = true;
-    boolean DPAD_DOWN = true;
+    double capXPos = 0.45;
+    double capYPos = 0.5;
 
 
     @Override
@@ -54,7 +52,7 @@ public class Teleop extends UpliftTele {
 
     @Override
     public void initAction() {
-        capX.setPosition(0.5);
+        capX.setPosition(0.45);
         capY.setPosition(0.5);
     }
 
@@ -80,6 +78,8 @@ public class Teleop extends UpliftTele {
 
         intakeOn();
 
+        checkFreight(bucketSensor);
+
         moveDuck();
 
         armDown();
@@ -94,9 +94,9 @@ public class Teleop extends UpliftTele {
         telemetry.update();
 
 
-            bReleased = setCapIn(bReleased);
+        bReleased = setCapIn(bReleased);
 
-            aReleased = setCapOut(aReleased);
+        aReleased = setCapOut(aReleased);
 
 //            DPAD_DOWN = setCapDown(DPAD_DOWN);
 //
@@ -107,7 +107,9 @@ public class Teleop extends UpliftTele {
 //            DPAD_RIGHT = setCapRight(DPAD_RIGHT);
 
         moveCapLeft();
-
+        moveCapRight();
+        moveCapUp();
+        moveCapDown();
     }
 
     @Override
@@ -189,96 +191,51 @@ public class Teleop extends UpliftTele {
 
     }
 
-//    public boolean setCapLeft(boolean DPAD_LEFT)
-//    {
-//        if(gamepad1.dpad_left || !DPAD_LEFT)
-//        {
-//            capX.setPower(-0.08);
-//            DPAD_LEFT = false;
 //
-//            if(!gamepad1.dpad_left )
-//            {
-//                DPAD_LEFT = true;
-//                capX.setPower(0);
-//            }
-//
-//        }
-//        return DPAD_LEFT;
-//    }
 
-    public void moveCapLeft()
-    {
-        double previousPosition = 0.0;
-        double currentPosition = 0.0;
-        if(gamepad1.dpad_left)
-        {
-            capX.setPosition(-0.01 + previousPosition);
-            currentPosition = -0.01 + previousPosition;
-            previousPosition = currentPosition;
+    public void moveCapLeft() {
+        double currentPosition = capXPos - 0.003;
+        if (gamepad1.dpad_left) {
+            capX.setPosition(currentPosition);
+            capXPos = currentPosition;
         }
     }
 
-//    public boolean setCapRight(boolean DPAD_RIGHT)
-//    {
-//        if(gamepad1.dpad_right || !DPAD_RIGHT)
-//        {
-//            capX.setPower(0.08);
-//            DPAD_RIGHT = false;
-//
-//            if(!gamepad1.dpad_right)
-//            {
-//                DPAD_RIGHT = true;
-//                capX.setPower(0);
-//            }
-//
-//        }
-//        return DPAD_RIGHT;
-//    }
-//
-//    public boolean setCapUp(boolean DPAD_UP)
-//    {
-//        if(gamepad1.dpad_up || !DPAD_UP)
-//        {
-//            capY.setPower(-0.08);
-//            DPAD_UP = false;
-//
-//            if(!gamepad1.dpad_up)
-//            {
-//                DPAD_UP = true;
-//                capY.setPower(0);
-//            }
-//
-//        }
-//        return DPAD_UP;
-//    }
-//
-//    public boolean setCapDown(boolean DPAD_DOWN)
-//    {
-//        if(gamepad1.dpad_down || !DPAD_DOWN)
-//        {
-//            capY.setPower(0.08);
-//            DPAD_DOWN = false;
-//
-//            if(!gamepad1.dpad_down)
-//            {
-//                DPAD_DOWN = true;
-//                capY.setPower(0);
-//            }
-//
-//        }
-//        return DPAD_DOWN;
-//    }
+    public void moveCapRight() {
+        double currentPosition = capXPos + 0.003;
+        if (gamepad1.dpad_right) {
+            capX.setPosition(currentPosition);
+            capXPos = currentPosition;
+        }
+    }
 
-    public boolean setCapOut(boolean aReleased)
-    {
+    public void moveCapUp() {
+        double currentPosition = capYPos - 0.01;
+        if (gamepad1.dpad_up) {
+            capY.setPosition(currentPosition);
+            capYPos = currentPosition;
+        }
+    }
 
-        if(gamepad1.a || !aReleased)
-        {
-            cap.setPower(0.5 );
+    public void moveCapDown() {
+        double currentPosition = capYPos + 0.01;
+        if (gamepad1.dpad_down) {
+            capY.setPosition(currentPosition);
+            capYPos = currentPosition;
+        }
+    }
+
+
+
+//
+
+    public boolean setCapOut(boolean aReleased) {
+
+        if (gamepad1.a || !aReleased) {
+            cap.setPower(0.5);
             aReleased = false;
 
-            if(!gamepad1.a )
-            {
+            if (!gamepad1.a) {
                 aReleased = true;
                 cap.setPower(0);
             }
@@ -288,20 +245,24 @@ public class Teleop extends UpliftTele {
 
     }
 
-    public boolean setCapIn(boolean bReleased)
-    {
-        if (gamepad1.b || !bReleased)
-        {
+    public boolean setCapIn(boolean bReleased) {
+        if (gamepad1.b || !bReleased) {
             cap.setPower(-1);
             bReleased = false;
 
-            if(!gamepad1.b )
-            {
+            if (!gamepad1.b) {
                 bReleased = true;
                 cap.setPower(0);
             }
         }
         return bReleased;
+    }
+
+    public void checkFreight(ColorSensor sensor) throws InterruptedException {
+        if (sensor.alpha() > 1000) {
+           // duck.setPower(.7);
+           // Thread.sleep(1000);
+        }
     }
 
 

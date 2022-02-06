@@ -52,7 +52,7 @@ public class UpliftRobot {
         bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
         capX = hardwareMap.get(Servo.class, "capX");
         capY = hardwareMap.get(Servo.class, "capY");
-        cap = hardwareMap.get(CRServo.class, "capOut");
+        cap = hardwareMap.get(CRServo.class, "cap");
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
