@@ -106,7 +106,7 @@ public class Teleop extends UpliftTele {
 //
 //            DPAD_RIGHT = setCapRight(DPAD_RIGHT);
 
-        moveCapLeft();
+
         moveCapRight();
         moveCapUp();
         moveCapDown();
@@ -147,12 +147,18 @@ public class Teleop extends UpliftTele {
     }
 
     public void armDown() throws InterruptedException {
-        if (gamepad2.y) {
-            bucket.setPosition(1);
-            Thread.sleep(500);
-            arm.setPosition(.03);
-            Thread.sleep(500);
-            bucket.setPosition(0.30);
+        if (gamepad2.y)
+        {
+            if( gamepad1.atRest())
+            {
+                bucket.setPosition(1);
+                robot.safeSleep(500);
+                arm.setPosition(.03);
+                robot.safeSleep(500);
+                bucket.setPosition(0.3);
+            }
+
+
         }
     }
 
@@ -162,7 +168,7 @@ public class Teleop extends UpliftTele {
             Thread.sleep(500);
             arm.setPosition(.024);
             Thread.sleep(500);
-            bucket.setPosition(0.35);
+            bucket.setPosition(0.3);
         }
     }
 
@@ -171,7 +177,7 @@ public class Teleop extends UpliftTele {
 
             arm.setPosition(.024);
             Thread.sleep(500);
-            bucket.setPosition(0.22);
+            bucket.setPosition(0.3);
         }
     }
 
@@ -193,13 +199,7 @@ public class Teleop extends UpliftTele {
 
 //
 
-    public void moveCapLeft() {
-        double currentPosition = capXPos - 0.003;
-        if (gamepad1.dpad_left) {
-            capX.setPosition(currentPosition);
-            capXPos = currentPosition;
-        }
-    }
+
 
     public void moveCapRight() {
         double currentPosition = capXPos + 0.003;

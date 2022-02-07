@@ -43,6 +43,9 @@ public class VisionEverythingBlue extends UpliftAuto {
         if(location == 0 || location == -1)
         {
             webcam.stopRecordingPipeline();
+
+            robot.safeSleep(7000);
+
             moveForward(0.5, 420);
 
             moveLeft(0.5, 1000);
@@ -62,6 +65,8 @@ public class VisionEverythingBlue extends UpliftAuto {
         {
             webcam.stopRecordingPipeline();
 
+            robot.safeSleep(7000);
+
             moveForward(0.5, 420);
 
             moveLeft(0.5, 1000);
@@ -80,6 +85,9 @@ public class VisionEverythingBlue extends UpliftAuto {
         else if(location == 2)
         {
             webcam.stopRecordingPipeline();
+
+            robot.safeSleep(7000);
+
             moveForward(0.5, 500);
 
             moveLeft(0.5, 1000);
@@ -285,7 +293,7 @@ public class VisionEverythingBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.9);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);

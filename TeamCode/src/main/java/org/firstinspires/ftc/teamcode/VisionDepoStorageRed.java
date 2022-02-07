@@ -43,6 +43,8 @@ public class VisionDepoStorageRed extends UpliftAuto {
         location = robot.pipeline.location;
         if(location == 0 || location == -1 )
         {
+            robot.safeSleep(7000);
+
             moveRight(0.5, 100);
 
             moveForward(0.5, 300);
@@ -92,6 +94,8 @@ public class VisionDepoStorageRed extends UpliftAuto {
         }
         else if(location == 1)
         {
+            robot.safeSleep(7000);
+
             moveRight(0.5, 100);
 
             moveForward(0.5, 300);
@@ -141,6 +145,8 @@ public class VisionDepoStorageRed extends UpliftAuto {
         }
         else if(location == 2)
         {
+            robot.safeSleep(7000);
+
             webcam.stopRecordingPipeline();
             moveRight(0.5, 100);
 
@@ -348,7 +354,7 @@ public class VisionDepoStorageRed extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.8);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);

@@ -269,7 +269,7 @@ public class VisionPhubBlue extends UpliftAuto {
 
     public void bottomLayer() throws InterruptedException
     {
-        bucket.setPosition(0.9);
+        bucket.setPosition(0.75);
         robot.safeSleep(500);
         arm.setPosition(1);
         robot.safeSleep(2000);
