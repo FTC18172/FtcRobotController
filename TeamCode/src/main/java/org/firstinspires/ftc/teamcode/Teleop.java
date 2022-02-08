@@ -48,6 +48,7 @@ public class Teleop extends UpliftTele {
         capX = robot.capX;
         capY = robot.capY;
         cap = robot.cap;
+        //motor = robot.motor;
     }
 
     @Override
@@ -181,6 +182,16 @@ public class Teleop extends UpliftTele {
         }
     }
 
+    /*public void BucketRotateRight() throws InterruptedException {
+        if (gamepad2.dpad_right)
+        {
+            motor.setPower(.5);
+            motor.
+        }
+    }*/
+
+
+
     public void sharedHub() throws InterruptedException {
         if (gamepad2.a) {
             bucket.setPosition(0.8);
@@ -262,6 +273,7 @@ public class Teleop extends UpliftTele {
         if (sensor.alpha() > 1000) {
            // duck.setPower(.7);
            // Thread.sleep(1000);
+            gamepad1.rumble(1000);
         }
     }
 
