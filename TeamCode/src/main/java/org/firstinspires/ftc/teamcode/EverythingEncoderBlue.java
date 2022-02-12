@@ -3,13 +3,10 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.Range;
 
 
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
+import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 
 @Autonomous(name = "EverythingEncoderBlue", group = "OpModes")
 public class EverythingEncoderBlue extends UpliftAuto {

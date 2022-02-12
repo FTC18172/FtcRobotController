@@ -5,389 +5,171 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
+import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
 import org.openftc.easyopencv.OpenCvCamera;
 
 @Autonomous(name = "VisionEverythingRed", group = "OpModes")
-public class VisionEverythingRed extends UpliftAuto {
-    UpliftRobot robot;
-    DcMotor lf;
-    DcMotor rf;
-    DcMotor lb;
-    DcMotor rb;
-    DcMotor intake, duck;
-    Servo bucket, arm;
-    int location;
+public class VisionEverythingRed extends UpliftAutoImpl {
 
-        OpenCvCamera webcam;
-        @Override
-        public void initHardware() {
-            robot = new UpliftRobot(this);
-            lf = robot.leftFront;
-            rf = robot.rightFront;
-            lb = robot.leftBack;
-            rb = robot.rightBack;
-            intake = robot.intake;
-            duck = robot.duck;
-            arm = robot.arm;
-            bucket = robot.bucket;
-            webcam = robot.webcam;
-        }
+    @Override
+    public void body() throws InterruptedException {
+        int location = robot.pipeline.location;
+        if(location == 0 || location == -1)
+        {
+            moveRight(0.5, 100);
 
-        @Override
-        public void initAction() {
-            bucket.setPosition(0.5);
-        }
+            moveForward(0.5, 300);
 
-        @Override
-        public void body() throws InterruptedException {
-            location = robot.pipeline.location;
-            if(location == 0 || location == -1)
-            {
-                moveRight(0.5, 100);
+            moveRight(0.5, 1250);
 
-                moveForward(0.5, 300);
+            turnLeft(0.5, 180);
 
-                moveRight(0.5, 1250);
+            moveBackward(0.4, 260);
+            stopMotors();
 
-                turnLeft(0.5, 180);
+            bottomLayer();
 
-                moveBackward(0.4, 260);
-                stopMotors();
+            robot.getBucket().setPosition(0.5);
 
-                bottomLayer();
+            moveForward(.3, 120);
 
-                bucket.setPosition(0.5);
+            moveRight(.5, 1600);
 
-                moveForward(.3, 120);
+            turnRight(.3, 50);
 
-                moveRight(.5, 1600);
+            moveForward(.3, 350);
 
-                turnRight(.3, 50);
+            moveForward(0.13);
+            robot.getDuck().setPower(-0.3);
+            Thread.sleep(4000);
+            stopMotors();
 
-                moveForward(.3, 350);
+            robot.getDuck().setPower(-.65);
+            Thread.sleep(1000);
+            robot.getDuck().setPower(0);
 
-                moveForward(0.13);
-                duck.setPower(-0.3);
-                Thread.sleep(4000);
-                stopMotors();
+            moveBackward(0.5, 300);
 
-                duck.setPower(-.65);
-                Thread.sleep(1000);
-                duck.setPower(0);
+            turnLeft(0.5, 140);
 
-                moveBackward(0.5, 300);
+            moveBackward(0.5);
+            Thread.sleep(600);
 
-                turnLeft(0.5, 140);
+            moveBackward(0.2);
+            Thread.sleep(800);
 
-                moveBackward(0.5);
-                Thread.sleep(600);
+            moveForward(0.5, 1250);
 
-                moveBackward(0.2);
-                Thread.sleep(800);
+            turnLeft(0.5, 12);
 
-                moveForward(0.5, 1250);
-
-                turnLeft(0.5, 12);
-
-                moveForward(0.5, 4000);
-
-            }
-            else if(location == 1)
-            {
-                moveRight(0.5, 100);
-
-                moveForward(0.5, 300);
-
-                moveRight(0.5, 1250);
-
-                turnLeft(0.5, 180);
-
-                moveBackward(0.4, 350);
-                stopMotors();
-
-                middleLayer();
-
-                bucket.setPosition(0.5);
-
-                moveForward(.3, 150);
-
-                moveRight(.5, 1600);
-
-                turnRight(.3, 45);
-
-                moveForward(.3, 350);
-
-                moveForward(0.13);
-                duck.setPower(-0.3);
-                Thread.sleep(4000);
-                stopMotors();
-
-                duck.setPower(-.65);
-                Thread.sleep(1000);
-                duck.setPower(0);
-
-                moveBackward(0.5, 300);
-
-                turnLeft(0.5, 140);
-
-                moveBackward(0.5);
-                Thread.sleep(600);
-
-                moveBackward(0.2);
-                Thread.sleep(800);
-
-                moveForward(0.5, 1250);
-
-                turnLeft(0.5, 12);
-
-                moveForward(0.5, 4000);
-
-            }
-            else if(location == 2 )
-            {
-                webcam.stopRecordingPipeline();
-                moveRight(0.5, 100);
-
-                moveForward(0.5, 400);
-
-                moveRight(0.5, 1250);
-
-                turnLeft(0.5, 180);
-
-                moveBackward(0.5, 350);
-                stopMotors();
-
-                topLayer();
-
-                bucket.setPosition(0.5);
-
-                moveForward(0.5, 200);
-
-                moveRight(.5, 1700);
-
-                turnRight(.3, 45);
-
-                moveForward(.2, 350);
-
-                moveForward(0.13);
-                duck.setPower(-0.3);
-                Thread.sleep(4000);
-                stopMotors();
-
-                duck.setPower(-.65);
-                Thread.sleep(1000);
-                duck.setPower(0);
-
-                moveBackward(0.5, 300);
-
-                turnLeft(0.5, 140);
-
-                moveBackward(0.5);
-                Thread.sleep(600);
-
-                moveBackward(0.2);
-                Thread.sleep(800);
-
-                moveForward(0.5, 1250);
-
-                turnLeft(0.5, 12);
-
-                moveForward(0.5, 4000);
-
-                bucket.setPosition(.3);
-
-            }
-        }
-
-        @Override
-        public void exit() throws InterruptedException {
+            moveForward(0.5, 4000);
 
         }
-    public void stopMotors() {
-        lf.setPower(0);
-        rf.setPower(0);
-        lb.setPower(0);
-        rb.setPower(0);
+        else if(location == 1)
+        {
+            moveRight(0.5, 100);
 
-    }
+            moveForward(0.5, 300);
 
+            moveRight(0.5, 1250);
 
-    public void moveLeft(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
+            turnLeft(0.5, 180);
 
-        while(rf.getCurrentPosition() < initialPos + dist) {
-            rf.setPower(power);
-            rb.setPower(-power);
-            lf.setPower(-power);
-            lb.setPower(power);
+            moveBackward(0.4, 350);
+            stopMotors();
+
+            middleLayer();
+
+            robot.getBucket().setPosition(0.5);
+
+            moveForward(.3, 150);
+
+            moveRight(.5, 1600);
+
+            turnRight(.3, 45);
+
+            moveForward(.3, 350);
+
+            moveForward(0.13);
+            robot.getDuck().setPower(-0.3);
+            Thread.sleep(4000);
+            stopMotors();
+
+            robot.getDuck().setPower(-.65);
+            Thread.sleep(1000);
+            robot.getDuck().setPower(0);
+
+            moveBackward(0.5, 300);
+
+            turnLeft(0.5, 140);
+
+            moveBackward(0.5);
+            Thread.sleep(600);
+
+            moveBackward(0.2);
+            Thread.sleep(800);
+
+            moveForward(0.5, 1250);
+
+            turnLeft(0.5, 12);
+
+            moveForward(0.5, 4000);
+
         }
-        stopMotors();
-    }
+        else if(location == 2 )
+        {
+            robot.getWebcam().stopRecordingPipeline();
+            moveRight(0.5, 100);
 
-    public void moveLeft(double power) {
-        rf.setPower(power);
-        rb.setPower(-power);
-        lf.setPower(-power);
-        lb.setPower(power);
-    }
+            moveForward(0.5, 400);
 
-    public void moveRight(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
+            moveRight(0.5, 1250);
 
-        while(rf.getCurrentPosition() > initialPos - dist) {
-            rf.setPower(-power);
-            rb.setPower(power);
-            lf.setPower(power);
-            lb.setPower(-power);
+            turnLeft(0.5, 180);
+
+            moveBackward(0.5, 350);
+            stopMotors();
+
+            topLayer();
+
+            robot.getBucket().setPosition(0.5);
+
+            moveForward(0.5, 200);
+
+            moveRight(.5, 1700);
+
+            turnRight(.3, 45);
+
+            moveForward(.2, 350);
+
+            moveForward(0.13);
+            robot.getDuck().setPower(-0.3);
+            Thread.sleep(4000);
+            stopMotors();
+
+            robot.getDuck().setPower(-.65);
+            Thread.sleep(1000);
+            robot.getDuck().setPower(0);
+
+            moveBackward(0.5, 300);
+
+            turnLeft(0.5, 140);
+
+            moveBackward(0.5);
+            Thread.sleep(600);
+
+            moveBackward(0.2);
+            Thread.sleep(800);
+
+            moveForward(0.5, 1250);
+
+            turnLeft(0.5, 12);
+
+            moveForward(0.5, 4000);
+
+            robot.getBucket().setPosition(.3);
+
         }
-        stopMotors();
     }
-
-    public void moveForward(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
-
-        while(rf.getCurrentPosition() < initialPos + dist) {
-            rf.setPower(power);
-            rb.setPower(power);
-            lf.setPower(power);
-            lb.setPower(power);
-        }
-        stopMotors();
-    }
-
-    public void moveForward(double power) {
-        rf.setPower(power);
-        rb.setPower(power);
-        lf.setPower(power);
-        lb.setPower(power);
-    }
-
-    public void moveBackward(double power, double dist) {
-        double initialPos = rf.getCurrentPosition();
-
-        while(rf.getCurrentPosition() > initialPos - Math.abs(dist)) {
-            rf.setPower(-power);
-            rb.setPower(-power);
-            lf.setPower(-power);
-            lb.setPower(-power);
-        }
-        stopMotors();
-    }
-
-    public void moveBackward(double power) {
-        rf.setPower(-power);
-        rb.setPower(-power);
-        lf.setPower(-power);
-        lb.setPower(-power);
-    }
-
-    public void turnRight(double power, double angle) {
-        double initialAngle = getIntegratedAngle();
-
-        while(getIntegratedAngle() > initialAngle - angle + 5) {
-            rf.setPower(-power);
-            rb.setPower(-power);
-            lf.setPower(power);
-            lb.setPower(power);
-            telemetry.addData("angle", getIntegratedAngle());
-            telemetry.update();
-        }
-        stopMotors();
-
-    }
-
-    public void turnLeft(double power, double angle) {
-        double initialAngle = getIntegratedAngle();
-
-        while(getIntegratedAngle() < initialAngle + angle - 10) {
-            rf.setPower(power);
-            rb.setPower(power);
-            lf.setPower(-power);
-            lb.setPower(-power);
-            telemetry.addData("angle", getIntegratedAngle());
-            telemetry.update();
-        }
-        stopMotors();
-    }
-
-    public void bucketPos1()
-    {
-        bucket.setPosition(1);
-    }
-
-
-    public void bucketPos2()
-    {
-        bucket.setPosition(0.33);
-    }
-
-    public void topLayer() throws InterruptedException
-    {
-        bucket.setPosition(0.72);
-        //bucket.setPosition(.65);
-        robot.safeSleep(500);
-        arm.setPosition(0.6);
-        robot.safeSleep(1000);
-        bucket.setPosition(1);
-        robot.safeSleep(500);
-        arm.setPosition(0);
-        //arm.setPosition(0);
-        robot.safeSleep(500);
-        bucket.setPosition(0.25);
-//        bucket.setPosition(0.15);
-
-    }
-
-    public void middleLayer() throws InterruptedException {
-        bucket.setPosition(0.75);
-        robot.safeSleep(500);
-        arm.setPosition(0.8);
-        robot.safeSleep(2000);
-        bucket.setPosition(1);
-        robot.safeSleep(1000);
-        arm.setPosition(0);
-        robot.safeSleep(500);
-        bucket.setPosition(0.25);
-    }
-
-    public void bottomLayer() throws InterruptedException
-    {
-        bucket.setPosition(0.8);
-        robot.safeSleep(500);
-        arm.setPosition(1);
-        robot.safeSleep(2000);
-        bucket.setPosition(1);
-        robot.safeSleep(2000);
-        arm.setPosition(0);
-        robot.safeSleep(500);
-        bucket.setPosition(0.4);
-    }
-
-
-
-    private double previousAngle = 0; //Outside of method
-    private double integratedAngle = 0;
-
-    /**
-     * This method returns a value of the Z axis of the REV Expansion Hub IMU.
-     * It transforms the value from (-180, 180) to (-inf, inf).
-     * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
-     * @return The integrated heading on the interval (-inf, inf).
-     */
-    private double getIntegratedAngle() {
-        double currentAngle = robot.imu.getAngularOrientation().firstAngle;
-        double deltaAngle = currentAngle - previousAngle;
-
-        if (deltaAngle < -180) {
-            deltaAngle += 360;
-        } else if (deltaAngle >= 180) {
-            deltaAngle -= 360;
-        }
-
-        integratedAngle += deltaAngle;
-        previousAngle = currentAngle;
-
-        return integratedAngle;
-    }
-    }
+}
 

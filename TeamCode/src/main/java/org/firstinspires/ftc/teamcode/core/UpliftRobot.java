@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -31,11 +31,12 @@ public class UpliftRobot {
     public OpenCvCamera webcam;
     public FreightFrenzy pipeline;
 
-    public UpliftRobot(LinearOpMode opMode) {
-        this.opMode = opMode;
+    public UpliftRobot() {
         getHardware();
+    }
 
-
+    public void setOpMode(LinearOpMode opMode) {
+        this.opMode = opMode;
     }
 
     public void getHardware() {
@@ -97,5 +98,57 @@ public class UpliftRobot {
                 e.printStackTrace();
             }
         }
+    }
+
+    public Servo getBucket() {
+        return bucket;
+    }
+
+    public Servo getArm() {
+        return arm;
+    }
+
+    public DcMotor getLeftFront() {
+        return leftFront;
+    }
+
+    public DcMotor getLeftBack() {
+        return leftBack;
+    }
+
+    public DcMotor getRightBack() {
+        return rightBack;
+    }
+
+    public DcMotor getRightFront() {
+        return rightFront;
+    }
+
+    public OpenCvCamera getWebcam() {
+        return webcam;
+    }
+
+    public DcMotor getDuck() {
+        return duck;
+    }
+
+    public DcMotor getIntake() {
+        return intake;
+    }
+
+    public Servo getCapX() {
+        return capX;
+    }
+
+    public Servo getCapY() {
+        return capY;
+    }
+
+    public CRServo getCap() {
+        return cap;
+    }
+
+    public ColorSensor getBucketSensor() {
+        return bucketSensor;
     }
 }

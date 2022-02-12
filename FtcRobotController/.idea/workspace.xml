@@ -25,6 +25,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -112,13 +119,29 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1643243339852">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1644695083303">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1643243339852" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1643856945586">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1644695083303" />
+    <state x="356" y="223" width="653" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1644285681152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1643856945586" />
+    <state x="356" y="223" width="653" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1644285681152" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1644644514010">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1644644514010" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1644284614075">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1644284614075" />
+    <state x="379" y="0" width="738" height="728" key="find.popup" timestamp="1644688951514">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="0" width="738" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1644688951514" />
+    <state x="425" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1644694463645">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="425" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1644694463645" />
   </component>
 </project>

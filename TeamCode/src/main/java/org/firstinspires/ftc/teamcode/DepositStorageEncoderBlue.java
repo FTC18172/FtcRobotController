@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
+import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 
 @Autonomous(name = "DepositStorageEncoderBlue", group = "OpModes")
 public class DepositStorageEncoderBlue extends UpliftAuto  {

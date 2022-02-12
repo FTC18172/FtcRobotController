@@ -1,14 +1,16 @@
 package org.firstinspires.ftc.teamcode.core;
 
-import android.util.Log;
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 public abstract class UpliftTele extends LinearOpMode {
 
-    public boolean forceStop;
+    protected final UpliftRobot robot;
 
     public boolean isStarted, isLooping, isFinished;
+
+    protected UpliftTele(UpliftRobot robot) {
+        this.robot = robot;
+    }
 
     public abstract void initHardware();
 

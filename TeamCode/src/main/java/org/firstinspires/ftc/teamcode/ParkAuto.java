@@ -1,19 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.util.Log;
-
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAuto;
-import org.firstinspires.ftc.teamcode.toolkit.UpliftMath;
+import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 
-import static java.lang.Math.PI;
 import static java.lang.Math.abs;
-import static java.lang.Math.hypot;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
-import static java.lang.Math.toRadians;
 
 @Autonomous(name = "ParkAuto", group = "OpModes")
 public class ParkAuto extends UpliftAuto {
