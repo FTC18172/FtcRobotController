@@ -44,6 +44,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="C:/temp/classes2.dex" />
     <property name="settings.editor.selected.configurable" value="gradle.compiler" />
   </component>
   <component name="RunManager">
@@ -128,22 +129,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="356" y="223" width="653" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1644285681152" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1644644514010">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1644712206650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1644644514010" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1644712206650" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1644701381087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1644701381087" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1644284614075">
+    <state width="1101" height="726" key="com.android.tools.idea.apk.viewer.dex.ShowDisassemblyAction" timestamp="1644712305547">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1644284614075" />
-    <state x="379" y="0" width="738" height="728" key="find.popup" timestamp="1644688951514">
+    <state width="1101" height="726" key="com.android.tools.idea.apk.viewer.dex.ShowDisassemblyAction/0.0.1366.728@0.0.1366.728" timestamp="1644712305547" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1644711935222">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="0" width="738" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1644688951514" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1644711935222" />
+    <state x="379" y="0" width="738" height="728" key="find.popup" timestamp="1644707412773">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="0" width="738" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1644707412773" />
     <state x="425" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1644694463645">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
