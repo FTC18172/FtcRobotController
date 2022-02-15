@@ -121,10 +121,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1644695083303">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1644884886736">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1644695083303" />
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1644884886736" />
     <state x="356" y="223" width="653" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1644285681152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -141,10 +141,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1101" height="726" key="com.android.tools.idea.apk.viewer.dex.ShowDisassemblyAction/0.0.1366.728@0.0.1366.728" timestamp="1644712305547" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1644711935222">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1644879283411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1644711935222" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1644879283411" />
+    <state x="443" y="67" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1644884277940">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="443" y="67" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1644884277940" />
     <state x="379" y="0" width="738" height="728" key="find.popup" timestamp="1644707412773">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -19,7 +19,8 @@ public class VisionPhubRed extends UpliftAutoImpl {
     @Override
     public void body() throws InterruptedException {
         int location = robot.pipeline.location;
-       if(location == 0 || location == -1 ){
+
+        if(location == 0 || location == -1 ){
            robot.getWebcam().stopRecordingPipeline();
 
            moveForward(0.5,500);
@@ -40,33 +41,34 @@ public class VisionPhubRed extends UpliftAutoImpl {
            turnLeft(.5,100);
 
            moveForward(.6,3000);
-       }
-       else if(location == 1){
+        }
+        else if(location == 1){
            robot.getWebcam().stopRecordingPipeline();
 
-            moveForward(0.5,500);
+           moveForward(0.5,500);
 
-            moveLeft(0.5,1000);
+           moveLeft(0.5,1000);
 
-            turnLeft(0.5,175);
+           turnLeft(0.5,175);
 
-            moveBackward(0.5, 200);
-            stopMotors();
+           moveBackward(0.5, 200);
 
-            middleLayer();
+           stopMotors();
+
+           middleLayer();
 
            robot.getBucket().setPosition(0.5);
 
            moveForward(0.5,250);
 
-            turnLeft(.5,95);
+           turnLeft(.5,95);
 
-            moveForward(.6,3000);
+           moveForward(.6,3000);
         }
-       else if(location == 2){
+        else if(location == 2){
             robot.getWebcam().stopRecordingPipeline();
 
-           moveForward(0.5,500);
+            moveForward(0.5,500);
 
             moveLeft(0.5,1000);
 
@@ -77,9 +79,9 @@ public class VisionPhubRed extends UpliftAutoImpl {
 
             topLayer();
 
-           robot.getBucket().setPosition(0.5);
+            robot.getBucket().setPosition(0.5);
 
-           moveForward(0.5,400);
+            moveForward(0.5,400);
 
             turnLeft(.5,90);
 

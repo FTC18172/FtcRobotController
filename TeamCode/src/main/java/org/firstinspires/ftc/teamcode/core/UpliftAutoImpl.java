@@ -19,13 +19,6 @@ public class UpliftAutoImpl extends UpliftAuto {
         robot.getBucket().setPosition(0.5);
     }
 
-    @Override
-    public void  stopMotors() {
-        robot.getLeftFront().setPower(0);
-        robot.getLeftBack().setPower(0);
-        robot.getRightFront().setPower(0);
-        robot.getRightBack().setPower(0);
-    }
 
     @Override
     public void body() throws InterruptedException {
@@ -37,7 +30,13 @@ public class UpliftAutoImpl extends UpliftAuto {
 
     }
 
-    @Override
+    public void  stopMotors() {
+        robot.getLeftFront().setPower(0);
+        robot.getLeftBack().setPower(0);
+        robot.getRightFront().setPower(0);
+        robot.getRightBack().setPower(0);
+    }
+
     public void topLayer() throws InterruptedException {
         robot.getBucket().setPosition(0.72);
         //bucket.setPosition(.65);
@@ -51,6 +50,31 @@ public class UpliftAutoImpl extends UpliftAuto {
         robot.safeSleep(500);
         robot.getBucket().setPosition(0.25);
         //        bucket.setPosition(0.15);
+    }
+
+    public void middleLayer() throws InterruptedException {
+        robot.getBucket().setPosition(0.75);
+        robot.safeSleep(500);
+        robot.getArm().setPosition(0.8);
+        robot.safeSleep(2000);
+        robot.getBucket().setPosition(1);
+        robot.safeSleep(1000);
+        robot.getArm().setPosition(0);
+        robot.safeSleep(500);
+        robot.getBucket().setPosition(0.25);
+    }
+
+    public void bottomLayer() throws InterruptedException
+    {
+        robot.getBucket().setPosition(0.75);
+        robot.safeSleep(500);
+        robot.getArm().setPosition(1);
+        robot.safeSleep(2000);
+        robot.getBucket().setPosition(1);
+        robot.safeSleep(2000);
+        robot.getArm().setPosition(0);
+        robot.safeSleep(500);
+        robot.getBucket().setPosition(0.33);
     }
 
     public void moveLeft(double power, double dist) {
@@ -180,28 +204,5 @@ public class UpliftAutoImpl extends UpliftAuto {
         return integratedAngle;
     }
 
-    public void middleLayer() throws InterruptedException {
-        robot.getBucket().setPosition(0.75);
-        robot.safeSleep(500);
-        robot.getArm().setPosition(0.8);
-        robot.safeSleep(2000);
-        robot.getBucket().setPosition(1);
-        robot.safeSleep(1000);
-        robot.getArm().setPosition(0);
-        robot.safeSleep(500);
-        robot.getBucket().setPosition(0.25);
-    }
 
-    public void bottomLayer() throws InterruptedException
-    {
-        robot.getBucket().setPosition(0.75);
-        robot.safeSleep(500);
-        robot.getArm().setPosition(1);
-        robot.safeSleep(2000);
-        robot.getBucket().setPosition(1);
-        robot.safeSleep(2000);
-        robot.getArm().setPosition(0);
-        robot.safeSleep(500);
-        robot.getBucket().setPosition(0.33);
-    }
 }

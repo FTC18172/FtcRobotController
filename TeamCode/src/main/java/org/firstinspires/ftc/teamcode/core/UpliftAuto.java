@@ -13,10 +13,6 @@ public abstract class UpliftAuto extends LinearOpMode {
 
     protected abstract void exit() throws InterruptedException;
 
-    protected abstract void  stopMotors();
-
-    protected abstract void topLayer() throws InterruptedException;
-
     public UpliftAuto(UpliftRobot robot) {
         this.robot = robot;
     }

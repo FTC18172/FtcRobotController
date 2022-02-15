@@ -21,6 +21,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck;
+    DcMotor pulley;
     Servo bucket, arm, capX, capY;
     CRServo cap;
     ColorSensor bucketSensor;
@@ -42,6 +43,7 @@ public class UpliftRobot {
     public void getHardware() {
         hardwareMap = opMode.hardwareMap;
         initializeCamera();
+        pulley = hardwareMap.get(DcMotor.class, "pulley");
         leftFront = hardwareMap.get(DcMotor.class, "left_front");
         rightFront = hardwareMap.get(DcMotor.class, "right_front");
         leftBack = hardwareMap.get(DcMotor.class, "left_back");
@@ -54,6 +56,8 @@ public class UpliftRobot {
         capX = hardwareMap.get(Servo.class, "capX");
         capY = hardwareMap.get(Servo.class, "capY");
         cap = hardwareMap.get(CRServo.class, "cap");
+
+        pulley.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -98,6 +102,10 @@ public class UpliftRobot {
                 e.printStackTrace();
             }
         }
+    }
+
+    public DcMotor getPulley() {
+        return pulley;
     }
 
     public Servo getBucket() {
