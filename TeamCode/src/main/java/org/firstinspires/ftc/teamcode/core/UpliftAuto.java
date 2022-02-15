@@ -2,20 +2,20 @@ package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.UpliftRobot;
-import org.firstinspires.ftc.teamcode.toolkit.vision.FreightFrenzy;
-import org.openftc.easyopencv.OpenCvCamera;
-
 public abstract class UpliftAuto extends LinearOpMode {
-    UpliftRobot robot;
+    protected final UpliftRobot robot;
 
-    public abstract void initHardware();
+    protected abstract void initHardware();
 
-    public abstract void initAction();
+    protected abstract void initAction();
 
-    public abstract void body() throws InterruptedException;
+    protected abstract void body() throws InterruptedException;
 
-    public abstract void exit() throws InterruptedException;
+    protected abstract void exit() throws InterruptedException;
+
+    public UpliftAuto(UpliftRobot robot) {
+        this.robot = robot;
+    }
 
     @Override
     public void runOpMode() throws InterruptedException {
