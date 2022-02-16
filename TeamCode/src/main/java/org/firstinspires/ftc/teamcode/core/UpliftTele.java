@@ -8,8 +8,8 @@ public abstract class UpliftTele extends LinearOpMode {
 
     public boolean isStarted, isLooping, isFinished;
 
-    protected UpliftTele(UpliftRobot robot) {
-        this.robot = robot;
+    protected UpliftTele() {
+        this.robot = new UpliftRobot(this);
     }
 
     public abstract void initHardware();

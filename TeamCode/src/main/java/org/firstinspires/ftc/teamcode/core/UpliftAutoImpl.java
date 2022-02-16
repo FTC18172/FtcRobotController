@@ -4,10 +4,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     private double previousAngle = 0;
     private double integratedAngle = 0;
 
-    public UpliftAutoImpl() {
-        super(new UpliftRobot());
-        robot.setOpMode(this);
-    }
+    public UpliftAutoImpl() {}
 
     @Override
     public void initHardware() {

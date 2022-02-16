@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -32,18 +33,15 @@ public class UpliftRobot {
     public OpenCvCamera webcam;
     public FreightFrenzy pipeline;
 
-    public UpliftRobot() {
-        getHardware();
-    }
-
-    public void setOpMode(LinearOpMode opMode) {
+    public UpliftRobot(LinearOpMode opMode) {
         this.opMode = opMode;
+        getHardware();
     }
 
     public void getHardware() {
         hardwareMap = opMode.hardwareMap;
         initializeCamera();
-        pulley = hardwareMap.get(DcMotor.class, "pulley");
+        // pulley = hardwareMap.get(DcMotor.class, "pulley");
         leftFront = hardwareMap.get(DcMotor.class, "left_front");
         rightFront = hardwareMap.get(DcMotor.class, "right_front");
         leftBack = hardwareMap.get(DcMotor.class, "left_back");
@@ -57,7 +55,7 @@ public class UpliftRobot {
         capY = hardwareMap.get(Servo.class, "capY");
         cap = hardwareMap.get(CRServo.class, "cap");
 
-        pulley.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //pulley.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
