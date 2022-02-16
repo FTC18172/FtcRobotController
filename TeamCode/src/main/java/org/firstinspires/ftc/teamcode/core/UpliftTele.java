@@ -8,7 +8,6 @@ public abstract class UpliftTele extends LinearOpMode {
 
     public boolean isStarted, isLooping, isFinished;
 
-
     public abstract void initHardware();
 
     public abstract void initAction();

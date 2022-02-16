@@ -7,16 +7,12 @@ import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
 @Autonomous(name = "VisionDepoStorageRed", group = "OpModes")
 public class VisionDepoStorageRed extends UpliftAutoImpl {
 
-    UpliftRobot robot;
-
     @Override
     public void body() throws InterruptedException {
 
         int location = robot.pipeline.location;
         if(location == 0 || location == -1 )
         {
-            robot.safeSleep(7000);
-
             moveRight(0.5, 100);
 
             moveForward(0.5, 300);
@@ -66,7 +62,6 @@ public class VisionDepoStorageRed extends UpliftAutoImpl {
         }
         else if(location == 1)
         {
-            robot.safeSleep(7000);
 
             moveRight(0.5, 100);
 
@@ -117,7 +112,6 @@ public class VisionDepoStorageRed extends UpliftAutoImpl {
         }
         else if(location == 2)
         {
-            robot.safeSleep(7000);
 
             robot.getWebcam().stopRecordingPipeline();
             moveRight(0.5, 100);

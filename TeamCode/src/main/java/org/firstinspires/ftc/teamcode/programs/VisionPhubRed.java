@@ -8,8 +8,6 @@ import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
 @Autonomous(name = "VisionPhubRed", group = "OpModes")
 public class VisionPhubRed extends UpliftAutoImpl {
 
-    UpliftRobot robot;
-
     @Override
     public void body() throws InterruptedException {
         int location = robot.pipeline.location;

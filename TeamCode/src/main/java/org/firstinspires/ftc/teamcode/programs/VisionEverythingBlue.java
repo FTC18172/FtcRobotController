@@ -7,16 +7,12 @@ import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
 @Autonomous(name = "VisionEverythingBlue", group = "OpModes")
 public class VisionEverythingBlue extends UpliftAutoImpl {
 
-    UpliftRobot robot;
-
     @Override
     public void body() throws InterruptedException {
         int location = robot.pipeline.location;
         if(location == 0 || location == -1)
         {
             robot.getWebcam().stopRecordingPipeline();
-
-            robot.safeSleep(7000);
 
             moveForward(0.5, 420);
 
@@ -37,8 +33,6 @@ public class VisionEverythingBlue extends UpliftAutoImpl {
         {
             robot.getWebcam().stopRecordingPipeline();
 
-            robot.safeSleep(7000);
-
             moveForward(0.5, 420);
 
             moveLeft(0.5, 1000);
@@ -57,8 +51,6 @@ public class VisionEverythingBlue extends UpliftAutoImpl {
         else if(location == 2)
         {
             robot.getWebcam().stopRecordingPipeline();
-
-            robot.safeSleep(7000);
 
             moveForward(0.5, 500);
 

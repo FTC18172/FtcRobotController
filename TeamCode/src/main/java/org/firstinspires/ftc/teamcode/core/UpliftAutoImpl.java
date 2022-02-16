@@ -6,7 +6,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     private double previousAngle = 0;
     private double integratedAngle = 0;
 
-    UpliftRobot robot;
+    public UpliftRobot robot;
 
 
     @Override

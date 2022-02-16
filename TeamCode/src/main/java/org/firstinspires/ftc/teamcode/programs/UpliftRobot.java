@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -20,7 +21,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck;
-    DcMotor pulley;
+    //DcMotorEx pulley;
     Servo bucket, arm, capX, capY;
     CRServo cap;
     ColorSensor bucketSensor;
@@ -39,7 +40,7 @@ public class UpliftRobot {
     public void getHardware() {
         hardwareMap = opMode.hardwareMap;
         initializeCamera();
-        // pulley = hardwareMap.get(DcMotor.class, "pulley");
+        //pulley = hardwareMap.get(DcMotorEx.class, "pulley");
         leftFront = hardwareMap.get(DcMotor.class, "left_front");
         rightFront = hardwareMap.get(DcMotor.class, "right_front");
         leftBack = hardwareMap.get(DcMotor.class, "left_back");
@@ -100,9 +101,9 @@ public class UpliftRobot {
         }
     }
 
-    public DcMotor getPulley() {
-        return pulley;
-    }
+//    public DcMotor getPulley() {
+//        return pulley;
+//    }
 
     public Servo getBucket() {
         return bucket;
