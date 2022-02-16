@@ -22,10 +22,7 @@ public class Teleop extends UpliftTele {
     double capXPos = 0.45;
     double capYPos = 0.5;
 
-    public Teleop() {
-        super(new UpliftRobot());
-        robot.setOpMode(this);
-    }
+    public Teleop() {}
 
     @Override
     public void initHardware() {

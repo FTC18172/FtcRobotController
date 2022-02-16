@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 public abstract class UpliftAuto extends LinearOpMode {
     protected final UpliftRobot robot;
@@ -13,8 +14,8 @@ public abstract class UpliftAuto extends LinearOpMode {
 
     protected abstract void exit() throws InterruptedException;
 
-    public UpliftAuto(UpliftRobot robot) {
-        this.robot = robot;
+    public UpliftAuto() {
+        this.robot = new UpliftRobot(this);
     }
 
     @Override
