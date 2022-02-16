@@ -1,16 +1,14 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.programs;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.core.UpliftAuto;
 import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
-import org.openftc.easyopencv.OpenCvCamera;
 
 @Autonomous(name = "VisionPhubBlue", group = "OpModes")
 public class VisionPhubBlue extends UpliftAutoImpl {
-    
+
+    UpliftRobot robot;
+
     @Override
     public void body() throws InterruptedException {
         int location = robot.pipeline.location;

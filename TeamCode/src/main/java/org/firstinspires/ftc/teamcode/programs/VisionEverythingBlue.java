@@ -1,18 +1,18 @@
-package org.firstinspires.ftc.teamcode;
-
-import android.graphics.Camera;
+package org.firstinspires.ftc.teamcode.programs;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
 
-@Autonomous(name = "VisionDepoStorageBlue", group = "OpModes")
-public class VisionDepoStorageBlue extends UpliftAutoImpl {
+@Autonomous(name = "VisionEverythingBlue", group = "OpModes")
+public class VisionEverythingBlue extends UpliftAutoImpl {
+
+    UpliftRobot robot;
 
     @Override
     public void body() throws InterruptedException {
-       int location = robot.pipeline.location;
-        if(location == 0 || location == -1 )
+        int location = robot.pipeline.location;
+        if(location == 0 || location == -1)
         {
             robot.getWebcam().stopRecordingPipeline();
 
@@ -76,23 +76,39 @@ public class VisionDepoStorageBlue extends UpliftAutoImpl {
             moveForward(0.5, 300);
         }
 
+        robot.getBucket().setPosition(.5);
         moveLeft(0.5);
         robot.safeSleep(3000);
 
         moveForward(0.2, 100);
 
-        moveForward(0.15);
+        moveForward(0.1);
         robot.getDuck().setPower(0.3);
-        robot.safeSleep(6000);
+        robot.safeSleep(5000);
         stopMotors();
 
         robot.getDuck().setPower(.65);
         robot.safeSleep(1000);
         robot.getDuck().setPower(0);
 
-        moveBackward(0.5, 800);
+        moveBackward(0.5, 300);
+
+        turnRight(0.5, 80);
+
+        moveBackward(0.5);
+        Thread.sleep(300);
+
+        moveBackward(0.2);
+        Thread.sleep(800);
+
+        moveForward(0.5, 1400);
+
+        turnRight(0.5, 5);
+
+        moveForward(0.5, 3500);
 
         robot.getBucket().setPosition(.3);
 
     }
 }
+

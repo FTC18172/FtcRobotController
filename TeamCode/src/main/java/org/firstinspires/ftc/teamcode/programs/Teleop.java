@@ -1,10 +1,9 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.programs;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.util.Range;
 
-import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 import org.firstinspires.ftc.teamcode.core.UpliftTele;
 import org.firstinspires.ftc.teamcode.toolkit.UpliftMath;
 
@@ -22,11 +21,12 @@ public class Teleop extends UpliftTele {
     double capXPos = 0.45;
     double capYPos = 0.5;
 
-    public Teleop() {}
+    UpliftRobot robot;
+
 
     @Override
     public void initHardware() {
-        
+        robot = new UpliftRobot(this);
     }
 
     @Override
