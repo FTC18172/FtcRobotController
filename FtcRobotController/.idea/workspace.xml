@@ -55,7 +55,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TeamCode" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="TeamCode" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="TeamCode" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -64,7 +64,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
+      <option name="MODE" value="do_nothing" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
@@ -101,7 +101,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
+      <option name="ACTIVITY_CLASS" value="org.firstinspires.ftc.teamcode.VisionCycleBlue" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -121,18 +121,46 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1645034663295">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1645034663295" />
+    <state x="425" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1645028108804">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="425" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1645028108804" />
     <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1644884886736">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1644884886736" />
+    <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1645025702365">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1645025702365" />
     <state x="356" y="223" width="653" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1644285681152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="356" y="223" width="653" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1644285681152" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1644712206650">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1645060633006">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1644712206650" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1645060633006" />
+    <state width="1306" height="2" key="GridCell.Tab.0.bottom" timestamp="1645112748547">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1306" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1645112748547" />
+    <state width="1306" height="2" key="GridCell.Tab.0.center" timestamp="1645112748547">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1306" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1645112748547" />
+    <state width="1306" height="2" key="GridCell.Tab.0.left" timestamp="1645112748547">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1306" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1645112748547" />
+    <state width="1306" height="2" key="GridCell.Tab.0.right" timestamp="1645112748547">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1306" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1645112748547" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1644701381087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -141,18 +169,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1101" height="726" key="com.android.tools.idea.apk.viewer.dex.ShowDisassemblyAction/0.0.1366.728@0.0.1366.728" timestamp="1644712305547" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1644879283411">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1645140295650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1644879283411" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1645140295650" />
     <state x="443" y="67" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1644884277940">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="443" y="67" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1644884277940" />
-    <state x="379" y="0" width="766" height="728" key="find.popup" timestamp="1644976038515">
+    <state x="379" y="0" width="766" height="728" key="find.popup" timestamp="1645029037542">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="0" width="766" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1644976038515" />
+    <state x="379" y="0" width="766" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1645029037542" />
     <state x="425" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1644694463645">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

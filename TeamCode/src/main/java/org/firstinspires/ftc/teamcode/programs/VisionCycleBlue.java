@@ -3,11 +3,10 @@ package org.firstinspires.ftc.teamcode.programs;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
+import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 
 @Autonomous(name = "VisionCycleBlue", group = "OpModes")
 public class VisionCycleBlue extends UpliftAutoImpl {
-
-    UpliftRobot robot;
 
     @Override
     public void body() throws InterruptedException {

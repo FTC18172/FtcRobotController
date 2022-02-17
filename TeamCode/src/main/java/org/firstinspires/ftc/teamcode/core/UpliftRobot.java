@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.programs;
+package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;

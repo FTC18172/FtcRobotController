@@ -25,7 +25,7 @@ public class VisionDepoStorageBlue extends UpliftAutoImpl {
 
             bottomLayer();
 
-            robot.bucket.setPosition(0.5);
+            robot.getBucket().setPosition(0.5);
 
             moveForward(0.5, 50);
         }

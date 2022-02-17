@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.programs.UpliftRobot;
-
 public abstract class UpliftTele extends LinearOpMode {
 
     public boolean isStarted, isLooping, isFinished;

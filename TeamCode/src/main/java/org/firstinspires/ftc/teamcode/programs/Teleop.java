@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 import org.firstinspires.ftc.teamcode.core.UpliftTele;
 import org.firstinspires.ftc.teamcode.toolkit.UpliftMath;
 

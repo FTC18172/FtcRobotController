@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.core;
 
-import org.firstinspires.ftc.teamcode.programs.UpliftRobot;
-
 public class UpliftAutoImpl extends UpliftAuto {
     private double previousAngle = 0;
     private double integratedAngle = 0;
