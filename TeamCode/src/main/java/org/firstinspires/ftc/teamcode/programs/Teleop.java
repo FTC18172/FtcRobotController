@@ -21,6 +21,7 @@ public class Teleop extends UpliftTele {
     boolean bReleased = true;
     double capXPos = 0.45;
     double capYPos = 0.5;
+    double capArmPos = 0.5;
 
     UpliftRobot robot;
 
@@ -34,6 +35,7 @@ public class Teleop extends UpliftTele {
     public void initAction() {
         robot.getCapX().setPosition(0.45);
         robot.getCapY().setPosition(0.5);
+        robot.getcaparm().setPosition(0.5);
     }
 
     @Override
@@ -86,8 +88,10 @@ public class Teleop extends UpliftTele {
 
 
         moveCapRight();
-        moveCapUp();
-        moveCapDown();
+//        moveCapUp();
+//        moveCapDown();
+        moveCapArmDown();
+        moveCapArmUp();
     }
 
     @Override
@@ -197,22 +201,38 @@ public class Teleop extends UpliftTele {
         }
     }
 
-    public void moveCapUp() {
-        double currentPosition = capYPos - 0.01;
-        if (gamepad1.dpad_up) {
-            robot.getCapY().setPosition(currentPosition);
-            capYPos = currentPosition;
+//    public void moveCapUp() {
+//        double currentPosition = capYPos - 0.01;
+//        if (gamepad1.dpad_up) {
+//            robot.getCapY().setPosition(currentPosition);
+//            capYPos = currentPosition;
+//        }
+
+
+
+//    public void moveCapDown() {
+//        double currentPosition = capYPos + 0.01;
+//        if (gamepad1.dpad_down) {
+//            robot.getCapY().setPosition(currentPosition);
+//            capYPos = currentPosition;
+//        }
+//    }
+
+    public void moveCapArmDown() {
+        double currentPosition = capArmPos + 0.01;
+        if (gamepad1.circle) {
+            robot.getcaparm().setPosition(currentPosition);
+            capArmPos = currentPosition;
         }
     }
 
-    public void moveCapDown() {
-        double currentPosition = capYPos + 0.01;
-        if (gamepad1.dpad_down) {
-            robot.getCapY().setPosition(currentPosition);
-            capYPos = currentPosition;
+    public void moveCapArmUp() {
+        double currentPosition = capArmPos - 0.01;
+        if (gamepad1.triangle) {
+            robot.getcaparm().setPosition(currentPosition);
+            capArmPos = currentPosition;
         }
     }
-
 
 
 //
@@ -248,8 +268,6 @@ public class Teleop extends UpliftTele {
 
     public void checkFreight(ColorSensor sensor) throws InterruptedException {
         if (sensor.alpha() > 1000) {
-           // duck.setPower(.7);
-           // Thread.sleep(1000);
             gamepad1.rumble(1000);
         }
     }

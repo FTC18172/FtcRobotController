@@ -22,7 +22,7 @@ public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck;
     DcMotorEx pulley;
-    Servo bucket, arm, capX, capY;
+    Servo bucket, arm, capX, capY, caparm;
     CRServo cap;
 
     ColorSensor bucketSensor;
@@ -54,6 +54,7 @@ public class UpliftRobot {
         capX = hardwareMap.get(Servo.class, "capX");
         capY = hardwareMap.get(Servo.class, "capY");
         cap = hardwareMap.get(CRServo.class, "cap");
+        caparm = hardwareMap.get(Servo.class, "caparm");
 
         pulley.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
@@ -152,6 +153,10 @@ public class UpliftRobot {
 
     public CRServo getCap() {
         return cap;
+    }
+
+    public Servo getcaparm() {
+        return caparm;
     }
 
     public ColorSensor getBucketSensor() {
