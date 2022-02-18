@@ -7,8 +7,8 @@ public class PIDControl  {
 
     double integralSum = 0;
     double P = 1;
-    double I = 0.001;
-    double D = 0.01;
+    double I = 0;
+    double D = 0;
 
     ElapsedTime timer = new ElapsedTime();
 
