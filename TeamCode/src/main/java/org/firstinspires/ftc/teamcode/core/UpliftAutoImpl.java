@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.core;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 public class UpliftAutoImpl extends UpliftAuto {
     private double previousAngle = 0;
     private double integratedAngle = 0;
@@ -200,6 +202,23 @@ public class UpliftAutoImpl extends UpliftAuto {
         previousAngle = currentAngle;
 
         return integratedAngle;
+    }
+
+    public void encoderSetPosition(double power, int distance)
+    {
+        double initialPos = robot.getPulley().getCurrentPosition();
+
+        while(robot.getPulley().getCurrentPosition() < initialPos - distance)
+        {
+            robot.getPulley().setPower(power);
+        }
+        robot.getPulley().setPower(0);
+
+        //        robot.getPulley().setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        robot.getPulley().setTargetPosition(distance);
+//        robot.getPulley().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.getPulley().setPower(power);
+
     }
 
 

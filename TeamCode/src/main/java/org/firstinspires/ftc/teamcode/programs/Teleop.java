@@ -35,7 +35,7 @@ public class Teleop extends UpliftTele {
     public void initAction() {
         robot.getCapX().setPosition(0.45);
         robot.getCapY().setPosition(0.5);
-        robot.getcaparm().setPosition(0.5);
+        robot.getCapArm().setPosition(0.5);
     }
 
     @Override
@@ -219,17 +219,17 @@ public class Teleop extends UpliftTele {
 //    }
 
     public void moveCapArmDown() {
-        double currentPosition = capArmPos + 0.01;
+        double currentPosition = capArmPos + 0.003;
         if (gamepad1.circle) {
-            robot.getcaparm().setPosition(currentPosition);
+            robot.getCapArm().setPosition(currentPosition);
             capArmPos = currentPosition;
         }
     }
 
     public void moveCapArmUp() {
-        double currentPosition = capArmPos - 0.01;
+        double currentPosition = capArmPos - 0.003;
         if (gamepad1.triangle) {
-            robot.getcaparm().setPosition(currentPosition);
+            robot.getCapArm().setPosition(currentPosition);
             capArmPos = currentPosition;
         }
     }
