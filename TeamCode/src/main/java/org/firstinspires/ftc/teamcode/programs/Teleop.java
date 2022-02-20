@@ -15,7 +15,7 @@ import static java.lang.Math.sqrt;
 import static java.lang.Math.toRadians;
 
 @TeleOp(name = "teleOp", group = "Opmodes")
-public class Teleop extends UpliftTele {
+public class      Teleop extends UpliftTele {
 
     boolean aReleased = true;
     boolean bReleased = true;

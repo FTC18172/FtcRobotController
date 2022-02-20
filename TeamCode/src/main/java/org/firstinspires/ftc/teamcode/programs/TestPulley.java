@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
 import org.firstinspires.ftc.teamcode.core.UpliftRobot;
-import org.firstinspires.ftc.teamcode.toolkit.EncoderControl;
+import org.firstinspires.ftc.teamcode.toolkit.PIDControl;
 
 @Autonomous(name = "TestPulley", group = "OpModes")
 public class TestPulley extends UpliftAutoImpl {
@@ -16,11 +16,9 @@ public class TestPulley extends UpliftAutoImpl {
     @Override
     public void body() throws InterruptedException {
 
-        encoderSetPosition(0.05, 100);
+        PIDControl controller = new PIDControl();
 
-        //        PIDControl controller = new PIDControl();
-//
-//        robot.getPulley().setPower(controller.PIDSetPosition(134, robot.getPulley().getCurrentPosition()));
+        robot.getPulley().setPower(controller.PIDSetPosition(536, robot.getPulley().getCurrentPosition()));
 
     }
 

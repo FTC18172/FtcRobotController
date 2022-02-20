@@ -30,7 +30,7 @@ public class UpliftAutoImpl extends UpliftAuto {
 
     }
 
-    public void  stopMotors() {
+    public void stopMotors() {
         robot.getLeftFront().setPower(0);
         robot.getLeftBack().setPower(0);
         robot.getRightFront().setPower(0);
@@ -64,8 +64,7 @@ public class UpliftAutoImpl extends UpliftAuto {
         robot.getBucket().setPosition(0.25);
     }
 
-    public void bottomLayer() throws InterruptedException
-    {
+    public void bottomLayer() throws InterruptedException {
         robot.getBucket().setPosition(0.75);
         robot.safeSleep(500);
         robot.getArm().setPosition(1);
@@ -80,7 +79,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void moveLeft(double power, double dist) {
         double initialPos = robot.getRightFront().getCurrentPosition();
 
-        while(robot.getRightFront().getCurrentPosition() < initialPos + dist) {
+        while (robot.getRightFront().getCurrentPosition() < initialPos + dist) {
             robot.getRightFront().setPower(power);
             robot.getRightBack().setPower(-power);
             robot.getLeftFront().setPower(-power);
@@ -99,7 +98,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void moveRight(double power, double dist) {
         double initialPos = robot.getRightFront().getCurrentPosition();
 
-        while(robot.getRightFront().getCurrentPosition() > initialPos - dist) {
+        while (robot.getRightFront().getCurrentPosition() > initialPos - dist) {
             robot.getRightFront().setPower(-power);
             robot.getRightBack().setPower(power);
             robot.getLeftFront().setPower(power);
@@ -118,7 +117,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void moveForward(double power, double dist) {
         double initialPos = robot.getRightFront().getCurrentPosition();
 
-        while(robot.getRightFront().getCurrentPosition() < initialPos + dist) {
+        while (robot.getRightFront().getCurrentPosition() < initialPos + dist) {
             robot.getRightFront().setPower(power);
             robot.getRightBack().setPower(power);
             robot.getLeftFront().setPower(power);
@@ -137,7 +136,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void moveBackward(double power, double dist) {
         double initialPos = robot.getRightFront().getCurrentPosition();
 
-        while(robot.getRightFront().getCurrentPosition() > initialPos - Math.abs(dist)) {
+        while (robot.getRightFront().getCurrentPosition() > initialPos - Math.abs(dist)) {
             robot.getRightFront().setPower(-power);
             robot.getRightBack().setPower(-power);
             robot.getLeftFront().setPower(-power);
@@ -156,7 +155,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void turnRight(double power, double angle) {
         double initialAngle = getIntegratedAngle();
 
-        while(getIntegratedAngle() > initialAngle - angle + 5) {
+        while (getIntegratedAngle() > initialAngle - angle + 5) {
             robot.getRightFront().setPower(-power);
             robot.getRightBack().setPower(-power);
             robot.getLeftFront().setPower(power);
@@ -171,7 +170,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void turnLeft(double power, double angle) {
         double initialAngle = getIntegratedAngle();
 
-        while(getIntegratedAngle() < initialAngle + angle - 10) {
+        while (getIntegratedAngle() < initialAngle + angle - 10) {
             robot.getRightFront().setPower(power);
             robot.getRightBack().setPower(power);
             robot.getLeftFront().setPower(-power);
@@ -186,6 +185,7 @@ public class UpliftAutoImpl extends UpliftAuto {
      * This method returns a value of the Z axis of the REV Expansion Hub IMU.
      * It transforms the value from (-180, 180) to (-inf, inf).
      * This code was taken and modified from https://ftcforum.usfirst.org/forum/ftc-technology/53477-rev-imu-questions?p=53481#post53481.
+     *
      * @return The integrated heading on the interval (-inf, inf).
      */
     private double getIntegratedAngle() {
@@ -203,23 +203,5 @@ public class UpliftAutoImpl extends UpliftAuto {
 
         return integratedAngle;
     }
-
-    public void encoderSetPosition(double power, int distance)
-    {
-        double initialPos = robot.getPulley().getCurrentPosition();
-
-        while(robot.getPulley().getCurrentPosition() < initialPos - distance)
-        {
-            robot.getPulley().setPower(power);
-        }
-        robot.getPulley().setPower(0);
-
-        //        robot.getPulley().setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-//        robot.getPulley().setTargetPosition(distance);
-//        robot.getPulley().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//        robot.getPulley().setPower(power);
-
-    }
-
 
 }
