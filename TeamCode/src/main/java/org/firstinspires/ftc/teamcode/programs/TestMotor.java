@@ -10,7 +10,8 @@ public class TestMotor extends UpliftAutoImpl {
     @Override
     public void body() throws InterruptedException {
         robot.getPulley().setPower(1);
-        while (opModeIsActive() && robot.getPulley().isBusy()) {
+        while (opModeIsActive() && robot.getPulley().isBusy())
+        {
             telemetry.addData("current position", robot.getPulley().getCurrentPosition() + "busy=" + robot.getPulley().isBusy());
             telemetry.update();
         }

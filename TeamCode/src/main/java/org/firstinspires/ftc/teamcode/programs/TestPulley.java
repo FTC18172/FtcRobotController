@@ -16,23 +16,30 @@ public class TestPulley extends UpliftAutoImpl {
     @Override
     public void body() throws InterruptedException {
 
-        robot.getPulley().setPower(1);
-        while(opModeIsActive() && robot.getPulley().isBusy())
-        {
-            telemetry.addData("current position", robot.getPulley().getCurrentPosition() + "busy=" + robot.getPulley().isBusy());
-            telemetry.update();
-        }
-        //setPosition(0.5, 3000);
+//        robot.getPulley().setPower(1);
+//        while(opModeIsActive() && robot.getPulley().isBusy())
+//        {
+//            telemetry.addData("current position", robot.getPulley().getCurrentPosition() + "busy=" + robot.getPulley().isBusy());
+//            telemetry.update();
+//        }
+        setPosition(0.1, 536);
 
     }
 
     public void setPosition(double power, int ticks)
     {
-        robot.getPulley().setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.getPulley().setTargetPosition(ticks);
-        robot.getPulley().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.getPulley().setPower(power);
+            robot.getPulley().setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.getPulley().setTargetPosition(ticks);
+            robot.getPulley().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.getPulley().setPower(power);
+            while(opModeIsActive() && robot.getPulley().isBusy())
+            {
+                telemetry.addData("current position", robot.getPulley().getCurrentPosition());
+                telemetry.update();
+            }
     }
+
+}
 
 //        PIDControl controller = new PIDControl();
 //
@@ -52,8 +59,3 @@ public class TestPulley extends UpliftAutoImpl {
 //        robot.getPulley().setPower(0);
 //
 //    }
-
-
-
-
-}
