@@ -53,20 +53,20 @@ public class  FreightFrenzy extends OpenCvPipeline {
         middle.release();
         right.release();
 
-        telemetry.addData("Left Raw Value", (int) Core.sumElems(left).val[0]);
-        telemetry.addData("Middle Raw Value", (int) Core.sumElems(middle).val[0]);
-        telemetry.addData("Right Raw Value", (int) Core.sumElems(right).val[0]);
-        telemetry.addData("Left Percentage", Math.round(leftValue * 100) + "%");
-        telemetry.addData("Middle Percentage", Math.round(middleValue * 100) + "%");
-        telemetry.addData("Right Percentage", Math.round(rightValue * 100) + "%");
+//        telemetry.addData("Left Raw Value", (int) Core.sumElems(left).val[0]);
+//        telemetry.addData("Middle Raw Value", (int) Core.sumElems(middle).val[0]);
+//        telemetry.addData("Right Raw Value", (int) Core.sumElems(right).val[0]);
+//        telemetry.addData("Left Percentage", Math.round(leftValue * 100) + "%");
+//        telemetry.addData("Middle Percentage", Math.round(middleValue * 100) + "%");
+//        telemetry.addData("Right Percentage", Math.round(rightValue * 100) + "%");
 
         Imgproc.rectangle(input, LEFT_ROI, new Scalar(0, 255, 0), 4);
         Imgproc.rectangle(input, MIDDLE_ROI, new Scalar(0, 255, 0), 4);
         Imgproc.rectangle(input, RIGHT_ROI, new Scalar(0, 255, 0), 4);
-        telemetry.addData("left", leftValue);
-        telemetry.addData("middle", middleValue);
-        telemetry.addData("right", rightValue);
-        telemetry.update();
+//        telemetry.addData("left", leftValue);
+//        telemetry.addData("middle", middleValue);
+//        telemetry.addData("right", rightValue);
+//        telemetry.update();
 
         if(leftValue > middleValue && leftValue > rightValue) {
             location = 0;
