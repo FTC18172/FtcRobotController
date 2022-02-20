@@ -55,6 +55,8 @@ public class UpliftRobot {
         cap = hardwareMap.get(CRServo.class, "cap");
         capArm = hardwareMap.get(Servo.class, "caparm");
 
+        pulley.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        pulley.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         pulley.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);

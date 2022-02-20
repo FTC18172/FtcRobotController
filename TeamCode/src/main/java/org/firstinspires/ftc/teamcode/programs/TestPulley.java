@@ -22,13 +22,12 @@ public class TestPulley extends UpliftAutoImpl {
 //            telemetry.addData("current position", robot.getPulley().getCurrentPosition() + "busy=" + robot.getPulley().isBusy());
 //            telemetry.update();
 //        }
-        setPosition(0.1, 536);
+        setPosition(0.5, 536);
 
     }
 
     public void setPosition(double power, int ticks)
     {
-            robot.getPulley().setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.getPulley().setTargetPosition(ticks);
             robot.getPulley().setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.getPulley().setPower(power);
