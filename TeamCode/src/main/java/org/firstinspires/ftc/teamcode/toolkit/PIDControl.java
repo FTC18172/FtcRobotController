@@ -9,7 +9,7 @@ public class PIDControl  {
 
 
     double integralSum = 0;
-    double P = 0.002;
+    double P = 50;
     double I = 0;
     double D = 0;
 
