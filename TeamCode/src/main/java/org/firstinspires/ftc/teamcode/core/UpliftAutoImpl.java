@@ -210,7 +210,7 @@ public class UpliftAutoImpl extends UpliftAuto {
         robot.getArm2().setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.getArm1().setPower(power);
         robot.getArm2().setPower(power);
-        while (opModeIsActive() && robot.getTurret().isBusy())
+        while (opModeIsActive() && robot.getArm1().isBusy() && robot.getArm2().isBusy())
         {
             telemetry.addData("arm1 current position", robot.getArm1().getCurrentPosition());
             telemetry.addData("arm2 current position", robot.getArm2().getCurrentPosition());
