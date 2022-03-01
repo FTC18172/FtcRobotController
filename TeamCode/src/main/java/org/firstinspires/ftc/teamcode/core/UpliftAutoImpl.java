@@ -41,25 +41,23 @@ public class UpliftAutoImpl extends UpliftAuto {
         robot.getBucket().setPosition(0.72);
         //bucket.setPosition(.65);
         robot.safeSleep(500);
-        robot.getArm().setPosition(0.6);
+        armSetPosition();
         robot.safeSleep(1000);
         robot.getBucket().setPosition(1);
         robot.safeSleep(500);
-        robot.getArm().setPosition(0);
-        //arm.setPosition(0);
+        armSetPosition();
         robot.safeSleep(500);
         robot.getBucket().setPosition(0.25);
-        //        bucket.setPosition(0.15);
     }
 
     public void middleLayer() throws InterruptedException {
         robot.getBucket().setPosition(0.75);
         robot.safeSleep(500);
-        robot.getArm().setPosition(0.8);
+        armSetPosition();
         robot.safeSleep(2000);
         robot.getBucket().setPosition(1);
         robot.safeSleep(1000);
-        robot.getArm().setPosition(0);
+        armSetPosition();
         robot.safeSleep(500);
         robot.getBucket().setPosition(0.25);
     }
@@ -67,11 +65,11 @@ public class UpliftAutoImpl extends UpliftAuto {
     public void bottomLayer() throws InterruptedException {
         robot.getBucket().setPosition(0.75);
         robot.safeSleep(500);
-        robot.getArm().setPosition(1);
+        armSetPosition();
         robot.safeSleep(2000);
         robot.getBucket().setPosition(1);
         robot.safeSleep(2000);
-        robot.getArm().setPosition(0);
+        armSetPosition();
         robot.safeSleep(500);
         robot.getBucket().setPosition(0.33);
     }
@@ -206,12 +204,16 @@ public class UpliftAutoImpl extends UpliftAuto {
 
     public void armSetPosition(double power, int ticks)
     {
-        robot.getArm().setTargetPosition(ticks);
-        robot.getArm().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.getArm().setPower(power);
+        robot.getArm1().setTargetPosition(ticks);
+        robot.getArm2().setTargetPosition(ticks);
+        robot.getArm1().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.getArm2().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.getArm1().setPower(power);
+        robot.getArm2().setPower(power);
         while (opModeIsActive() && robot.getTurret().isBusy())
         {
-            telemetry.addData("current position", robot.getArm().getCurrentPosition());
+            telemetry.addData("arm1 current position", robot.getArm1().getCurrentPosition());
+            telemetry.addData("arm2 current position", robot.getArm2().getCurrentPosition());
             telemetry.update();
         }
     }

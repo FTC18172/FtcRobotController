@@ -21,16 +21,13 @@ import org.openftc.easyopencv.OpenCvWebcam;
 
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
-    DcMotor intake, duck;
-    DcMotor turret;
-    Servo bucket, arm, capX, capY, capArm;
-    CRServo cap;
+    DcMotor intake, duck, turret, arm1, arm2;
+    Servo bucket, tinyArm, cap;
     AnalogInput potentiometer;
 
     ColorSensor bucketSensor;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
-    public double worldX = 0, worldY = 0, rawAngle = 0, worldAngle = 0;
     public BNO055IMU imu;
     public OpenCvCamera webcam;
     public FreightFrenzy pipeline;
@@ -50,19 +47,29 @@ public class UpliftRobot {
         rightBack = hardwareMap.get(DcMotor.class, "right_back");
         intake = hardwareMap.get(DcMotor.class, "intake");
         duck = hardwareMap.get(DcMotor.class, "duck");
-        arm = hardwareMap.get(Servo.class, "arm");
+        arm1 = hardwareMap.get(DcMotor.class, "arm1");
+        arm2 = hardwareMap.get(DcMotor.class, "arm2");
         bucket = hardwareMap.get(Servo.class, "bucket");
         bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
-        capX = hardwareMap.get(Servo.class, "capX");
-        capY = hardwareMap.get(Servo.class, "capY");
-        cap = hardwareMap.get(CRServo.class, "cap");
-        capArm = hardwareMap.get(Servo.class, "caparm");
+
         potentiometer = hardwareMap.get(AnalogInput.class, "potentiometer");
 
+        tinyArm = hardwareMap.get(Servo.class, "tinyArm");
 
-        turret.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        turret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        turret.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        cap = hardwareMap.get(Servo.class, "cap");
+
+
+
+
+        arm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        arm1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        arm2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        arm1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        arm2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -110,6 +117,16 @@ public class UpliftRobot {
         }
     }
 
+    public Servo getTinyArm()
+    {
+        return tinyArm;
+    }
+
+    public Servo getCap()
+    {
+        return cap;
+    }
+
     public DcMotor getTurret() {
         return turret;
     }
@@ -120,8 +137,11 @@ public class UpliftRobot {
         return bucket;
     }
 
-    public Servo getArm() {
-        return arm;
+    public DcMotor getArm1() {
+        return arm1;
+    }
+    public DcMotor getArm2() {
+        return arm2;
     }
 
     public DcMotor getLeftFront() {
@@ -150,22 +170,6 @@ public class UpliftRobot {
 
     public DcMotor getIntake() {
         return intake;
-    }
-
-    public Servo getCapX() {
-        return capX;
-    }
-
-    public Servo getCapY() {
-        return capY;
-    }
-
-    public CRServo getCap() {
-        return cap;
-    }
-
-    public Servo getCapArm() {
-        return capArm;
     }
 
     public ColorSensor getBucketSensor() {
