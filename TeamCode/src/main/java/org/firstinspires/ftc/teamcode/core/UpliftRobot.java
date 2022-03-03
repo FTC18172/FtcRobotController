@@ -21,8 +21,9 @@ import org.openftc.easyopencv.OpenCvWebcam;
 
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
-    DcMotor intake, duck, turret, arm1, arm2;
-    Servo  bucketLatch, tinyArm, cap;
+    DcMotor intake, turret, arm1, arm2;
+    Servo  tinyArm, cap;
+//    Servo  bucketLatch;
     AnalogInput potentiometer;
 
     ColorSensor bucketSensor, bottomSensor;
@@ -46,17 +47,16 @@ public class UpliftRobot {
         leftBack = hardwareMap.get(DcMotor.class, "left_back");
         rightBack = hardwareMap.get(DcMotor.class, "right_back");
         intake = hardwareMap.get(DcMotor.class, "intake");
-        duck = hardwareMap.get(DcMotor.class, "duck");
         arm1 = hardwareMap.get(DcMotor.class, "arm1");
         arm2 = hardwareMap.get(DcMotor.class, "arm2");
-        bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
-        bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
-        bottomSensor = hardwareMap.get(ColorSensor.class, "bottomSensor");
+//        bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
+//        bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
+//        bottomSensor = hardwareMap.get(ColorSensor.class, "bottomSensor");
 
 
         potentiometer = hardwareMap.get(AnalogInput.class, "potentiometer");
 
-        tinyArm = hardwareMap.get(Servo.class, "tinyArm");
+//        tinyArm = hardwareMap.get(Servo.class, "tinyArm");
 
         cap = hardwareMap.get(Servo.class, "cap");
 
@@ -135,9 +135,9 @@ public class UpliftRobot {
 
     public AnalogInput getPotentiometer(){ return potentiometer;}
 
-    public Servo getBucketLatch() {
-        return bucketLatch;
-    }
+//    public Servo getBucketLatch() {
+//        return bucketLatch;
+//    }
 
     public DcMotor getArm1() {
         return arm1;
@@ -166,20 +166,16 @@ public class UpliftRobot {
         return webcam;
     }
 
-    public DcMotor getDuck() {
-        return duck;
-    }
-
     public DcMotor getIntake() {
         return intake;
     }
 
-    public ColorSensor getBucketSensor() {
-        return bucketSensor;
-    }
-
-    public ColorSensor getBottomSensor()
-    {
-        return bottomSensor;
-    }
+//    public ColorSensor getBucketSensor() {
+//        return bucketSensor;
+//    }
+//
+//    public ColorSensor getBottomSensor()
+//    {
+//        return bottomSensor;
+//    }
 }

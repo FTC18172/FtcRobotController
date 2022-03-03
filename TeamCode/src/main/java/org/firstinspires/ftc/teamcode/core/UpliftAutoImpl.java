@@ -43,35 +43,6 @@ public class UpliftAutoImpl extends UpliftAuto {
         robot.getRightBack().setPower(0);
     }
 
-    public void topLayer() throws InterruptedException {
-        robot.getBucket().setPosition(0.72);
-        //bucket.setPosition(.65);
-        robot.safeSleep(500);
-        armSetPosition();
-        robot.safeSleep(1000);
-        robot.getBucket().setPosition(1);
-        robot.safeSleep(500);
-        armSetPosition();
-        robot.safeSleep(500);
-        robot.getBucket().setPosition(0.25);
-    }
-
-    public void middleLayer() throws InterruptedException {
-        robot.getBucket().setPosition(0.75);
-        robot.safeSleep(500);
-        armSetPosition();
-        robot.safeSleep(2000);
-        robot.getBucket().setPosition(1);
-        robot.safeSleep(1000);
-        armSetPosition();
-        robot.safeSleep(500);
-        robot.getBucket().setPosition(0.25);
-    }
-
-    public void bottomLayer() throws InterruptedException {
-        armSetPosition(1, 1008);
-    }
-
     public void moveLeft(double power, double dist) {
         double initialPos = robot.getRightFront().getCurrentPosition();
 
@@ -215,35 +186,35 @@ public class UpliftAutoImpl extends UpliftAuto {
             telemetry.update();
         }
     }
-    public void setBucketDown()
-    {
-        robot.getBucketLatch().setPosition(0);
-        robot.getTinyArm().setPosition(0);
-    }
-
-    public void setBucketUp()
-    {
-        robot.getBucketLatch().setPosition(1);
-        robot.getTinyArm().setPosition(0.5);
-    }
-
-    public void setBucketHigh()
-    {
-        robot.getBucketLatch().setPosition(1);
-        robot.getTinyArm().setPosition(0.7);
-    }
-
-    public void setBucketMid()
-    {
-        robot.getBucketLatch().setPosition(1);
-        robot.getTinyArm().setPosition(0.8);
-    }
-
-    public void setBucketLow()
-    {
-        robot.getBucketLatch().setPosition(1);
-        robot.getTinyArm().setPosition(0.9);
-    }
+//    public void setBucketDown()
+//    {
+//        robot.getBucketLatch().setPosition(0);
+//        robot.getTinyArm().setPosition(0);
+//    }
+//
+//    public void setBucketUp()
+//    {
+//        robot.getBucketLatch().setPosition(1);
+//        robot.getTinyArm().setPosition(0.5);
+//    }
+//
+//    public void setBucketHigh()
+//    {
+//        robot.getBucketLatch().setPosition(1);
+//        robot.getTinyArm().setPosition(0.7);
+//    }
+//
+//    public void setBucketMid()
+//    {
+//        robot.getBucketLatch().setPosition(1);
+//        robot.getTinyArm().setPosition(0.8);
+//    }
+//
+//    public void setBucketLow()
+//    {
+//        robot.getBucketLatch().setPosition(1);
+//        robot.getTinyArm().setPosition(0.9);
+//    }
     public void blueTurretPos(double potentiometerPos)
     {
 

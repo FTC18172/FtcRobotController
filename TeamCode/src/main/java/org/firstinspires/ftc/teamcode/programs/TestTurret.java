@@ -2,13 +2,8 @@ package org.firstinspires.ftc.teamcode.programs;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorControllerEx;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
-import org.firstinspires.ftc.teamcode.core.UpliftRobot;
-import org.firstinspires.ftc.teamcode.toolkit.PIDControl;
 
 @Autonomous(name = "TestTurret", group = "OpModes")
 public class TestTurret extends UpliftAutoImpl {

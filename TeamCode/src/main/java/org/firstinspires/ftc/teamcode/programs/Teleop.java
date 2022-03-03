@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.programs;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.core.UpliftRobot;
@@ -54,10 +55,7 @@ public class Teleop extends UpliftTele {
 
         intakeOn();
 
-        checkFreight(robot.getBucketSensor());
-
-        moveDuck();
-
+//        checkFreight(robot.getBucketSensor());
         armDown();
         sharedArmDown();
         topLayer();
@@ -66,7 +64,7 @@ public class Teleop extends UpliftTele {
 
         robot.getPotentiometer();
 
-        telemetry.addData("Freight", robot.getBucketSensor().alpha());
+//        telemetry.addData("Freight", robot.getBucketSensor().alpha());
 
         telemetry.addData("Potentiometer", robot.getPotentiometer().getVoltage());
         telemetry.update();
@@ -111,31 +109,33 @@ public class Teleop extends UpliftTele {
         {
             if( gamepad1.atRest())
             {
-                robot.getBucket().setPosition(1);
-                robot.safeSleep(500);
-                robot.getArm().setPosition(.03);
-                robot.safeSleep(500);
-                robot.getBucket().setPosition(0.3);
+//                robot.getBucket().setPosition(1);
+//                robot.safeSleep(500);
+//                robot.getArm().setPosition(.03);
+//                robot.safeSleep(500);
+//                robot.getBucket().setPosition(0.3);
+
             }
         }
     }
 
     public void sharedArmDown() throws InterruptedException {
         if (gamepad2.x) {
-            robot.getBucket().setPosition(1);
-            Thread.sleep(500);
-            robot.getArm().setPosition(.024);
-            Thread.sleep(500);
-            robot.getBucket().setPosition(0.3);
+//            robot.getBucket().setPosition(1);
+//            Thread.sleep(500);
+//            robot.getArm().setPosition(.024);
+//            Thread.sleep(500);
+//            robot.getBucket().setPosition(0.3);
+            armSetPosition(.01,100);
         }
     }
 
     public void ting() throws InterruptedException {
         if (gamepad2.dpad_down) {
 
-            robot.getArm().setPosition(.024);
-            Thread.sleep(500);
-            robot.getBucket().setPosition(0.3);
+//            robot.getArm().setPosition(.024);
+//            Thread.sleep(500);
+//            robot.getBucket().setPosition(0.3);
         }
     }
 
@@ -143,16 +143,16 @@ public class Teleop extends UpliftTele {
 
     public void sharedHub() throws InterruptedException {
         if (gamepad2.a) {
-            robot.getBucket().setPosition(0.8);
-            robot.getArm().setPosition(0.95);
+//            robot.getBucket().setPosition(0.8);
+//            robot.getArm().setPosition(0.95);
 
         }
     }
 
     public void topLayer() throws InterruptedException {
         if (gamepad2.b) {
-            robot.getBucket().setPosition(0.62);
-            robot.getArm().setPosition(0.6);
+//            robot.getBucket().setPosition(0.62);
+//            robot.getArm().setPosition(0.6);
         }
 
     }
@@ -168,11 +168,20 @@ public class Teleop extends UpliftTele {
         robot.getIntake().setPower(.77 * Range.clip(gamepad2.left_stick_y, -1, 1));
     }
 
-
-    public void moveDuck() {
-        robot.getDuck().setPower(.7 * Range.clip(gamepad2.left_stick_x, -1, 1));
-
+    public void armSetPosition(double power, int ticks)
+    {
+        robot.getArm1().setTargetPosition(ticks);
+        robot.getArm2().setTargetPosition(ticks);
+        robot.getArm1().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.getArm2().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.getArm1().setPower(power);
+        robot.getArm2().setPower(power);
+        while (opModeIsActive() && robot.getArm1().isBusy() && robot.getArm2().isBusy())
+        {
+            telemetry.addData("arm1 current position", robot.getArm1().getCurrentPosition());
+            telemetry.addData("arm2 current position", robot.getArm2().getCurrentPosition());
+            telemetry.update();
+        }
     }
-
 
 }
