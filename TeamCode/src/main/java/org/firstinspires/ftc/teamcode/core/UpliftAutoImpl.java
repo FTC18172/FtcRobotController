@@ -8,7 +8,7 @@ public class UpliftAutoImpl extends UpliftAuto {
 
     public final double redTurretAngle = 2;
     public final double blueTurretAngle = 0.9;
-    public final double turretPosMid = 1.43;
+    public final double turretAngleMid = 1.43;
 
 
 

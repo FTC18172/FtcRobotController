@@ -14,16 +14,16 @@ public class  FreightFrenzy extends OpenCvPipeline {
     Mat mat = new Mat();
     public int location = -1;
     static final Rect LEFT_ROI = new Rect(
-            new Point(60, 100),
-            new Point(120, 170));
+            new Point(0, 150),
+            new Point(60, 220));
 
     static final Rect MIDDLE_ROI = new Rect(
-            new Point(160, 100),
-            new Point(220, 170));
+            new Point(120, 150),
+            new Point(180, 220));
 
     static final Rect RIGHT_ROI = new Rect(
-            new Point(260, 100),
-            new Point(320, 170));
+            new Point(260, 150),
+            new Point(320, 220));
 
     public FreightFrenzy(Telemetry t) {
         telemetry = t;
@@ -53,20 +53,20 @@ public class  FreightFrenzy extends OpenCvPipeline {
         middle.release();
         right.release();
 
-//        telemetry.addData("Left Raw Value", (int) Core.sumElems(left).val[0]);
-//        telemetry.addData("Middle Raw Value", (int) Core.sumElems(middle).val[0]);
-//        telemetry.addData("Right Raw Value", (int) Core.sumElems(right).val[0]);
-//        telemetry.addData("Left Percentage", Math.round(leftValue * 100) + "%");
-//        telemetry.addData("Middle Percentage", Math.round(middleValue * 100) + "%");
-//        telemetry.addData("Right Percentage", Math.round(rightValue * 100) + "%");
+        telemetry.addData("Left Raw Value", (int) Core.sumElems(left).val[0]);
+        telemetry.addData("Middle Raw Value", (int) Core.sumElems(middle).val[0]);
+        telemetry.addData("Right Raw Value", (int) Core.sumElems(right).val[0]);
+        telemetry.addData("Left Percentage", Math.round(leftValue * 100) + "%");
+        telemetry.addData("Middle Percentage", Math.round(middleValue * 100) + "%");
+        telemetry.addData("Right Percentage", Math.round(rightValue * 100) + "%");
 
         Imgproc.rectangle(input, LEFT_ROI, new Scalar(0, 255, 0), 4);
         Imgproc.rectangle(input, MIDDLE_ROI, new Scalar(0, 255, 0), 4);
         Imgproc.rectangle(input, RIGHT_ROI, new Scalar(0, 255, 0), 4);
-//        telemetry.addData("left", leftValue);
-//        telemetry.addData("middle", middleValue);
-//        telemetry.addData("right", rightValue);
-//        telemetry.update();
+        telemetry.addData("left", leftValue);
+        telemetry.addData("middle", middleValue);
+        telemetry.addData("right", rightValue);
+        telemetry.update();
 
         if(leftValue > middleValue && leftValue > rightValue) {
             location = 0;

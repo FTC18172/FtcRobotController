@@ -18,7 +18,7 @@ public class StatesCycleRed extends UpliftAutoImpl {
             //armSetPosition(1, 1008);
             //setBucketLow();
             //setBucketUp();
-            blueTurretPos(turretPosMid);
+            blueTurretPos(turretAngleMid);
             //setBucketDown();
 
         } else if (location == 1) {
@@ -29,7 +29,7 @@ public class StatesCycleRed extends UpliftAutoImpl {
             //armSetPosition(1, 1008);
             //setBucketMid();
             //setBucketUp();
-            blueTurretPos(turretPosMid);
+            blueTurretPos(turretAngleMid);
             //setBucketDown();
 
         } else if (location == 2) {
@@ -40,7 +40,7 @@ public class StatesCycleRed extends UpliftAutoImpl {
             //armSetPosition(1, 1008);
             //setBucketHigh();
             //setBucketUp();
-            blueTurretPos(turretPosMid);
+            blueTurretPos(turretAngleMid);
             //setBucketDown();
 
         }

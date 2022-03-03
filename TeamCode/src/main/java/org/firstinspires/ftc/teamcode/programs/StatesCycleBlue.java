@@ -19,7 +19,7 @@
 //            armSetPosition(1, 1008);
 //            setBucketLow();
 //            setBucketUp();
-//            blueTurretPos(turretPosMid);
+//            blueTurretPos(turretAngleMid);
 //            setBucketDown();
 //
 //        } else if (location == 1) {
@@ -30,7 +30,7 @@
 //            armSetPosition(1, 1008);
 //            setBucketMid();
 //            setBucketUp();
-//            blueTurretPos(turretPosMid);
+//            blueTurretPos(turretAngleMid);
 //            setBucketDown();
 //
 //        } else if (location == 2) {
@@ -41,7 +41,7 @@
 //            armSetPosition(1, 1008);
 //            setBucketHigh();
 //            setBucketUp();
-//            blueTurretPos(turretPosMid);
+//            blueTurretPos(turretAngleMid);
 //            setBucketDown();
 //
 //        }
