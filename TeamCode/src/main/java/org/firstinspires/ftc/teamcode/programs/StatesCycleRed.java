@@ -14,36 +14,47 @@ public class StatesCycleRed extends UpliftAutoImpl {
             robot.getWebcam().stopRecordingPipeline();
 
             //setBucketUp();
-            blueTurretPos(redTurretAngle);
+            TurretPos(redTurretAngle);
+            robot.safeSleep(5000);
             //armSetPosition(1, 1008);
             //setBucketLow();
             //setBucketUp();
-            blueTurretPos(turretAngleMid);
+            TurretPos(turretAngleMid);
             //setBucketDown();
 
         } else if (location == 1) {
             robot.getWebcam().stopRecordingPipeline();
 
             //setBucketUp();
-            blueTurretPos(redTurretAngle);
+            TurretPos(redTurretAngle);
+            robot.safeSleep(5000);
             //armSetPosition(1, 1008);
             //setBucketMid();
             //setBucketUp();
-            blueTurretPos(turretAngleMid);
+            TurretPos(turretAngleMid);
             //setBucketDown();
 
         } else if (location == 2) {
             robot.getWebcam().stopRecordingPipeline();
 
             //setBucketUp();
-            blueTurretPos(redTurretAngle);
+            TurretPos(redTurretAngle);
+            robot.safeSleep(5000);
             //armSetPosition(1, 1008);
             //setBucketHigh();
             //setBucketUp();
-            blueTurretPos(turretAngleMid);
+            TurretPos(turretAngleMid);
             //setBucketDown();
 
         }
+        moveForward(0.3);
+        robot.getIntake().setPower(0.4);
+        robot.safeSleep(5000);
+        robot.getIntake().setPower(-0.5);
+        moveBackward(0.3);
+        robot.safeSleep(5000);
+
+
 //        for (int i = 0; i < 3; i++) {
 //            while (robot.getBucketSensor().alpha() < 1000) {
 //                moveForward(0.5);

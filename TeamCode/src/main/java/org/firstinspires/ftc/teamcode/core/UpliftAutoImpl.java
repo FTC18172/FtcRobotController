@@ -6,8 +6,8 @@ public class UpliftAutoImpl extends UpliftAuto {
     private double previousAngle = 0;
     private double integratedAngle = 0;
 
-    public final double redTurretAngle = 2;
-    public final double blueTurretAngle = 0.9;
+    public final double redTurretAngle = 2.42;
+    public final double blueTurretAngle = 0.86;
     public final double turretAngleMid = 1.43;
 
 
@@ -215,23 +215,23 @@ public class UpliftAutoImpl extends UpliftAuto {
 //        robot.getBucketLatch().setPosition(1);
 //        robot.getTinyArm().setPosition(0.9);
 //    }
-    public void blueTurretPos(double potentiometerPos)
+    public void TurretPos(double potentiometerPos)
     {
 
         if (robot.getPotentiometer().getVoltage() < potentiometerPos) {
             while (robot.getPotentiometer().getVoltage() < potentiometerPos) {
-                robot.getTurret().setPower(0.1);
+                robot.getTurret().setPower(0.4);
             }
             robot.getTurret().setPower(0);
             if (robot.getPotentiometer().getVoltage() > potentiometerPos) {
                 while (robot.getPotentiometer().getVoltage() > potentiometerPos) {
-                    robot.getTurret().setPower(-0.1);
+                    robot.getTurret().setPower(-0.2);
                 }
                 robot.getTurret().setPower(0);
             }
         } else if (robot.getPotentiometer().getVoltage() > potentiometerPos) {
             while (robot.getPotentiometer().getVoltage() > potentiometerPos) {
-                robot.getTurret().setPower(-0.1);
+                robot.getTurret().setPower(-0.4);
             }
             robot.getTurret().setPower(0);
         }

@@ -21,6 +21,9 @@ public class Teleop extends UpliftTele {
 
     UpliftRobot robot;
 
+    double capYPos = 0.5;
+
+
 
     @Override
     public void initHardware() {
@@ -56,11 +59,16 @@ public class Teleop extends UpliftTele {
         intakeOn();
 
 //        checkFreight(robot.getBucketSensor());
-        armDown();
+//        armDown();
         sharedArmDown();
-        topLayer();
-        sharedHub();
-        ting();
+//        topLayer();
+//        sharedHub();
+//        ting();
+
+        moveCapUp();
+        moveCapDown();
+
+        telemetry.addData("cap", robot.getCap());
 
         robot.getPotentiometer();
 
@@ -126,8 +134,7 @@ public class Teleop extends UpliftTele {
 //            robot.getArm().setPosition(.024);
 //            Thread.sleep(500);
 //            robot.getBucket().setPosition(0.3);
-            armSetPosition(.01,100);
-        }
+            }
     }
 
     public void ting() throws InterruptedException {
@@ -168,19 +175,22 @@ public class Teleop extends UpliftTele {
         robot.getIntake().setPower(.77 * Range.clip(gamepad2.left_stick_y, -1, 1));
     }
 
-    public void armSetPosition(double power, int ticks)
-    {
-        robot.getArm1().setTargetPosition(ticks);
-        robot.getArm2().setTargetPosition(ticks);
-        robot.getArm1().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.getArm2().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.getArm1().setPower(power);
-        robot.getArm2().setPower(power);
-        while (opModeIsActive() && robot.getArm1().isBusy() && robot.getArm2().isBusy())
+    public void moveCapUp() {
+
+        double currentPosition = capYPos + 0.001;
+        if (gamepad2.dpad_up)
         {
-            telemetry.addData("arm1 current position", robot.getArm1().getCurrentPosition());
-            telemetry.addData("arm2 current position", robot.getArm2().getCurrentPosition());
-            telemetry.update();
+            robot.getCap().setPosition(currentPosition);
+            capYPos = currentPosition;
+        }
+    }
+
+    public void moveCapDown() {
+        double currentPosition = capYPos - 0.001;
+        if (gamepad2.dpad_down)
+        {
+            robot.getCap().setPosition(currentPosition);
+            capYPos = currentPosition;
         }
     }
 
