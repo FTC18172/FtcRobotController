@@ -6,6 +6,12 @@ public class UpliftAutoImpl extends UpliftAuto {
     private double previousAngle = 0;
     private double integratedAngle = 0;
 
+    public final double redTurretAngle = 2;
+    public final double blueTurretAngle = 0.9;
+    public final double turretPosMid = 1.43;
+
+
+
     public UpliftRobot robot;
 
 
@@ -63,15 +69,7 @@ public class UpliftAutoImpl extends UpliftAuto {
     }
 
     public void bottomLayer() throws InterruptedException {
-        robot.getBucket().setPosition(0.75);
-        robot.safeSleep(500);
-        armSetPosition();
-        robot.safeSleep(2000);
-        robot.getBucket().setPosition(1);
-        robot.safeSleep(2000);
-        armSetPosition();
-        robot.safeSleep(500);
-        robot.getBucket().setPosition(0.33);
+        armSetPosition(1, 1008);
     }
 
     public void moveLeft(double power, double dist) {
@@ -215,6 +213,50 @@ public class UpliftAutoImpl extends UpliftAuto {
             telemetry.addData("arm1 current position", robot.getArm1().getCurrentPosition());
             telemetry.addData("arm2 current position", robot.getArm2().getCurrentPosition());
             telemetry.update();
+        }
+    }
+    public void setBucketUp()
+    {
+        robot.getBucketLatch().setPosition(1);
+        robot.getTinyArm().setPosition(0.5);
+    }
+
+    public void setBucketHigh()
+    {
+        robot.getBucketLatch().setPosition(1);
+        robot.getTinyArm().setPosition(0.7);
+    }
+
+    public void setBucketMid()
+    {
+        robot.getBucketLatch().setPosition(1);
+        robot.getTinyArm().setPosition(0.8);
+    }
+
+    public void setBucketLow()
+    {
+        robot.getBucketLatch().setPosition(1);
+        robot.getTinyArm().setPosition(0.9);
+    }
+    public void blueTurretPos(double potentiometerPos)
+    {
+
+        if (robot.getPotentiometer().getVoltage() < potentiometerPos) {
+            while (robot.getPotentiometer().getVoltage() < potentiometerPos) {
+                robot.getTurret().setPower(0.1);
+            }
+            robot.getTurret().setPower(0);
+            if (robot.getPotentiometer().getVoltage() > potentiometerPos) {
+                while (robot.getPotentiometer().getVoltage() > potentiometerPos) {
+                    robot.getTurret().setPower(-0.1);
+                }
+                robot.getTurret().setPower(0);
+            }
+        } else if (robot.getPotentiometer().getVoltage() > potentiometerPos) {
+            while (robot.getPotentiometer().getVoltage() > potentiometerPos) {
+                robot.getTurret().setPower(-0.1);
+            }
+            robot.getTurret().setPower(0);
         }
     }
 }

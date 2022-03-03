@@ -14,18 +14,12 @@ public class VisionCycleBlue extends UpliftAutoImpl {
         if (location == 0) {
             robot.getWebcam().stopRecordingPipeline();
 
-            moveRight(0.5, 100);
+            setBucketUp();
+            blueTurretPos(blueTurretAngle);
+            armSetPosition(1, 1008);
+            setBucketLow();
 
-            moveForward(0.5, 350);
 
-            moveRight(0.5, 1100);
-
-            turnLeft(0.5, 170);
-
-            moveBackward(0.5, 75);
-            stopMotors();
-
-            bottomLayer();
 
         } else if (location == 1) {
             robot.getWebcam().stopRecordingPipeline();
@@ -60,75 +54,7 @@ public class VisionCycleBlue extends UpliftAutoImpl {
             topLayer();
 
         }
-        robot.getBucket().setPosition(.25);
 
-        moveForward(.7,500);
-
-        turnRight(.7,85);
-
-        moveLeft(0.45);
-
-        robot.safeSleep(1000);
-
-        moveForward(.7,1300);
-
-        moveForward(.2);
-
-        robot.getIntake().setPower(.75);
-
-        robot.safeSleep(3000);
-
-        robot.getIntake().setPower(0);
-
-        moveBackward(0.7, 2650);
-
-        moveRight(0.7, 1000);
-
-        turnLeft(0.7, 80);
-
-        moveBackward(0.5, 100);
-
-        topLayer();
-
-        moveForward(.7,500);
-
-        turnRight(.7,85);
-
-        moveLeft(0.45);
-
-        robot.safeSleep(1000);
-
-        moveForward(.7,1300);
-
-        moveForward(.2);
-
-        robot.getIntake().setPower(.75);
-
-        robot.safeSleep(3000);
-
-        robot.getIntake().setPower(0);
-
-        moveBackward(0.7, 2650);
-
-        moveRight(0.7, 1000);
-
-        turnLeft(0.7, 80);
-
-        moveBackward(0.5, 100);
-
-        topLayer();
-
-        moveForward(.7,500);
-
-        turnRight(.7,85);
-
-        moveLeft(0.45);
-
-        robot.safeSleep(1000);
-
-        moveForward(.7,1300);
-
-        moveForward(1, 500);
 
 
 

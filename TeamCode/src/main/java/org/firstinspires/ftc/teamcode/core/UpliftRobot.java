@@ -22,7 +22,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, duck, turret, arm1, arm2;
-    Servo bucket, tinyArm, cap;
+    Servo  bucketLatch, tinyArm, cap;
     AnalogInput potentiometer;
 
     ColorSensor bucketSensor;
@@ -49,7 +49,7 @@ public class UpliftRobot {
         duck = hardwareMap.get(DcMotor.class, "duck");
         arm1 = hardwareMap.get(DcMotor.class, "arm1");
         arm2 = hardwareMap.get(DcMotor.class, "arm2");
-        bucket = hardwareMap.get(Servo.class, "bucket");
+        bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
         bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
 
         potentiometer = hardwareMap.get(AnalogInput.class, "potentiometer");
@@ -133,8 +133,8 @@ public class UpliftRobot {
 
     public AnalogInput getPotentiometer(){ return potentiometer;}
 
-    public Servo getBucket() {
-        return bucket;
+    public Servo getBucketLatch() {
+        return bucketLatch;
     }
 
     public DcMotor getArm1() {
