@@ -11,49 +11,62 @@ public class VisionCycleBlue extends UpliftAutoImpl {
     @Override
     public void body() throws InterruptedException {
         int location = robot.pipeline.location;
-        if (location == 0) {
+        if (location == 0 || location == -1 ) {
             robot.getWebcam().stopRecordingPipeline();
 
             setBucketUp();
             blueTurretPos(blueTurretAngle);
             armSetPosition(1, 1008);
             setBucketLow();
-
-
+            setBucketUp();
+            blueTurretPos(turretPosMid);
+            setBucketDown();
 
         } else if (location == 1) {
             robot.getWebcam().stopRecordingPipeline();
 
-            moveRight(0.5, 100);
-
-            moveForward(0.5, 300);
-
-            moveRight(0.5, 1200);
-
-            turnLeft(0.5, 170);
-
-            moveBackward(0.5, 100);
-            stopMotors();
-
-            middleLayer();
+            setBucketUp();
+            blueTurretPos(blueTurretAngle);
+            armSetPosition(1, 1008);
+            setBucketMid();
+            setBucketUp();
+            blueTurretPos(turretPosMid);
+            setBucketDown();
 
         } else if (location == 2) {
             robot.getWebcam().stopRecordingPipeline();
 
-            moveRight(0.5, 100);
-
-            moveForward(0.5, 300);
-
-            moveRight(0.5, 1200);
-
-            turnLeft(0.5, 175);
-
-            moveBackward(0.5, 300);
-            stopMotors();
-
-            topLayer();
+            setBucketUp();
+            blueTurretPos(blueTurretAngle);
+            armSetPosition(1, 1008);
+            setBucketHigh();
+            setBucketUp();
+            blueTurretPos(turretPosMid);
+            setBucketDown();
 
         }
+
+        while(robot.getBucketSensor().alpha() < 1000)
+        {
+            moveForward(0.5);
+            robot.getIntake().setPower(0.6);
+            if(robot.getBucketSensor().alpha() > 1000)
+            {
+                stopMotors();
+                break;
+            }
+        }
+        while(robot.getBottomSensor().alpha() < 1000)
+        {
+            robot.getIntake().setPower(-0.5);
+            moveBackward(0.5);
+            if(robot.getBucketSensor().alpha() > 1000)
+            {
+                stopMotors();
+                break;
+            }
+        }
+
 
 
 

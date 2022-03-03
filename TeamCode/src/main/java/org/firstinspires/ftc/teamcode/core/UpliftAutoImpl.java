@@ -215,6 +215,12 @@ public class UpliftAutoImpl extends UpliftAuto {
             telemetry.update();
         }
     }
+    public void setBucketDown()
+    {
+        robot.getBucketLatch().setPosition(0);
+        robot.getTinyArm().setPosition(0);
+    }
+
     public void setBucketUp()
     {
         robot.getBucketLatch().setPosition(1);

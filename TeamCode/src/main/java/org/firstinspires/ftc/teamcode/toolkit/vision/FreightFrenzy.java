@@ -14,16 +14,16 @@ public class  FreightFrenzy extends OpenCvPipeline {
     Mat mat = new Mat();
     public int location = -1;
     static final Rect LEFT_ROI = new Rect(
-            new Point(0, 130),
-            new Point(60, 200));
+            new Point(60, 80),
+            new Point(120, 150));
 
     static final Rect MIDDLE_ROI = new Rect(
-            new Point(120, 130),
-            new Point(180, 200));
+            new Point(160, 80),
+            new Point(220, 150));
 
     static final Rect RIGHT_ROI = new Rect(
-            new Point(260, 130),
-            new Point(320, 200));
+            new Point(260, 80),
+            new Point(320, 150));
 
     public FreightFrenzy(Telemetry t) {
         telemetry = t;

@@ -25,7 +25,7 @@ public class UpliftRobot {
     Servo  bucketLatch, tinyArm, cap;
     AnalogInput potentiometer;
 
-    ColorSensor bucketSensor;
+    ColorSensor bucketSensor, bottomSensor;
     public LinearOpMode opMode;
     public HardwareMap hardwareMap;
     public BNO055IMU imu;
@@ -51,6 +51,8 @@ public class UpliftRobot {
         arm2 = hardwareMap.get(DcMotor.class, "arm2");
         bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
         bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
+        bottomSensor = hardwareMap.get(ColorSensor.class, "bottomSensor");
+
 
         potentiometer = hardwareMap.get(AnalogInput.class, "potentiometer");
 
@@ -174,5 +176,10 @@ public class UpliftRobot {
 
     public ColorSensor getBucketSensor() {
         return bucketSensor;
+    }
+
+    public ColorSensor getBottomSensor()
+    {
+        return bottomSensor;
     }
 }
