@@ -1,21 +1,20 @@
 package org.firstinspires.ftc.teamcode.programs;
 
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.core.UpliftAutoImpl;
-import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 
-@Autonomous(name = "VisionCycleBlue", group = "OpModes")
-public class VisionCycleBlue extends UpliftAutoImpl {
-
+@Autonomous(name = "VisionCycleRed", group = "OpModes")
+public class VisionCycleRed extends UpliftAutoImpl {
     @Override
     public void body() throws InterruptedException {
         int location = robot.pipeline.location;
-        if (location == 0 || location == -1 ) {
+        if (location == 0 || location == -1) {
             robot.getWebcam().stopRecordingPipeline();
 
             setBucketUp();
-            blueTurretPos(blueTurretAngle);
+            blueTurretPos(redTurretAngle);
             armSetPosition(1, 1008);
             setBucketLow();
             setBucketUp();
@@ -26,7 +25,7 @@ public class VisionCycleBlue extends UpliftAutoImpl {
             robot.getWebcam().stopRecordingPipeline();
 
             setBucketUp();
-            blueTurretPos(blueTurretAngle);
+            blueTurretPos(redTurretAngle);
             armSetPosition(1, 1008);
             setBucketMid();
             setBucketUp();
@@ -37,7 +36,7 @@ public class VisionCycleBlue extends UpliftAutoImpl {
             robot.getWebcam().stopRecordingPipeline();
 
             setBucketUp();
-            blueTurretPos(blueTurretAngle);
+            blueTurretPos(redTurretAngle);
             armSetPosition(1, 1008);
             setBucketHigh();
             setBucketUp();
@@ -45,31 +44,26 @@ public class VisionCycleBlue extends UpliftAutoImpl {
             setBucketDown();
 
         }
-        for( int i = 0; i < 3; i++)
-        {
-            while(robot.getBucketSensor().alpha() < 1000)
-            {
+        for (int i = 0; i < 3; i++) {
+            while (robot.getBucketSensor().alpha() < 1000) {
                 moveForward(0.5);
                 robot.getIntake().setPower(0.6);
-                if(robot.getBucketSensor().alpha() > 1000)
-                {
+                if (robot.getBucketSensor().alpha() > 1000) {
                     stopMotors();
                     break;
                 }
             }
-            while(robot.getBottomSensor().alpha() < 1000)
-            {
+            while (robot.getBottomSensor().alpha() < 1000) {
                 robot.getIntake().setPower(-0.5);
                 moveBackward(0.5);
-                if(robot.getBucketSensor().alpha() > 1000)
-                {
+                if (robot.getBucketSensor().alpha() > 1000) {
                     stopMotors();
                     break;
                 }
             }
             moveBackward(0.5, 500);
             setBucketUp();
-            blueTurretPos(blueTurretAngle);
+            blueTurretPos(redTurretAngle);
             armSetPosition(1, 1008);
             setBucketHigh();
             setBucketUp();
@@ -77,15 +71,5 @@ public class VisionCycleBlue extends UpliftAutoImpl {
             setBucketDown();
         }
         moveForward(1, 700);
-
-
-
-
-
-
-
-
-
     }
 }
-
