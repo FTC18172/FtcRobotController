@@ -259,4 +259,5 @@ public class UpliftAutoImpl extends UpliftAuto {
             robot.getTurret().setPower(0);
         }
     }
+
 }
