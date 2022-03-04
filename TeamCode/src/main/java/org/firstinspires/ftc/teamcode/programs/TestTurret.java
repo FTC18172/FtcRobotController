@@ -28,22 +28,14 @@ public class TestTurret extends UpliftAutoImpl {
 //                robot.getTurret().setPower(-0.1);
 //            }
 //            robot.getTurret().setPower(0);
-//        }
 
-        robot.getRightFront().setTargetPosition(1000);
-        robot.getLeftFront().setTargetPosition(1000);
-        robot.getRightFront().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.getLeftFront().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.getRightFront().setPower(0.5);
-        robot.getLeftFront().setPower(0.5);
-        while (opModeIsActive() && robot.getArm1().isBusy() && robot.getArm2().isBusy())
-        {
-            telemetry.addData("arm1 current position", robot.getRightFront().getCurrentPosition());
-            telemetry.addData("arm2 current position", robot.getLeftFront().getCurrentPosition());
-            telemetry.update();
-        }    }
 
-}
+//        armSetPosition(0.3,1008);
+
+        robot.getTinyArm().setPosition(0.5);
+        robot.getBucketLatch().setPosition(0.5);
+            }
+        }
 
 
 

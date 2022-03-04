@@ -22,8 +22,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 public class UpliftRobot {
     DcMotor leftFront, rightFront, leftBack, rightBack;
     DcMotor intake, turret, arm1, arm2;
-    Servo  tinyArm, cap;
-//    Servo  bucketLatch;
+    Servo tinyArm, cap, bucketLatch;
     AnalogInput potentiometer;
 
     ColorSensor bucketSensor, bottomSensor;
@@ -32,6 +31,12 @@ public class UpliftRobot {
     public BNO055IMU imu;
     public OpenCvCamera webcam;
     public FreightFrenzy pipeline;
+
+    public final double redTurretAngle = 2.42;
+    public final double blueTurretAngle = 0.86;
+    public final double turretAngleMid = 1.43;
+    public final double rightAngle = 3.133;
+    public final double leftAngle = 0.63;
 
     public UpliftRobot(LinearOpMode opMode) {
         this.opMode = opMode;
@@ -49,14 +54,14 @@ public class UpliftRobot {
         intake = hardwareMap.get(DcMotor.class, "intake");
         arm1 = hardwareMap.get(DcMotor.class, "arm1");
         arm2 = hardwareMap.get(DcMotor.class, "arm2");
-//        bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
-//        bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
-//        bottomSensor = hardwareMap.get(ColorSensor.class, "bottomSensor");
+        bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
+        bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
+        bottomSensor = hardwareMap.get(ColorSensor.class, "bottomSensor");
 
 
         potentiometer = hardwareMap.get(AnalogInput.class, "potentiometer");
 
-//        tinyArm = hardwareMap.get(Servo.class, "tinyArm");
+        tinyArm = hardwareMap.get(Servo.class, "tinyArm");
 
         cap = hardwareMap.get(Servo.class, "cap");
 
@@ -135,9 +140,9 @@ public class UpliftRobot {
 
     public AnalogInput getPotentiometer(){ return potentiometer;}
 
-//    public Servo getBucketLatch() {
-//        return bucketLatch;
-//    }
+    public Servo getBucketLatch() {
+        return bucketLatch;
+    }
 
     public DcMotor getArm1() {
         return arm1;
@@ -170,12 +175,12 @@ public class UpliftRobot {
         return intake;
     }
 
-//    public ColorSensor getBucketSensor() {
-//        return bucketSensor;
-//    }
-//
-//    public ColorSensor getBottomSensor()
-//    {
-//        return bottomSensor;
-//    }
+    public ColorSensor getBucketSensor() {
+        return bucketSensor;
+    }
+
+    public ColorSensor getBottomSensor()
+    {
+        return bottomSensor;
+    }
 }
