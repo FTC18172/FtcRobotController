@@ -31,9 +31,7 @@ public class TestTurret extends UpliftAutoImpl {
 
 
 //        armSetPosition(0.3,1008);
-
-        robot.getTinyArm().setPosition(0.5);
-        robot.getBucketLatch().setPosition(0.5);
+        moveLeft(0.4, 100);
             }
         }
 

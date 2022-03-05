@@ -20,7 +20,7 @@ public class UpliftAutoImpl extends UpliftAuto {
 
     @Override
     public void initAction() {
-//        robot.getBucket().setPosition(0.5);
+        robot.getTinyArm().setPosition(0.5);
     }
 
 
@@ -42,9 +42,9 @@ public class UpliftAutoImpl extends UpliftAuto {
     }
 
     public void moveLeft(double power, double dist) {
-        double initialPos = robot.getRightFront().getCurrentPosition();
+        double initialPos = robot.getLeftFront().getCurrentPosition();
 
-        while (robot.getRightFront().getCurrentPosition() < initialPos + dist) {
+        while (robot.getLeftFront().getCurrentPosition() > initialPos - dist) {
             robot.getRightFront().setPower(power);
             robot.getRightBack().setPower(-power);
             robot.getLeftFront().setPower(-power);
@@ -61,9 +61,9 @@ public class UpliftAutoImpl extends UpliftAuto {
     }
 
     public void moveRight(double power, double dist) {
-        double initialPos = robot.getRightFront().getCurrentPosition();
+        double initialPos = robot.getLeftFront().getCurrentPosition();
 
-        while (robot.getRightFront().getCurrentPosition() > initialPos - dist) {
+        while (robot.getLeftFront().getCurrentPosition() < initialPos + dist) {
             robot.getRightFront().setPower(-power);
             robot.getRightBack().setPower(power);
             robot.getLeftFront().setPower(power);
@@ -80,9 +80,9 @@ public class UpliftAutoImpl extends UpliftAuto {
     }
 
     public void moveForward(double power, double dist) {
-        double initialPos = robot.getRightFront().getCurrentPosition();
+        double initialPos = robot.getLeftFront().getCurrentPosition();
 
-        while (robot.getRightFront().getCurrentPosition() < initialPos + dist) {
+        while (robot.getLeftFront().getCurrentPosition() < initialPos + dist) {
             robot.getRightFront().setPower(power);
             robot.getRightBack().setPower(power);
             robot.getLeftFront().setPower(power);
@@ -99,9 +99,9 @@ public class UpliftAutoImpl extends UpliftAuto {
     }
 
     public void moveBackward(double power, double dist) {
-        double initialPos = robot.getRightFront().getCurrentPosition();
+        double initialPos = robot.getLeftFront().getCurrentPosition();
 
-        while (robot.getRightFront().getCurrentPosition() > initialPos - Math.abs(dist)) {
+        while (robot.getLeftFront().getCurrentPosition() > initialPos - Math.abs(dist)) {
             robot.getRightFront().setPower(-power);
             robot.getRightBack().setPower(-power);
             robot.getLeftFront().setPower(-power);

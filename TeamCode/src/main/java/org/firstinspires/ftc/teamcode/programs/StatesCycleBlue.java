@@ -9,92 +9,127 @@ import org.firstinspires.ftc.teamcode.core.UpliftRobot;
 public class StatesCycleBlue extends UpliftAutoImpl {
 
     @Override
-    public void body() throws InterruptedException
-    {
+    public void body() throws InterruptedException {
         int location = robot.pipeline.location;
-        if (location == 0 || location == -1)
-        {
+        robot.getTinyArm().setPosition(.1);
+        if (location == 0 || location == -1) {
             robot.getWebcam().stopRecordingPipeline();
 
-            moveBackward(0.5, 500);
-            moveRight(0.5, 600);
-            TurretPos(robot.leftAngle);
-            robot.getTinyArm().setPosition(0.7);
-            robot.getBucketLatch().setPosition(0.5);
+            robot.getTinyArm().setPosition(robot.armBottomLayer);
+
+            moveBackward(0.5, 800);
+            moveRight(0.5, 1000);
+
+            robot.getBucketLatch().setPosition(robot.openBucketLatch);
             robot.safeSleep(1000);
-            robot.getTinyArm().setPosition(0);
-            moveLeft(0.5);
-            robot.safeSleep(3000);
+
             TurretPos(robot.turretAngleMid);
 
+            robot.getTinyArm().setPosition(robot.armBasePos);
 
-        } else if (location == 1)
-        {
+            moveLeft(0.6);
+            robot.safeSleep(1600);
+
+            moveForward(.5, 1550);
+
+            robot.getBucketLatch().setPosition(.26);
+
+
+        } else if (location == 1) {
             robot.getWebcam().stopRecordingPipeline();
 
-            moveBackward(0.5, 500);
-            moveRight(0.5, 600);
-            TurretPos(robot.leftAngle);
-            robot.getTinyArm().setPosition(0.6);
+            robot.getTinyArm().setPosition(robot.armMidLayer);
+
+            moveBackward(0.5, 800);
+            moveRight(0.5, 800);
+
+            robot.getBucketLatch().setPosition(robot.openBucketLatch);
             robot.safeSleep(1000);
-            robot.getTinyArm().setPosition(0);
-            moveLeft(0.5);
-            robot.safeSleep(3000);
+
             TurretPos(robot.turretAngleMid);
 
-        } else if (location == 2)
-        {
+            robot.getTinyArm().setPosition(robot.armBasePos);
+
+            moveLeft(0.6);
+            robot.safeSleep(1400);
+
+            moveForward(.5, 1550);
+
+            robot.getBucketLatch().setPosition(.26);
+
+        } else if (location == 2) {
             robot.getWebcam().stopRecordingPipeline();
 
-            moveBackward(0.5, 500);
-            moveRight(0.5, 600);
-            TurretPos(robot.leftAngle);
-            robot.getTinyArm().setPosition(0.5);
+            robot.getTinyArm().setPosition(robot.armTopLayer);
+
+            moveBackward(0.5, 800);
+            moveRight(0.5, 1200);
+
+            robot.getBucketLatch().setPosition(robot.openBucketLatch);
             robot.safeSleep(1000);
-            robot.getTinyArm().setPosition(0);
-            moveLeft(0.5);
-            robot.safeSleep(3000);
+
             TurretPos(robot.turretAngleMid);
+
+            robot.getTinyArm().setPosition(robot.armBasePos);
+
+            moveLeft(0.6);
+            robot.safeSleep(1800);
+
+            moveForward(.5, 1550);
+
+
+            robot.getBucketLatch().setPosition(.26);
+
         }
 
-        for(int i = 0; i < 3; i++ )
-        {
+        for (int i = 0; i < 2; i++) {
 
-            while (robot.getBucketSensor().alpha() < 1000)
-            {
-                moveForward(0.4);
-                robot.getIntake().setPower(0.6);
-                if (robot.getBucketSensor().alpha() > 1000)
-                {
-                    robot.getBucketLatch().setPosition(0);
+            while (robot.getBucketSensor().alpha() < 350) {
+                robot.getTinyArm().setPosition(robot.armBasePos);
+                moveForward(0.2);
+                robot.getIntake().setPower(-0.7);
+                if (robot.getBucketSensor().alpha() > 350) {
+                    robot.getBucketLatch().setPosition(robot.closeBucketLatch);
                     stopMotors();
                     break;
                 }
             }
-            while (robot.getBottomSensor().alpha() < 450)
-            {
+            while (robot.getBottomSensor().alpha() < 450) {
 
-                robot.getIntake().setPower(-0.5);
                 moveBackward(0.3);
-                if (robot.getBottomSensor().alpha() > 450)
-                {
+                if (robot.getBottomSensor().alpha() > 450) {
                     stopMotors();
                     break;
                 }
 
             }
-            moveBackward(0.5, 700);
-            moveRight(0.5, 600);
-            TurretPos(robot.rightAngle);
-            robot.getTinyArm().setPosition(0.5);
-            robot.getBucketLatch().setPosition(0.5);
+            moveBackward(0.5, 1200);
+            moveRight(0.5, 1200);
+
+            robot.getIntake().setPower(-.1);
+           // robot.safeSleep(1000);
+            robot.getTinyArm().setPosition(robot.armTopLayer);
+            robot.safeSleep(5000);
+
+            TurretPos(robot.leftAngle);
+
+            robot.getBucketLatch().setPosition(robot.openBucketLatch);
             robot.safeSleep(1000);
-            robot.getTinyArm().setPosition(0);
-            moveLeft(0.5);
-            robot.safeSleep(3000);
+
             TurretPos(robot.turretAngleMid);
+
+            robot.getTinyArm().setPosition(robot.armBasePos);
+
+            moveLeft(0.6);
+            robot.safeSleep(1800);
+
+            moveForward(.5, 1550);
+
+
+            robot.getBucketLatch().setPosition(.26);
+
         }
-        moveForward(1, 500);
+    }
 
 
 
@@ -141,5 +176,5 @@ public class StatesCycleBlue extends UpliftAutoImpl {
 
 
     }
-}
+
 

@@ -38,6 +38,18 @@ public class UpliftRobot {
     public final double rightAngle = 3.133;
     public final double leftAngle = 0.63;
 
+    public final double openBucketLatch = 0.4;
+    public final double bottomBucketLatch = 0.25;
+    public final double closeBucketLatch = 0;
+
+    public final double armTurretPos = 0.6;
+    public final double armTopLayer = 0.75;
+    public final double armMidLayer = 0.8;
+    public final double armBottomLayer = 1;
+    public final double armBasePos = 0.19;
+
+
+
     public UpliftRobot(LinearOpMode opMode) {
         this.opMode = opMode;
         getHardware();
