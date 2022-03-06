@@ -20,7 +20,7 @@ public class UpliftAutoImpl extends UpliftAuto {
 
     @Override
     public void initAction() {
-        robot.getTinyArm().setPosition(0.5);
+        robot.getTinyArm().setPosition(0.45);
     }
 
 

@@ -11,6 +11,6 @@ public class ParkAuto extends UpliftAutoImpl
     public void body() throws InterruptedException
     {
         moveForward(0.5);
-        robot.safeSleep(2000);
+        robot.safeSleep(2500);
     }
 }

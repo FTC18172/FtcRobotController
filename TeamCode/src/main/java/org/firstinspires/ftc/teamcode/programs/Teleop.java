@@ -21,7 +21,7 @@ public class Teleop extends UpliftTele {
 
     UpliftRobot robot;
 
-    double capYPos = 0;
+    double capYPos = 0.5;
 
 
 
@@ -67,7 +67,7 @@ public class Teleop extends UpliftTele {
         armReset();
         topLayer();
 
-        middleTest();
+        //middleTest();
 
 
         moveCapUp();
@@ -78,7 +78,10 @@ public class Teleop extends UpliftTele {
         turretMiddle();
 
         latchUp();
+        latchDown();
 
+        slowIntake1();
+        slowIntake2();
 
 
 //        telemetry.addData("cap", robot.getCap());
@@ -158,71 +161,89 @@ public class Teleop extends UpliftTele {
         {
             if( gamepad1.atRest())
             {
+
                 robot.getBucketLatch().setPosition(robot.openBucketLatch);
                 robot.safeSleep(1000);
                 robot.getTinyArm().setPosition(robot.armBasePos);
+                robot.safeSleep(1000);
+                robot.getBucketLatch().setPosition(robot.openBucketLatch);
+
 
             }
         }
     }
 
-    public void middleTest()
-    {
-        //opens bucket latch for bottom layer
-        if(gamepad2.dpad_up)
-        {
-            if( gamepad1.atRest())
-            {
-                robot.getBucketLatch().setPosition(robot.closeBucketLatch);
-            }
-
-        }
-    }
 
     public void latchUp(){
         if(gamepad2.dpad_up)
         {
             if(gamepad1.atRest())
             {
-                robot.getBucketLatch().setPosition(robot.bottomBucketLatch);
+                robot.getBucketLatch().setPosition(robot.openBucketLatch);
             }
+        }
+    }
+    public void latchDown()
+    {
+        if(gamepad2.dpad_down)
+        {
+            if(gamepad1.atRest())
+            {
+                robot.getBucketLatch().setPosition(robot.closeBucketLatch);
+            }
+        }
+    }
+
+    public void slowIntake1()
+    {
+        if(gamepad2.dpad_left)
+        {
+            robot.getIntake().setPower(0.7);
+        }
+    }
+
+    public void slowIntake2()
+    {
+        if(gamepad2.dpad_right)
+        {
+            robot.getIntake().setPower(-0.7);
         }
     }
 
     public void turretMiddle(){
         if(gamepad2.x)
         {
-//            if (gamepad1.atRest())
-//            {
-//                robot.getTinyArm().setPosition(robot.armTurretPos);
-//                if (robot.getPotentiometer().getVoltage() < robot.turretAngleMid)
-//                {
-//                    while (robot.getPotentiometer().getVoltage() < robot.turretAngleMid)
-//                    {
-//                        robot.getTurret().setPower(0.45);
-//                    }
-//                    robot.getTurret().setPower(0);
-//                    if (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
-//                    {
-//                        while (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
-//                        {
-//                            robot.getTurret().setPower(-0.45);
-//                        }
-//                        robot.getTurret().setPower(0);
-//                    }
-//                } else if (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
-//                {
-//                    while (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
-//                    {
-//                        robot.getTurret().setPower(-0.45);
-//                    }
-//                    robot.getTurret().setPower(0);
-//                }
-//                //robot.getTinyArm().setPosition(robot.armBasePos);
-//
-//            }
+            if (gamepad1.atRest())
+            {
+                robot.getTinyArm().setPosition(robot.armTurretPos);
+                if (robot.getPotentiometer().getVoltage() < robot.turretAngleMid)
+                {
+                    while (robot.getPotentiometer().getVoltage() < robot.turretAngleMid)
+                    {
+                        robot.getTurret().setPower(0.17);
+                    }
+                    robot.getTurret().setPower(0);
+                    if (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
+                    {
+                        while (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
+                        {
+                            robot.getTurret().setPower(-0.17);
+                        }
+                        robot.getTurret().setPower(0);
+                    }
+                } else if (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
+                {
+                    while (robot.getPotentiometer().getVoltage() > robot.turretAngleMid)
+                    {
+                        robot.getTurret().setPower(-0.17);
+                    }
+                    robot.getTurret().setPower(0);
+                }
+                //robot.getTinyArm().setPosition(robot.armBasePos);
 
-            robot.getBucketLatch().setPosition(robot.closeBucketLatch);
+            }
+
+//            robot.getBucketLatch().setPosition(robot.closeBucketLatch);
         }
     }
 
@@ -233,24 +254,24 @@ public class Teleop extends UpliftTele {
             if(gamepad1.atRest())
             {
                 robot.getTinyArm().setPosition(robot.armTurretPos);
-                if (robot.getPotentiometer().getVoltage() < robot.rightAngle)
+                if (robot.getPotentiometer().getVoltage() < 1.78)
                 {
-                    while (robot.getPotentiometer().getVoltage() < robot.rightAngle)
+                    while (robot.getPotentiometer().getVoltage() < 1.78)
                     {
                         robot.getTurret().setPower(0.45);
                     }
                     robot.getTurret().setPower(0);
-                    if (robot.getPotentiometer().getVoltage() > robot.rightAngle)
+                    if (robot.getPotentiometer().getVoltage() > 1.78)
                     {
-                        while (robot.getPotentiometer().getVoltage() > robot.rightAngle)
+                        while (robot.getPotentiometer().getVoltage() > 1.78)
                         {
                             robot.getTurret().setPower(-0.45);
                         }
                         robot.getTurret().setPower(0);
                     }
-                } else if (robot.getPotentiometer().getVoltage() > robot.rightAngle)
+                } else if (robot.getPotentiometer().getVoltage() > 1.78)
                 {
-                    while (robot.getPotentiometer().getVoltage() > robot.rightAngle)
+                    while (robot.getPotentiometer().getVoltage() > 1.78)
                     {
                         robot.getTurret().setPower(-0.45);
                     }
@@ -268,24 +289,24 @@ public class Teleop extends UpliftTele {
             if(gamepad1.atRest())
             {
                 robot.getTinyArm().setPosition(robot.armTurretPos);
-                if (robot.getPotentiometer().getVoltage() < robot.leftAngle)
+                if (robot.getPotentiometer().getVoltage() < 1)
                 {
-                    while (robot.getPotentiometer().getVoltage() < robot.leftAngle)
+                    while (robot.getPotentiometer().getVoltage() < 1)
                     {
                         robot.getTurret().setPower(0.45);
                     }
                     robot.getTurret().setPower(0);
-                    if (robot.getPotentiometer().getVoltage() > robot.leftAngle)
+                    if (robot.getPotentiometer().getVoltage() > 1)
                     {
-                        while (robot.getPotentiometer().getVoltage() > robot.leftAngle)
+                        while (robot.getPotentiometer().getVoltage() > 1)
                         {
                             robot.getTurret().setPower(-0.45);
                         }
                         robot.getTurret().setPower(0);
                     }
-                } else if (robot.getPotentiometer().getVoltage() > robot.leftAngle)
+                } else if (robot.getPotentiometer().getVoltage() > 1)
                 {
-                    while (robot.getPotentiometer().getVoltage() > robot.leftAngle)
+                    while (robot.getPotentiometer().getVoltage() > 1)
                     {
                         robot.getTurret().setPower(-0.45);
                     }
@@ -312,8 +333,8 @@ public class Teleop extends UpliftTele {
     }
 
     public void moveCapUp() {
-        double currentPosition = capYPos + 0.05;
-        if (gamepad2.dpad_left)
+        double currentPosition = capYPos + 0.002;
+        if (gamepad1.dpad_up)
         {
             robot.getCap().setPosition(currentPosition);
             capYPos = currentPosition;
@@ -321,8 +342,8 @@ public class Teleop extends UpliftTele {
     }
 
     public void moveCapDown() {
-        double currentPosition = capYPos - 0.05;
-        if (gamepad2.dpad_right) {
+        double currentPosition = capYPos - 0.002;
+        if (gamepad1.left_bumper) {
             robot.getCap().setPosition(currentPosition);
             capYPos = currentPosition;
         }

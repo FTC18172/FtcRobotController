@@ -34,7 +34,7 @@ public class UpliftRobot {
 
     public final double redTurretAngle = 2.42;
     public final double blueTurretAngle = 0.86;
-    public final double turretAngleMid = 1.43;
+    public final double turretAngleMid = 1.4;
     public final double rightAngle = 3.133;
     public final double leftAngle = 0.63;
 
@@ -42,11 +42,11 @@ public class UpliftRobot {
     public final double bottomBucketLatch = 0.25;
     public final double closeBucketLatch = 0;
 
-    public final double armTurretPos = 0.6;
-    public final double armTopLayer = 0.75;
-    public final double armMidLayer = 0.8;
+    public final double armTurretPos = 0.55;
+    public final double armTopLayer = 0.7;
+    public final double armMidLayer = 0.75;
     public final double armBottomLayer = 1;
-    public final double armBasePos = 0.19;
+    public final double armBasePos = 0.05;
 
 
 
