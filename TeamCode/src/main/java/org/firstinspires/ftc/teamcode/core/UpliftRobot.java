@@ -20,7 +20,8 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvWebcam;
 
 public class UpliftRobot {
-    DcMotor leftFront, rightFront, leftBack, rightBack;
+    DcMotor leftFront, rightFront, leftBack, rightBack, shooter, intake;
+    Servo transfer;
     //DcMotor test, intake, turret, arm1, arm2;
     //Servo tinyArm, cap, bucketLatch;
     //AnalogInput potentiometer;
@@ -62,10 +63,14 @@ public class UpliftRobot {
 
 //        initializeCamera();
 //        turret = hardwareMap.get(DcMotor.class, "turret");
-        leftFront = hardwareMap.get(DcMotor.class, "left_front");
-        rightFront = hardwareMap.get(DcMotor.class, "right_front");
-        leftBack = hardwareMap.get(DcMotor.class, "left_back");
-        rightBack = hardwareMap.get(DcMotor.class, "right_back");
+//        leftFront = hardwareMap.get(DcMotor.class, "left_front");
+//        rightFront = hardwareMap.get(DcMotor.class, "right_front");
+//        leftBack = hardwareMap.get(DcMotor.class, "left_back");
+//        rightBack = hardwareMap.get(DcMotor.class, "right_back");
+        shooter = hardwareMap.get(DcMotor.class, "shooter");
+        intake = hardwareMap.get(DcMotor.class, "intake");
+
+//        transfer = hardwareMap.get(Servo.class, "transfer");
 //        intake = hardwareMap.get(DcMotor.class, "intake");
 //        arm1 = hardwareMap.get(DcMotor.class, "arm1");
 //        arm2 = hardwareMap.get(DcMotor.class, "arm2");
@@ -91,12 +96,12 @@ public class UpliftRobot {
 //        arm2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        arm2.setDirection(DcMotorSimple.Direction.REVERSE);
 //
-        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+//        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+//        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //
 //        imu = hardwareMap.get(BNO055IMU.class, "imu");
 //        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -165,21 +170,33 @@ public class UpliftRobot {
 //        return arm2;
 //    }
 //
-    public DcMotor getLeftFront() {
-        return leftFront;
+//    public DcMotor getLeftFront() {
+//        return leftFront;
+//    }
+//
+//    public DcMotor getLeftBack() {
+//        return leftBack;
+//    }
+//
+//    public DcMotor getRightBack() {
+//        return rightBack;
+//    }
+//
+//    public DcMotor getRightFront() {
+//        return rightFront;
+//    }
+
+    public DcMotor getShooter() {
+        return shooter;
+    }
+    public Servo getTransfer(){
+        return transfer;
     }
 
-    public DcMotor getLeftBack() {
-        return leftBack;
+    public DcMotor getIntake(){
+        return intake;
     }
 
-    public DcMotor getRightBack() {
-        return rightBack;
-    }
-
-    public DcMotor getRightFront() {
-        return rightFront;
-    }
 //
 //    public OpenCvCamera getWebcam() {
 //        return webcam;

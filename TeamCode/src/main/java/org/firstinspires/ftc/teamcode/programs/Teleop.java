@@ -15,26 +15,26 @@ import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.toRadians;
 
-@TeleOp(name = "teleOp", group = "Opmodes")
-public class Teleop extends UpliftTele {
+//@TeleOp(name = "teleOp", group = "Opmodes")
+//public class Teleop extends UpliftTele {
 
 
-    UpliftRobot robot;
+//    UpliftRobot robot;
 
     //
 //    double capYPos = 0.5;
 //
 //
 //
-    @Override
-    public void initHardware() {
-        robot = new UpliftRobot(this);
-    }
-
-    @Override
-    public void initAction() {
-
-    }
+//    @Override
+//    public void initHardware() {
+//        robot = new UpliftRobot(this);
+//    }
+//
+//    @Override
+//    public void initAction() {
+//
+//    }
 
     //
 //    @Override
@@ -43,20 +43,20 @@ public class Teleop extends UpliftTele {
 //        //robot.getTinyArm().setPosition(robot.armBasePos);
 //    }
 //
-    @Override
-    public void bodyLoop() throws InterruptedException {
-//        robot.getWebcam().stopRecordingPipeline();
-//        robot.getWebcam().closeCameraDevice();
-        double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
-        double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
-        double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
-
-
+//    @Override
+//    public void bodyLoop() throws InterruptedException {
+////        robot.getWebcam().stopRecordingPipeline();
+////        robot.getWebcam().closeCameraDevice();
+//        double leftY = Range.clip(-gamepad1.left_stick_y, -1, 1);
+//        double rightX = Range.clip(gamepad1.right_stick_x, -1, 1);
+//        double leftX = Range.clip(gamepad1.left_stick_x, -1, 1);
 //
-        double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
-        double magnitude = 0.8 * Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
-
-        teleDrive(angle, magnitude, rightX, robot);}
+//
+////
+//        double angle = 90 - Math.toDegrees(UpliftMath.atan2UL(leftY, leftX));
+//        double magnitude = 0.8 * Range.clip(Math.sqrt(Math.pow(leftX, 2) + Math.pow(leftY, 2)), -1, 1);
+//
+//        teleDrive(angle, magnitude, rightX, robot);}
 //
 //        intakeOn();
 //
@@ -101,44 +101,50 @@ public class Teleop extends UpliftTele {
 //
 //    }
 //
-        @Override
-        public void exit () {
-        }
-
-        public static void teleDrive ( double joystickAngle, double speedVal,
-        double turnVal, UpliftRobot robot){
-            double lfPow = sin(toRadians(joystickAngle) + (0.25 * PI)) * speedVal + turnVal;
-            double rfPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal - turnVal;
-            double lbPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal + turnVal;
-            double rbPow = sin(toRadians(joystickAngle) + (0.25 * PI)) * speedVal - turnVal;
+//        @Override
+//        public void exit () {
+//        }
 //
-            // find max total input out of the 4 motors
-            double maxVal = abs(lfPow);
-            if (abs(rfPow) > maxVal) {
-                maxVal = abs(rfPow);
-            }
-            if (abs(lbPow) > maxVal) {
-                maxVal = abs(lbPow);
-            }
-            if (abs(rbPow) > maxVal) {
-                maxVal = abs(rbPow);
-            }
-
-            if (maxVal < (1 / sqrt(2))) {
-                maxVal = 1 / sqrt(2);
-            }
-
-            // set the scaled powers
-            robot.getLeftFront().setPower(lfPow / maxVal);
-            robot.getLeftBack().setPower(lbPow / maxVal);
-            robot.getRightBack().setPower(rbPow / maxVal);
-            robot.getRightFront().setPower(rfPow / maxVal);
-        }
+//        public static void teleDrive ( double joystickAngle, double speedVal,
+//        double turnVal, UpliftRobot robot){
+//            double lfPow = sin(toRadians(joystickAngle) + (0.25 * PI)) * speedVal + turnVal;
+//            double rfPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal - turnVal;
+//            double lbPow = sin(toRadians(joystickAngle) - (0.25 * PI)) * speedVal + turnVal;
+//            double rbPow = sin(toRadians(joystickAngle) + (0.25 * PI)) * speedVal - turnVal;
+////
+//            // find max total input out of the 4 motors
+//            double maxVal = abs(lfPow);
+//            if (abs(rfPow) > maxVal) {
+//                maxVal = abs(rfPow);
+//            }
+//            if (abs(lbPow) > maxVal) {
+//                maxVal = abs(lbPow);
+//            }
+//            if (abs(rbPow) > maxVal) {
+//                maxVal = abs(rbPow);
+//            }
+//
+//            if (maxVal < (1 / sqrt(2))) {
+//                maxVal = 1 / sqrt(2);
+//            }
+//
+//            // set the scaled powers
+//            robot.getLeftFront().setPower(lfPow / maxVal);
+//            robot.getLeftBack().setPower(lbPow / maxVal);
+//            robot.getRightBack().setPower(rbPow / maxVal);
+//            robot.getRightFront().setPower(rfPow / maxVal);
+//        }
 //
 //    public void topLayer() throws InterruptedException
 //    {
+//
+//          if (gamepad2.a)
+//          {
+//
+//          }
 //        // move arm up to park auto
 //        if (gamepad2.b)
+
 //        {
 //            robot.getTinyArm().setPosition(robot.armTopLayer);
 //
@@ -359,4 +365,3 @@ public class Teleop extends UpliftTele {
 //
 //
 
-    }
