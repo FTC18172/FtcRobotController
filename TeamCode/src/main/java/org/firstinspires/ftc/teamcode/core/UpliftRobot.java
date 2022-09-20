@@ -61,23 +61,20 @@ public class UpliftRobot {
 
         //test = hardwareMap.get(DcMotor.class, "test");
 
-//        initializeCamera();
 //        turret = hardwareMap.get(DcMotor.class, "turret");
-//        leftFront = hardwareMap.get(DcMotor.class, "left_front");
-//        rightFront = hardwareMap.get(DcMotor.class, "right_front");
-//        leftBack = hardwareMap.get(DcMotor.class, "left_back");
-//        rightBack = hardwareMap.get(DcMotor.class, "right_back");
-        shooter = hardwareMap.get(DcMotor.class, "shooter");
+        leftFront = hardwareMap.get(DcMotor.class, "left_front");
+        rightFront = hardwareMap.get(DcMotor.class, "right_front");
+        leftBack = hardwareMap.get(DcMotor.class, "left_back");
+        rightBack = hardwareMap.get(DcMotor.class, "right_back");
+        transfer = hardwareMap.get(Servo.class, "transfer");
         intake = hardwareMap.get(DcMotor.class, "intake");
-
-//        transfer = hardwareMap.get(Servo.class, "transfer");
-//        intake = hardwareMap.get(DcMotor.class, "intake");
+        shooter =  hardwareMap.get(DcMotor.class, "shooter");
 //        arm1 = hardwareMap.get(DcMotor.class, "arm1");
 //        arm2 = hardwareMap.get(DcMotor.class, "arm2");
 //        bucketLatch = hardwareMap.get(Servo.class, "bucketLatch");
 //        bucketSensor = hardwareMap.get(ColorSensor.class, "bucketSensor");
 //        bottomSensor = hardwareMap.get(ColorSensor.class, "bottomSensor");
-//
+
 //
 //        potentiometer = hardwareMap.get(AnalogInput.class, "potentiometer");
 //
@@ -96,12 +93,12 @@ public class UpliftRobot {
 //        arm2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        arm2.setDirection(DcMotorSimple.Direction.REVERSE);
 //
-//        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
-//        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-//        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //
 //        imu = hardwareMap.get(BNO055IMU.class, "imu");
 //        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -132,16 +129,16 @@ public class UpliftRobot {
 //    }
 //
 //
-//    public void safeSleep(int duration) {
-//        long startTime = System.currentTimeMillis();
-//        while (System.currentTimeMillis() - startTime < duration) {
-//            try {
-//                Thread.sleep(1);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+    public void safeSleep(int duration) {
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < duration) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 //
 //    public Servo getTinyArm()
 //    {
@@ -170,21 +167,21 @@ public class UpliftRobot {
 //        return arm2;
 //    }
 //
-//    public DcMotor getLeftFront() {
-//        return leftFront;
-//    }
-//
-//    public DcMotor getLeftBack() {
-//        return leftBack;
-//    }
-//
-//    public DcMotor getRightBack() {
-//        return rightBack;
-//    }
-//
-//    public DcMotor getRightFront() {
-//        return rightFront;
-//    }
+    public DcMotor getLeftFront() {
+        return leftFront;
+    }
+
+    public DcMotor getLeftBack() {
+        return leftBack;
+    }
+
+    public DcMotor getRightBack() {
+        return rightBack;
+    }
+
+    public DcMotor getRightFront() {
+        return rightFront;
+    }
 
     public DcMotor getShooter() {
         return shooter;
